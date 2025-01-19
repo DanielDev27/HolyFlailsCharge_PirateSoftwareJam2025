@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3211836569248826588}
   - component: {fileID: 8643547748676878137}
   - component: {fileID: 6190564189185676685}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ENEMY_Heavy_WaveSpawnRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
