@@ -119,6 +119,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &1192854470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1192854471}
+  m_Layer: 0
+  m_Name: Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1192854471
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192854470}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.96, y: 0, z: 10.06}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1447835517
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,12 +543,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e11618761e4dc94e82d25fd8ee6fbfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySmall: {fileID: 6337187256111496943, guid: dfd73e22f2a339646bdb92d806c815e7, type: 3}
-  enemyMedium: {fileID: 8016742817443684664, guid: 12d664736b82e2749a1ceca4baeb12f8, type: 3}
-  enemyHeavy: {fileID: 4362303626773835296, guid: bf5319e050fd4624fa0e3558fabef510, type: 3}
   spawn1: {fileID: 4515248845692626158}
   spawn2: {fileID: 4515248845692626157}
   spawn3: {fileID: 4515248845692626156}
+  countdown: 0
+  enemies:
+  - enemyPrefab: {fileID: 0}
+    spawnCost: 0
+  - enemyPrefab: {fileID: 0}
+    spawnCost: 0
+  - enemyPrefab: {fileID: 0}
+    spawnCost: 0
+  enemiesToSpawn: []
+  currentWave: 0
+  waveValue: 0
 --- !u!1001 &4515248845692626155
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -715,3 +754,4 @@ SceneRoots:
   - {fileID: 5327063956971923310}
   - {fileID: 7863877889668087039}
   - {fileID: 4515248845692626155}
+  - {fileID: 1192854471}
