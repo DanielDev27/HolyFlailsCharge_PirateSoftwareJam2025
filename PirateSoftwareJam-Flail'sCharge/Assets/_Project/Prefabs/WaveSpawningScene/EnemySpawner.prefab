@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2550267768225727230}
-  - component: {fileID: -5742644126133676984}
+  - component: {fileID: 5594823325841469419}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-5742644126133676984
+--- !u!114 &5594823325841469419
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,6 +41,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 4592497420868729487}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77a6b842a5cf8ef45b752e8b4c5f5811, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e11618761e4dc94e82d25fd8ee6fbfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyPrefabs:
+  - {fileID: 6337187256111496943, guid: dfd73e22f2a339646bdb92d806c815e7, type: 3}
+  - {fileID: 8016742817443684664, guid: 12d664736b82e2749a1ceca4baeb12f8, type: 3}
+  - {fileID: 4362303626773835296, guid: bf5319e050fd4624fa0e3558fabef510, type: 3}
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  countdown: 8
+  enemiesPerWave: 0
+  spawnVariance: 3
