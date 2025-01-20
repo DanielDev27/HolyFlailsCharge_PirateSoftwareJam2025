@@ -33,6 +33,7 @@ public class AIScript : MonoBehaviour {
 
     [SerializeField] int maxHealth;
     [SerializeField] float attackCD;
+    [SerializeField] float weaponReach;
 
     void Awake () {
         Instance = this;
@@ -58,7 +59,7 @@ public class AIScript : MonoBehaviour {
                 case AiStates.Attacking:
                     Debug.Log ("Attacking");
                     OnAnimatorUpdate ();
-                    StartCoroutine (OnAttck ());
+                    StartCoroutine (OnAttack ());
                     break;
                 case AiStates.Dead:
                     Debug.Log ("Dead");
@@ -108,17 +109,48 @@ public class AIScript : MonoBehaviour {
                 }
             }
         } //Pause if End
+        /*else
+        {
+            currentAiState = AiStates.Idle;
+            isMoving = false;
+            isAttacking = false;
+            agent.isStopped = true;
+        }*/
         coroutineInProgress = false;
     }
 
-    void Chasing () { }
+    void Chasing () {
+        if (playerReference != null && !isDead) {
+            agent.destination = playerReference.transform.position;
+            isMoving = true;
+            agent.speed = moveSpeed;
+            agent.isStopped = false;
+            //Reached Player
+            if (Vector3.Distance (transform.position, playerReference.transform.position) <= weaponReach && timerCD >= attackCD) {
+                isMoving = false;
+                agent.isStopped = true;
+                currentState = AiStates.Attacking;
+            }
 
-    IEnumerator OnAttck () {
+            //In Cooldown
+            if (timerCD < attackCD) {
+                agent.isStopped = true;
+                isMoving = false;
+            }
+        } else
+            currentState = AiStates.Idle;
+    }
+
+    IEnumerator OnAttack () {
+        coroutineInProgress = true;
         yield return new WaitForSeconds (1);
+        coroutineInProgress = false;
     }
 
     IEnumerator OnDead () {
+        coroutineInProgress = true;
         yield return new WaitForSeconds (1);
+        coroutineInProgress = false;
     }
 
     void EnemyDie () { }

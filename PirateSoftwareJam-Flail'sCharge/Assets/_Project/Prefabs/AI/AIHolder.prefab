@@ -90,9 +90,10 @@ MonoBehaviour:
   healthScript: {fileID: 584431052457812470}
   agent: {fileID: 4337931503387777466}
   animator: {fileID: 360353500231038774}
-  moveSpeed: 0
+  moveSpeed: 1
   maxHealth: 0
   attackCD: 0
+  weaponReach: 1
 --- !u!114 &584431052457812470
 MonoBehaviour:
   m_ObjectHideFlags: 0
