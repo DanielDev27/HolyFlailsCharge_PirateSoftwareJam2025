@@ -39,25 +39,29 @@ public class AIScript : MonoBehaviour {
         coroutineInProgress = false;
         isDead = false;
         player = FindObjectOfType<PlayerController> ();
-        playerReference = player.gameObject;
+        playerReference = player?.gameObject;
     }
 
     void Update () {
         if (!coroutineInProgress) {
             switch (currentState) {
                 case AiStates.Idle:
+                    Debug.Log ("Idle");
                     OnAnimatorUpdate ();
                     StartCoroutine (OnIdle ());
                     break;
                 case AiStates.Chasing:
+                    Debug.Log ("Chasing");
                     OnAnimatorUpdate ();
                     Chasing ();
                     break;
                 case AiStates.Attacking:
+                    Debug.Log ("Attacking");
                     OnAnimatorUpdate ();
                     StartCoroutine (OnAttck ());
                     break;
                 case AiStates.Dead:
+                    Debug.Log ("Dead");
                     OnAnimatorUpdate ();
                     StartCoroutine (OnDead ());
                     break;
@@ -79,7 +83,32 @@ public class AIScript : MonoBehaviour {
     }
 
     IEnumerator OnIdle () {
-        yield return new WaitForSeconds (1);
+        coroutineInProgress = true;
+        if (playerReference != null) {
+            distanceToPlayer = Vector3.Distance (transform.position, playerReference.transform.position);
+        }
+
+//Pause If statement
+        {
+            if (!isDead && !isAttacking) {
+                yield return new WaitForSeconds (1);
+                if (playerReference != null) {
+                    currentState = AiStates.Chasing;
+                    coroutineInProgress = false;
+                } else {
+                    currentState = AiStates.Idle;
+                }
+            } else {
+                if (isDead) {
+                    currentState = AiStates.Dead;
+                }
+
+                if (isAttacking) {
+                    currentState = AiStates.Attacking;
+                }
+            }
+        } //Pause if End
+        coroutineInProgress = false;
     }
 
     void Chasing () { }
