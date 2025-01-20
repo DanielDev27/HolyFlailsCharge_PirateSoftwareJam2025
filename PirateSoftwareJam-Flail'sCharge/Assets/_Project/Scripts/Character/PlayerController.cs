@@ -63,14 +63,42 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void OnDestroy () {
-        throw new NotImplementedException ();
     }
 
-    void InputMove (Vector2 arg0) {
-        throw new NotImplementedException ();
+    void Update () {
+        if (moveInput != Vector2.zero) {
+            OnPlayerMove ();
+        }
     }
 
-    void OnAttack (bool arg0) {
-        throw new NotImplementedException ();
+    void InputMove (Vector2 _input) {
+        moveInput = _input;
+        if (moveInput != Vector2.zero && !isAttacking) {
+            isMoving = true;
+        } else {
+            isMoving = false;
+        }
+    }
+
+    void OnPlayerMove () {
+        moveDirection = moveInput.x * transform.right + moveInput.y * transform.up;
+        Vector3 moveCombined = new Vector3 (moveInput.x, 0, moveInput.y);
+        if (moveCombined != Vector3.zero && !isAttacking) {
+            playerBody.linearVelocity = new Vector3 (moveDirection.x, 0, moveDirection.y) * movementSpeed;
+        } else {
+            playerBody.linearVelocity = Vector3.zero;
+        }
+    }
+
+    void OnAttack (bool _attacking) {
+        if (_attacking && !isAttacking) {
+            StartCoroutine (AttackLimit ());
+        }
+    }
+
+    IEnumerator AttackLimit () {
+        isAttacking = true;
+        yield return new WaitForSeconds (0.2f);
+        isAttacking = false;
     }
 }
