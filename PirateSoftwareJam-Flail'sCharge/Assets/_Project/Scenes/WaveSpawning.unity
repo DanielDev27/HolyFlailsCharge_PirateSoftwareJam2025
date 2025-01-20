@@ -518,6 +518,10 @@ PrefabInstance:
       value: EnemySpawner
       objectReference: {fileID: 0}
     - target: {fileID: 5594823325841469419, guid: bede9d61c827d7444b61e10d4a002af8, type: 3}
+      propertyPath: testEnemiesToSpawn
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594823325841469419, guid: bede9d61c827d7444b61e10d4a002af8, type: 3}
       propertyPath: 'spawnPoints.Array.data[0]'
       value: 
       objectReference: {fileID: 4515248845692626158}
@@ -529,6 +533,18 @@ PrefabInstance:
       propertyPath: 'spawnPoints.Array.data[2]'
       value: 
       objectReference: {fileID: 4515248845692626156}
+    - target: {fileID: 5594823325841469419, guid: bede9d61c827d7444b61e10d4a002af8, type: 3}
+      propertyPath: 'enemyPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8273190334839793325, guid: 4a641da95d086784e8c1b369d7c71861, type: 3}
+    - target: {fileID: 5594823325841469419, guid: bede9d61c827d7444b61e10d4a002af8, type: 3}
+      propertyPath: 'enemyPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2580785512730965626, guid: d46dda100bc42c24e884c88c4a385bf4, type: 3}
+    - target: {fileID: 5594823325841469419, guid: bede9d61c827d7444b61e10d4a002af8, type: 3}
+      propertyPath: 'enemyPrefabs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7219797007166471575, guid: f9f2508793211cd4cadf243e939749ce, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -542,9 +558,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4255926108430428058, guid: 2a91e382921e200459b799cddad44130, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4255926108430428058, guid: 2a91e382921e200459b799cddad44130, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -24.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 4479597893690353764, guid: 2a91e382921e200459b799cddad44130, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4479597893690353764, guid: 2a91e382921e200459b799cddad44130, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -24.59
+      objectReference: {fileID: 0}
     - target: {fileID: 7854365522222264748, guid: 2a91e382921e200459b799cddad44130, type: 3}
       propertyPath: m_Name
       value: SpawnPoints
+      objectReference: {fileID: 0}
+    - target: {fileID: 8686384935741307182, guid: 2a91e382921e200459b799cddad44130, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -23.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 8686384935741307182, guid: 2a91e382921e200459b799cddad44130, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 14.07
       objectReference: {fileID: 0}
     - target: {fileID: 9036987318221525103, guid: 2a91e382921e200459b799cddad44130, type: 3}
       propertyPath: m_LocalPosition.x
