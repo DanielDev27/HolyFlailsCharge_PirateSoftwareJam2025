@@ -137,8 +137,10 @@ public class AIScript : MonoBehaviour {
                 agent.isStopped = true;
                 isMoving = false;
             }
-        } else
+        } else {
+            isMoving = false;
             currentState = AiStates.Idle;
+        }
     }
 
     IEnumerator OnAttack () {
