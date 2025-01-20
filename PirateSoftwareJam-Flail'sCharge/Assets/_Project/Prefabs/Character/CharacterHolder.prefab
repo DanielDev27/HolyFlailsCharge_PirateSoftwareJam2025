@@ -256,11 +256,11 @@ MonoBehaviour:
   isDead: 0
   playerBody: {fileID: 1577998190959723489}
   playerAvatar: {fileID: 1856052405496884196}
-  cameraTransform: {fileID: 0}
+  cameraTransform: {fileID: 2213474039271473466}
   animator: {fileID: 0}
   healthScript: {fileID: 6220004907858251842}
   playerInput: {fileID: 3317204891117722609}
-  movementSpeed: 0
+  movementSpeed: 5
 --- !u!114 &6220004907858251842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,8 +313,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Constraints: 112
+  m_CollisionDetection: 1
 --- !u!1 &6361509834128213931
 GameObject:
   m_ObjectHideFlags: 0

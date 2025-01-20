@@ -119,11 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &790407916 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2213474039271473466, guid: 49f0c09badf86b74c87f492a80aee7d9, type: 3}
-  m_PrefabInstance: {fileID: 7317475520445158168}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &817499763
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,22 +513,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1577998190959723489, guid: 49f0c09badf86b74c87f492a80aee7d9, type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
-    - target: {fileID: 1577998190959723489, guid: 49f0c09badf86b74c87f492a80aee7d9, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2362197531249372253, guid: 49f0c09badf86b74c87f492a80aee7d9, type: 3}
-      propertyPath: movementSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2362197531249372253, guid: 49f0c09badf86b74c87f492a80aee7d9, type: 3}
-      propertyPath: cameraTransform
-      value: 
-      objectReference: {fileID: 790407916}
     - target: {fileID: 5195184926594912488, guid: 49f0c09badf86b74c87f492a80aee7d9, type: 3}
       propertyPath: m_Name
       value: CharacterHolder
