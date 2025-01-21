@@ -20,19 +20,22 @@ public class AIScript : MonoBehaviour {
     [SerializeField] public bool isDead;
 
     [SerializeField] int health;
-    [SerializeField] float timerCD;
+    //[SerializeField] float timerCD;
 
     [Header ("References")]
     [SerializeField] Health healthScript;
 
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator animator;
+    [SerializeField] public GameObject weaponTrigger;
+
 
     [Header ("Settings")]
     [SerializeField] float moveSpeed;
 
-    [SerializeField] int maxHealth;
+    //[SerializeField] int maxHealth;
     [SerializeField] float attackCD;
+    [SerializeField] float weaponReach;
 
     void Awake () {
         Instance = this;
@@ -40,30 +43,38 @@ public class AIScript : MonoBehaviour {
         isDead = false;
         player = FindObjectOfType<PlayerController> ();
         playerReference = player?.gameObject;
+        healthScript = GetComponentInChildren<Health> ();
+        healthScript.ResetHealth ();
+        health = healthScript.maxHp;
+        attackCD = healthScript.damageCooldownTime;
     }
 
     void Update () {
+        if (playerReference != null) {
+            distanceToPlayer = Vector3.Distance (transform.position, playerReference.transform.position);
+        }
+
         if (!coroutineInProgress) {
             switch (currentState) {
                 case AiStates.Idle:
-                    Debug.Log ("Idle");
+                    Debug.Log ("Idle {" + this.gameObject.name + "}");
                     OnAnimatorUpdate ();
                     StartCoroutine (OnIdle ());
                     break;
                 case AiStates.Chasing:
-                    Debug.Log ("Chasing");
+                    Debug.Log ("Chasing {" + this.gameObject.name + "}");
                     OnAnimatorUpdate ();
                     Chasing ();
                     break;
                 case AiStates.Attacking:
-                    Debug.Log ("Attacking");
+                    Debug.Log ("Attacking {" + this.gameObject.name + "}");
                     OnAnimatorUpdate ();
-                    StartCoroutine (OnAttck ());
+                    StartCoroutine (OnAttack ());
                     break;
                 case AiStates.Dead:
-                    Debug.Log ("Dead");
+                    Debug.Log ("Dead {" + this.gameObject.name + "}");
                     OnAnimatorUpdate ();
-                    StartCoroutine (OnDead ());
+                    EnemyDie ();
                     break;
             }
         }
@@ -84,9 +95,6 @@ public class AIScript : MonoBehaviour {
 
     IEnumerator OnIdle () {
         coroutineInProgress = true;
-        if (playerReference != null) {
-            distanceToPlayer = Vector3.Distance (transform.position, playerReference.transform.position);
-        }
 
 //Pause If statement
         {
@@ -108,23 +116,79 @@ public class AIScript : MonoBehaviour {
                 }
             }
         } //Pause if End
+        /*else
+        {
+            currentAiState = AiStates.Idle;
+            isMoving = false;
+            isAttacking = false;
+            agent.isStopped = true;
+        }*/
         coroutineInProgress = false;
     }
 
-    void Chasing () { }
-
-    IEnumerator OnAttck () {
-        yield return new WaitForSeconds (1);
+    void Chasing () {
+        if (playerReference != null && !isDead && !isAttacking) {
+            agent.destination = playerReference.transform.position;
+            isMoving = true;
+            agent.speed = moveSpeed;
+            agent.isStopped = false;
+            //Reached Player
+            if (distanceToPlayer <= weaponReach /*&& timerCD >= attackCD*/) {
+                isMoving = false;
+                agent.isStopped = true;
+                currentState = AiStates.Attacking;
+            }
+        } else {
+            isMoving = false;
+            if (!isDead) {
+                currentState = AiStates.Idle;
+            } else {
+                currentState = AiStates.Dead;
+            }
+        }
     }
+
+    IEnumerator OnAttack () {
+        if (!isDead) {
+            coroutineInProgress = true;
+            isAttacking = true;
+            weaponTrigger.GetComponent<Collider> ().enabled = true;
+            yield return new WaitForSeconds (attackCD);
+            if (distanceToPlayer > weaponReach) {
+                currentState = AiStates.Chasing;
+            } else {
+                currentState = AiStates.Attacking;
+            }
+
+            isAttacking = false;
+            coroutineInProgress = false;
+            weaponTrigger.GetComponent<Collider> ().enabled = false;
+        } else {
+            currentState = AiStates.Dead;
+        }
+    }
+
+    public void TakeHit (int damage) {
+        healthScript.TakeDamage (damage);
+        UpdateHealth ();
+    }
+
+    void UpdateHealth () {
+        health = healthScript.currentHp;
+        isDead = healthScript.isDying;
+    }
+
+    public void EnemyDie () { StartCoroutine (OnDead ()); }
 
     IEnumerator OnDead () {
+        coroutineInProgress = true;
         yield return new WaitForSeconds (1);
+        StartCoroutine (EnemyDespawn ());
     }
-
-    void EnemyDie () { }
 
     IEnumerator EnemyDespawn () {
         yield return new WaitForSeconds (1);
+        this.gameObject.SetActive (false);
     }
 }
 
