@@ -16,10 +16,9 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] Vector2 moveInput;
     [SerializeField] Vector3 moveDirection;
     [SerializeField] bool isMoving = false;
-    [SerializeField] public bool isAttacking = false;
-    [SerializeField] int health;
+    [SerializeField] bool isAttacking = false;
+    [SerializeField] public int Health;
     [SerializeField] bool isDead = false;
-    //[SerializeField] float timerCD = 0;
 
     [Header ("References")]
     [SerializeField] Rigidbody playerBody;
@@ -31,14 +30,12 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] public PlayerInput playerInput;
     [SerializeField] PlayerInputActions playerInputActions;
     [SerializeField] PlayerInputHandler playerInputHandler;
-    [SerializeField] public GameObject weaponTrigger;
 
     [Header ("Settings")]
     [SerializeField] float movementSpeed;
 
-    [SerializeField] float attackCD;
-
     void Awake () {
+        Debug.Log ("Awake");
         Instance = this;
         isDead = false;
         if (playerInput == null) {
@@ -52,11 +49,6 @@ public class PlayerController : MonoBehaviour {
         if (playerInputActions == null) {
             playerInputActions = PlayerInputHandler.playerInputs;
         }
-
-        healthScript = GetComponentInChildren<Health> ();
-        healthScript.ResetHealth ();
-        health = healthScript.maxHp;
-        attackCD = healthScript.damageCooldownTime;
     }
 
     public void OnEnable () {
@@ -70,7 +62,8 @@ public class PlayerController : MonoBehaviour {
         PlayerInputHandler.OnAttackPerformed.RemoveListener (OnAttack);
     }
 
-    public void OnDestroy () { }
+    public void OnDestroy () {
+    }
 
     void Update () {
         if (moveInput != Vector2.zero) {
@@ -80,7 +73,7 @@ public class PlayerController : MonoBehaviour {
 
     void InputMove (Vector2 _input) {
         moveInput = _input;
-        if (moveInput != Vector2.zero) {
+        if (moveInput != Vector2.zero && !isAttacking) {
             isMoving = true;
         } else {
             isMoving = false;
@@ -90,7 +83,7 @@ public class PlayerController : MonoBehaviour {
     void OnPlayerMove () {
         moveDirection = moveInput.x * transform.right + moveInput.y * transform.up;
         Vector3 moveCombined = new Vector3 (moveInput.x, 0, moveInput.y);
-        if (moveCombined != Vector3.zero) {
+        if (moveCombined != Vector3.zero && !isAttacking) {
             playerBody.linearVelocity = new Vector3 (moveDirection.x, 0, moveDirection.y) * movementSpeed;
         } else {
             playerBody.linearVelocity = Vector3.zero;
@@ -104,20 +97,8 @@ public class PlayerController : MonoBehaviour {
     }
 
     IEnumerator AttackLimit () {
-        weaponTrigger.GetComponent<Collider> ().enabled = true;
         isAttacking = true;
-        //Debug.Log ("Player Attack");
-        yield return new WaitForSeconds (attackCD);
+        yield return new WaitForSeconds (0.2f);
         isAttacking = false;
-        weaponTrigger.GetComponent<Collider> ().enabled = false;
-    }
-
-    public void TakeHit (int damage) {
-        healthScript.TakeDamage (damage);
-        UpdateHealth ();
-    }
-
-    void UpdateHealth () {
-        health = healthScript.currentHp;
     }
 }

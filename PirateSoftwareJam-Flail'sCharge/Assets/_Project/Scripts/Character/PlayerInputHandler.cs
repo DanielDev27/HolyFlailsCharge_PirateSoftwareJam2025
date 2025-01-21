@@ -79,13 +79,13 @@ public class PlayerInputHandler {
 
     public static void AttackPerformed (InputAction.CallbackContext ctx) {
         attack = true;
-        //Debug.Log ("Attack performed");
+        Debug.Log ("Attack performed");
         OnAttackPerformed?.Invoke (attack);
     }
 
     public static void AttackCanceled (InputAction.CallbackContext ctx) {
         attack = false;
-        //Debug.Log ("Attack canceled");
+        Debug.Log ("Attack canceled");
         OnAttackPerformed?.Invoke (attack);
     }
 }
