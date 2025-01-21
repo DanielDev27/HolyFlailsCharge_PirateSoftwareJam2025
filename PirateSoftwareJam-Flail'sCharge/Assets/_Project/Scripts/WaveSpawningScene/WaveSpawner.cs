@@ -86,7 +86,7 @@ public class WaveSpawner : MonoBehaviour
         // need to reference an enemy death here that will call on the method HandleEnemyDeath()
     }
 
-    private void HandleEnemyDeath()
+    public void HandleEnemyDeath()
     {
         enemiesAlive--;
 
