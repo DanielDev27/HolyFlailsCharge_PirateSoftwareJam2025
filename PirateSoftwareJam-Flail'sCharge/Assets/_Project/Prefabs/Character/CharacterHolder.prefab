@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHp: 0
-  maxHp: 0
+  maxHp: 1000
   slowmoOnDeath: 0
   stopVinyl: 0
   timeBeforeDeath: 0

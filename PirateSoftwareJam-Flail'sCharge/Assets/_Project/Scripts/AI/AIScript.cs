@@ -43,6 +43,11 @@ public class AIScript : MonoBehaviour {
         playerReference = player?.gameObject;
     }
 
+    void Start () {
+        healthScript = GetComponent<Health> ();
+        health = healthScript.maxHp;
+    }
+
     void Update () {
         if (!coroutineInProgress) {
             switch (currentState) {

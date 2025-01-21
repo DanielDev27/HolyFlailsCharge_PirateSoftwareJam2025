@@ -93,7 +93,7 @@ MonoBehaviour:
   moveSpeed: 1
   maxHealth: 0
   attackCD: 0
-  weaponReach: 1
+  weaponReach: 1.5
 --- !u!114 &584431052457812470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHp: 0
-  maxHp: 0
+  maxHp: 10
   slowmoOnDeath: 0
   stopVinyl: 0
   timeBeforeDeath: 0

@@ -65,6 +65,11 @@ public class PlayerController : MonoBehaviour {
     public void OnDestroy () {
     }
 
+    void Start () {
+        healthScript = GetComponent<Health> ();
+        Health = healthScript.maxHp;
+    }
+
     void Update () {
         if (moveInput != Vector2.zero) {
             OnPlayerMove ();
