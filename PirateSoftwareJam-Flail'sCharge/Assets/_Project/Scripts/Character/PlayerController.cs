@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] Vector3 moveDirection;
     [SerializeField] bool isMoving = false;
     [SerializeField] public bool isAttacking = false;
-    [SerializeField] public int Health;
+    [SerializeField] int Health;
     [SerializeField] bool isDead = false;
     //[SerializeField] float timerCD = 0;
 
@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] public PlayerInput playerInput;
     [SerializeField] PlayerInputActions playerInputActions;
     [SerializeField] PlayerInputHandler playerInputHandler;
-    [SerializeField] GameObject weaponTrigger;
+    [SerializeField] public GameObject weaponTrigger;
 
     [Header ("Settings")]
     [SerializeField] float movementSpeed;
@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour {
     public void OnDestroy () { }
 
     void Start () {
-        healthScript = GetComponent<Health> ();
+        healthScript = GetComponentInChildren<Health> ();
         healthScript.ResetHealth ();
         Health = healthScript.maxHp;
         attackCD = healthScript.damageCooldownTime;
@@ -107,11 +107,15 @@ public class PlayerController : MonoBehaviour {
     }
 
     IEnumerator AttackLimit () {
-        weaponTrigger.SetActive (true);
+        weaponTrigger.GetComponent<Collider> ().enabled = true;
         isAttacking = true;
-        Debug.Log ("Player Attack");
+        //Debug.Log ("Player Attack");
         yield return new WaitForSeconds (attackCD);
         isAttacking = false;
-        weaponTrigger.SetActive (false);
+        weaponTrigger.GetComponent<Collider> ().enabled = false;
+    }
+
+    public void TakeHit (int damage) {
+        healthScript.TakeDamage (damage);
     }
 }

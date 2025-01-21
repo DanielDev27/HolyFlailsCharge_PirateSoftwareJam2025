@@ -27,7 +27,7 @@ public class AIScript : MonoBehaviour {
 
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator animator;
-    [SerializeField] GameObject weaponTrigger;
+    [SerializeField] public GameObject weaponTrigger;
 
 
     [Header ("Settings")]
@@ -43,7 +43,7 @@ public class AIScript : MonoBehaviour {
         isDead = false;
         player = FindObjectOfType<PlayerController> ();
         playerReference = player?.gameObject;
-        healthScript = GetComponent<Health> ();
+        healthScript = GetComponentInChildren<Health> ();
         healthScript.ResetHealth ();
         health = healthScript.maxHp;
         attackCD = healthScript.damageCooldownTime;
@@ -147,7 +147,7 @@ public class AIScript : MonoBehaviour {
     IEnumerator OnAttack () {
         coroutineInProgress = true;
         isAttacking = true;
-        weaponTrigger.SetActive (true);
+        weaponTrigger.GetComponent<Collider> ().enabled = true;
         yield return new WaitForSeconds (attackCD);
         if (distanceToPlayer > weaponReach) {
             currentState = AiStates.Chasing;
@@ -157,7 +157,7 @@ public class AIScript : MonoBehaviour {
 
         isAttacking = false;
         coroutineInProgress = false;
-        weaponTrigger.SetActive (false);
+        weaponTrigger.GetComponent<Collider> ().enabled = false;
     }
 
     IEnumerator OnDead () {
@@ -170,6 +170,10 @@ public class AIScript : MonoBehaviour {
 
     IEnumerator EnemyDespawn () {
         yield return new WaitForSeconds (1);
+    }
+
+    public void TakeHit (int damage) {
+        healthScript.TakeDamage (damage);
     }
 }
 
