@@ -127,8 +127,8 @@ public class WaveSpawner : MonoBehaviour {
             Debug.Log ("_________________________________");
             enemiesPerWave = currentWave + 2;
             Debug.Log ("The current wave number is: " + currentWave + ", Spawning " + enemiesPerWave + " enemies");
-            GenerateWave ();
             waveInProgress = true;
+            GenerateWave ();
             countdownTimer = waveCoolDown;
             currentWave++;
         }
@@ -150,7 +150,7 @@ public class WaveSpawner : MonoBehaviour {
     }
 
     private IEnumerator SpawnEnemiesWithDelay () {
-        for (int i = 0; i <= enemiesPerWave; i++) // Spawn the specified number of enemies for the wave
+        for (int i = 0; i < enemiesPerWave; i++) // Spawn the specified number of enemies for the wave
         {
             SpawnEntity (enemyPrefabs);
             yield return new WaitForSeconds (enemySpawnDelay); // Wait for a specific amount of time before spawning the next enemy
@@ -184,7 +184,6 @@ public class WaveSpawner : MonoBehaviour {
             Debug.Log ("Spawning an enemy from the queue. Total queued: " + enemyQueue.Count);
         }
     }
-
     // Debugging, testing if spawning works the way I want it to
     // Remember to remove before final build NB!
 }
