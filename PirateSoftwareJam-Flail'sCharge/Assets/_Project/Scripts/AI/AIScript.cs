@@ -41,14 +41,16 @@ public class AIScript : MonoBehaviour {
         isDead = false;
         player = FindObjectOfType<PlayerController> ();
         playerReference = player?.gameObject;
-    }
-
-    void Start () {
         healthScript = GetComponent<Health> ();
+        healthScript.ResetHealth ();
         health = healthScript.maxHp;
     }
 
     void Update () {
+        if (playerReference != null) {
+            distanceToPlayer = Vector3.Distance (transform.position, playerReference.transform.position);
+        }
+
         if (!coroutineInProgress) {
             switch (currentState) {
                 case AiStates.Idle:
@@ -90,9 +92,6 @@ public class AIScript : MonoBehaviour {
 
     IEnumerator OnIdle () {
         coroutineInProgress = true;
-        if (playerReference != null) {
-            distanceToPlayer = Vector3.Distance (transform.position, playerReference.transform.position);
-        }
 
 //Pause If statement
         {
@@ -131,7 +130,7 @@ public class AIScript : MonoBehaviour {
             agent.speed = moveSpeed;
             agent.isStopped = false;
             //Reached Player
-            if (Vector3.Distance (transform.position, playerReference.transform.position) <= weaponReach && timerCD >= attackCD) {
+            if (distanceToPlayer <= weaponReach && timerCD >= attackCD) {
                 isMoving = false;
                 agent.isStopped = true;
                 currentState = AiStates.Attacking;
@@ -151,6 +150,12 @@ public class AIScript : MonoBehaviour {
     IEnumerator OnAttack () {
         coroutineInProgress = true;
         yield return new WaitForSeconds (1);
+        if (distanceToPlayer > weaponReach) {
+            currentState = AiStates.Chasing;
+        } else {
+            currentState = AiStates.Attacking;
+        }
+
         coroutineInProgress = false;
     }
 
