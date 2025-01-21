@@ -76,8 +76,6 @@ public class Health : MonoBehaviour {
         yield return new WaitForSeconds (timeBeforeDeath);
         if (Player) {
             onDeath.Invoke ();
-        } else {
-            //EnemyAI death function
         }
     }
 

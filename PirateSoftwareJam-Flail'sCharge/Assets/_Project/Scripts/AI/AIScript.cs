@@ -74,14 +74,10 @@ public class AIScript : MonoBehaviour {
                 case AiStates.Dead:
                     Debug.Log ("Dead {" + this.gameObject.name + "}");
                     OnAnimatorUpdate ();
-                    StartCoroutine (OnDead ());
+                    EnemyDie ();
                     break;
             }
         }
-    }
-
-    void UpdateHealth (int arg0) {
-        health = arg0;
     }
 
     void OnAnimatorUpdate () {
@@ -144,36 +140,32 @@ public class AIScript : MonoBehaviour {
             }
         } else {
             isMoving = false;
-            currentState = AiStates.Idle;
+            if (!isDead) {
+                currentState = AiStates.Idle;
+            } else {
+                currentState = AiStates.Dead;
+            }
         }
     }
 
     IEnumerator OnAttack () {
-        coroutineInProgress = true;
-        isAttacking = true;
-        weaponTrigger.GetComponent<Collider> ().enabled = true;
-        yield return new WaitForSeconds (attackCD);
-        if (distanceToPlayer > weaponReach) {
-            currentState = AiStates.Chasing;
+        if (!isDead) {
+            coroutineInProgress = true;
+            isAttacking = true;
+            weaponTrigger.GetComponent<Collider> ().enabled = true;
+            yield return new WaitForSeconds (attackCD);
+            if (distanceToPlayer > weaponReach) {
+                currentState = AiStates.Chasing;
+            } else {
+                currentState = AiStates.Attacking;
+            }
+
+            isAttacking = false;
+            coroutineInProgress = false;
+            weaponTrigger.GetComponent<Collider> ().enabled = false;
         } else {
-            currentState = AiStates.Attacking;
+            currentState = AiStates.Dead;
         }
-
-        isAttacking = false;
-        coroutineInProgress = false;
-        weaponTrigger.GetComponent<Collider> ().enabled = false;
-    }
-
-    IEnumerator OnDead () {
-        coroutineInProgress = true;
-        yield return new WaitForSeconds (1);
-        coroutineInProgress = false;
-    }
-
-    void EnemyDie () { }
-
-    IEnumerator EnemyDespawn () {
-        yield return new WaitForSeconds (1);
     }
 
     public void TakeHit (int damage) {
@@ -183,6 +175,20 @@ public class AIScript : MonoBehaviour {
 
     void UpdateHealth () {
         health = healthScript.currentHp;
+        isDead = healthScript.isDying;
+    }
+
+    public void EnemyDie () { StartCoroutine (OnDead ()); }
+
+    IEnumerator OnDead () {
+        coroutineInProgress = true;
+        yield return new WaitForSeconds (1);
+        StartCoroutine (EnemyDespawn ());
+    }
+
+    IEnumerator EnemyDespawn () {
+        yield return new WaitForSeconds (1);
+        this.gameObject.SetActive (false);
     }
 }
 

@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour {
 
     void InputMove (Vector2 _input) {
         moveInput = _input;
-        if (moveInput != Vector2.zero && !isAttacking) {
+        if (moveInput != Vector2.zero) {
             isMoving = true;
         } else {
             isMoving = false;
@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour {
     void OnPlayerMove () {
         moveDirection = moveInput.x * transform.right + moveInput.y * transform.up;
         Vector3 moveCombined = new Vector3 (moveInput.x, 0, moveInput.y);
-        if (moveCombined != Vector3.zero && !isAttacking) {
+        if (moveCombined != Vector3.zero) {
             playerBody.linearVelocity = new Vector3 (moveDirection.x, 0, moveDirection.y) * movementSpeed;
         } else {
             playerBody.linearVelocity = Vector3.zero;
