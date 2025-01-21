@@ -57,27 +57,31 @@ public class AIScript : MonoBehaviour {
         if (!coroutineInProgress) {
             switch (currentState) {
                 case AiStates.Idle:
-                    Debug.Log ("Idle");
+                    Debug.Log ("Idle {" + this.gameObject.name + "}");
                     OnAnimatorUpdate ();
                     StartCoroutine (OnIdle ());
                     break;
                 case AiStates.Chasing:
-                    Debug.Log ("Chasing");
+                    Debug.Log ("Chasing {" + this.gameObject.name + "}");
                     OnAnimatorUpdate ();
                     Chasing ();
                     break;
                 case AiStates.Attacking:
-                    Debug.Log ("Attacking");
+                    Debug.Log ("Attacking {" + this.gameObject.name + "}");
                     OnAnimatorUpdate ();
                     StartCoroutine (OnAttack ());
                     break;
                 case AiStates.Dead:
-                    Debug.Log ("Dead");
+                    Debug.Log ("Dead {" + this.gameObject.name + "}");
                     OnAnimatorUpdate ();
                     StartCoroutine (OnDead ());
                     break;
             }
         }
+    }
+
+    void UpdateHealth (int arg0) {
+        health = arg0;
     }
 
     void OnAnimatorUpdate () {
@@ -174,6 +178,11 @@ public class AIScript : MonoBehaviour {
 
     public void TakeHit (int damage) {
         healthScript.TakeDamage (damage);
+        UpdateHealth ();
+    }
+
+    void UpdateHealth () {
+        health = healthScript.currentHp;
     }
 }
 

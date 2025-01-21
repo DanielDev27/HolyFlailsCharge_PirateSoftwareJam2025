@@ -27,34 +27,34 @@ public class Health : MonoBehaviour {
     bool _coroutineActivated = false;
 
     public bool isDying = false;
-    public bool IsInvincible;
+    public bool IsInvincible = false;
 
-    public UnityEvent onDeath;
-    public UnityEvent<int> onHit;
+    public static UnityEvent onDeath;
+    public static UnityEvent<int> onHit;
 
     [SerializeField] bool Player;
     [SerializeField] PlayerController playerController;
     [SerializeField] AIScript aiScript;
 
-    void Start () {
+    void Awake () {
         //Fill hp to its max
         currentHp = maxHp;
-    }
-
-    void OnEnable () {
         OnCooldown = false;
         _coroutineActivated = false;
     }
+
+    void OnEnable () { }
 
     public void TakeDamage (int damageAmount) //Take damage, if hp is below or equal to 0 - start death coroutine
     {
         if (OnCooldown) return;
         if (IsInvincible) return;
+        if (isDying) return;
+
 
         currentHp -= (damageAmount);
-        //onHit.Invoke (damageAmount);
-
-        //StartCoroutine (DamageCooldown ());
+        //onHit.Invoke (currentHp);
+        StartCoroutine (DamageCooldown ());
 
         if (currentHp <= 0 && isDying == false) //Activate death coroutine if hp is below or equal to 0 and if entity isnt already dying
         {
@@ -66,37 +66,28 @@ public class Health : MonoBehaviour {
         currentHp = maxHp;
     }
 
-    public void SetMaxHealth (int value) {
+    /*public void SetMaxHealth (int value) {
         maxHp = value;
-    }
-
+    }*/
 
     IEnumerator DeathRoutine () //Wait for X seconds and then destroy entity
     {
         isDying = true;
         yield return new WaitForSeconds (timeBeforeDeath);
-        onDeath.Invoke ();
+        if (Player) {
+            onDeath.Invoke ();
+        } else {
+            //EnemyAI death function
+        }
     }
 
-    /*public IEnumerator DamageCooldown () //Use this to give Invulnerability frames if needed.
+    public IEnumerator DamageCooldown () //Use this to give Invulnerability frames if needed.
     {
         if (!_coroutineActivated) {
             _coroutineActivated = true;
             OnCooldown = true;
 
             yield return new WaitForSeconds (damageCooldownTime);
-
-            OnCooldown = false;
-            _coroutineActivated = false;
-        }
-    }*/
-
-    public IEnumerator DamageCooldown (float duration) {
-        if (!_coroutineActivated) {
-            _coroutineActivated = true;
-            OnCooldown = true;
-
-            yield return new WaitForSeconds (duration);
 
             OnCooldown = false;
             _coroutineActivated = false;
@@ -110,7 +101,7 @@ public class Health : MonoBehaviour {
                 Debug.Log ("Hit Enemy");
                 aiScript = other.GetComponentInParent<AIScript> ();
                 aiScript.TakeHit (damage);
-                playerController.weaponTrigger.GetComponent<Collider> ().enabled = false;
+                //playerController.weaponTrigger.GetComponent<Collider> ().enabled = false;
             }
         } else {
             aiScript = this.GetComponentInParent<AIScript> ();

@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] Vector3 moveDirection;
     [SerializeField] bool isMoving = false;
     [SerializeField] public bool isAttacking = false;
-    [SerializeField] int Health;
+    [SerializeField] int health;
     [SerializeField] bool isDead = false;
     //[SerializeField] float timerCD = 0;
 
@@ -39,7 +39,6 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] float attackCD;
 
     void Awake () {
-        Debug.Log ("Awake");
         Instance = this;
         isDead = false;
         if (playerInput == null) {
@@ -53,6 +52,11 @@ public class PlayerController : MonoBehaviour {
         if (playerInputActions == null) {
             playerInputActions = PlayerInputHandler.playerInputs;
         }
+
+        healthScript = GetComponentInChildren<Health> ();
+        healthScript.ResetHealth ();
+        health = healthScript.maxHp;
+        attackCD = healthScript.damageCooldownTime;
     }
 
     public void OnEnable () {
@@ -67,13 +71,6 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void OnDestroy () { }
-
-    void Start () {
-        healthScript = GetComponentInChildren<Health> ();
-        healthScript.ResetHealth ();
-        Health = healthScript.maxHp;
-        attackCD = healthScript.damageCooldownTime;
-    }
 
     void Update () {
         if (moveInput != Vector2.zero) {
@@ -117,5 +114,10 @@ public class PlayerController : MonoBehaviour {
 
     public void TakeHit (int damage) {
         healthScript.TakeDamage (damage);
+        UpdateHealth ();
+    }
+
+    void UpdateHealth () {
+        health = healthScript.currentHp;
     }
 }
