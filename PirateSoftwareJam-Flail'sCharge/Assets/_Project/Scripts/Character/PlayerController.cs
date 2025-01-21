@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] Vector2 moveInput;
     [SerializeField] Vector3 moveDirection;
     [SerializeField] bool isMoving = false;
-    [SerializeField] bool isAttacking = false;
+    [SerializeField] public bool isAttacking = false;
     [SerializeField] public int Health;
     [SerializeField] bool isDead = false;
     //[SerializeField] float timerCD = 0;
@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] public PlayerInput playerInput;
     [SerializeField] PlayerInputActions playerInputActions;
     [SerializeField] PlayerInputHandler playerInputHandler;
+    [SerializeField] GameObject weaponTrigger;
 
     [Header ("Settings")]
     [SerializeField] float movementSpeed;
@@ -106,9 +107,11 @@ public class PlayerController : MonoBehaviour {
     }
 
     IEnumerator AttackLimit () {
+        weaponTrigger.SetActive (true);
         isAttacking = true;
         Debug.Log ("Player Attack");
         yield return new WaitForSeconds (attackCD);
         isAttacking = false;
+        weaponTrigger.SetActive (false);
     }
 }

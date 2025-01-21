@@ -27,6 +27,8 @@ public class AIScript : MonoBehaviour {
 
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator animator;
+    [SerializeField] GameObject weaponTrigger;
+
 
     [Header ("Settings")]
     [SerializeField] float moveSpeed;
@@ -136,7 +138,6 @@ public class AIScript : MonoBehaviour {
                 agent.isStopped = true;
                 currentState = AiStates.Attacking;
             }
-            
         } else {
             isMoving = false;
             currentState = AiStates.Idle;
@@ -145,6 +146,8 @@ public class AIScript : MonoBehaviour {
 
     IEnumerator OnAttack () {
         coroutineInProgress = true;
+        isAttacking = true;
+        weaponTrigger.SetActive (true);
         yield return new WaitForSeconds (attackCD);
         if (distanceToPlayer > weaponReach) {
             currentState = AiStates.Chasing;
@@ -152,7 +155,9 @@ public class AIScript : MonoBehaviour {
             currentState = AiStates.Attacking;
         }
 
+        isAttacking = false;
         coroutineInProgress = false;
+        weaponTrigger.SetActive (false);
     }
 
     IEnumerator OnDead () {

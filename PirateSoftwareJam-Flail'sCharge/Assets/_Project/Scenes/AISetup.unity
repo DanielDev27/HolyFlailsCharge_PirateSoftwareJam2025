@@ -127,29 +127,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1856052405496884196, guid: 49f0c09badf86b74c87f492a80aee7d9, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 5195184926594912488, guid: 49f0c09badf86b74c87f492a80aee7d9, type: 3}
       propertyPath: m_Name
       value: CharacterHolder
-      objectReference: {fileID: 0}
-    - target: {fileID: 5195184926594912488, guid: 49f0c09badf86b74c87f492a80aee7d9, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6361509834128213931, guid: 49f0c09badf86b74c87f492a80aee7d9, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6361509834128213931, guid: 49f0c09badf86b74c87f492a80aee7d9, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6520242467532990849, guid: 49f0c09badf86b74c87f492a80aee7d9, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6773593087978517261, guid: 49f0c09badf86b74c87f492a80aee7d9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -645,6 +625,11 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: a21521091c136974c8883cce69030ba8, type: 2}
   m_BuildHeightMesh: 0
+--- !u!1 &2062172962 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5650357827301214207, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
+  m_PrefabInstance: {fileID: 436957701450678924}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &436957701450678924
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -653,6 +638,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1204820481450764200, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
+      propertyPath: Player
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646859293947082187, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
+      propertyPath: weaponTrigger
+      value: 
+      objectReference: {fileID: 2062172962}
     - target: {fileID: 4110187576334100189, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -696,6 +689,10 @@ PrefabInstance:
     - target: {fileID: 4257402497276743991, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
       propertyPath: m_Name
       value: AIHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 5650357827301214207, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
