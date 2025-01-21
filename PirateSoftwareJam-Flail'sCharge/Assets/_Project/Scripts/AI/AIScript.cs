@@ -20,7 +20,7 @@ public class AIScript : MonoBehaviour {
     [SerializeField] public bool isDead;
 
     [SerializeField] int health;
-    [SerializeField] float timerCD;
+    //[SerializeField] float timerCD;
 
     [Header ("References")]
     [SerializeField] Health healthScript;
@@ -31,7 +31,7 @@ public class AIScript : MonoBehaviour {
     [Header ("Settings")]
     [SerializeField] float moveSpeed;
 
-    [SerializeField] int maxHealth;
+    //[SerializeField] int maxHealth;
     [SerializeField] float attackCD;
     [SerializeField] float weaponReach;
 
@@ -44,6 +44,7 @@ public class AIScript : MonoBehaviour {
         healthScript = GetComponent<Health> ();
         healthScript.ResetHealth ();
         health = healthScript.maxHp;
+        attackCD = healthScript.damageCooldownTime;
     }
 
     void Update () {
@@ -124,23 +125,18 @@ public class AIScript : MonoBehaviour {
     }
 
     void Chasing () {
-        if (playerReference != null && !isDead) {
+        if (playerReference != null && !isDead && !isAttacking) {
             agent.destination = playerReference.transform.position;
             isMoving = true;
             agent.speed = moveSpeed;
             agent.isStopped = false;
             //Reached Player
-            if (distanceToPlayer <= weaponReach && timerCD >= attackCD) {
+            if (distanceToPlayer <= weaponReach /*&& timerCD >= attackCD*/) {
                 isMoving = false;
                 agent.isStopped = true;
                 currentState = AiStates.Attacking;
             }
-
-            //In Cooldown
-            if (timerCD < attackCD) {
-                agent.isStopped = true;
-                isMoving = false;
-            }
+            
         } else {
             isMoving = false;
             currentState = AiStates.Idle;
@@ -149,7 +145,7 @@ public class AIScript : MonoBehaviour {
 
     IEnumerator OnAttack () {
         coroutineInProgress = true;
-        yield return new WaitForSeconds (1);
+        yield return new WaitForSeconds (attackCD);
         if (distanceToPlayer > weaponReach) {
             currentState = AiStates.Chasing;
         } else {

@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] bool isAttacking = false;
     [SerializeField] public int Health;
     [SerializeField] bool isDead = false;
+    //[SerializeField] float timerCD = 0;
 
     [Header ("References")]
     [SerializeField] Rigidbody playerBody;
@@ -33,6 +34,8 @@ public class PlayerController : MonoBehaviour {
 
     [Header ("Settings")]
     [SerializeField] float movementSpeed;
+
+    [SerializeField] float attackCD;
 
     void Awake () {
         Debug.Log ("Awake");
@@ -62,12 +65,13 @@ public class PlayerController : MonoBehaviour {
         PlayerInputHandler.OnAttackPerformed.RemoveListener (OnAttack);
     }
 
-    public void OnDestroy () {
-    }
+    public void OnDestroy () { }
 
     void Start () {
         healthScript = GetComponent<Health> ();
+        healthScript.ResetHealth ();
         Health = healthScript.maxHp;
+        attackCD = healthScript.damageCooldownTime;
     }
 
     void Update () {
@@ -103,7 +107,8 @@ public class PlayerController : MonoBehaviour {
 
     IEnumerator AttackLimit () {
         isAttacking = true;
-        yield return new WaitForSeconds (0.2f);
+        Debug.Log ("Player Attack");
+        yield return new WaitForSeconds (attackCD);
         isAttacking = false;
     }
 }

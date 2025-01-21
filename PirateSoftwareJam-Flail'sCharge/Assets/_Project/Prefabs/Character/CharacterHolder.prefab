@@ -261,6 +261,7 @@ MonoBehaviour:
   healthScript: {fileID: 6220004907858251842}
   playerInput: {fileID: 3317204891117722609}
   movementSpeed: 5
+  attackCD: 0
 --- !u!114 &6220004907858251842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,7 +280,7 @@ MonoBehaviour:
   stopVinyl: 0
   timeBeforeDeath: 0
   OnCooldown: 0
-  damageCooldownTime: 0
+  damageCooldownTime: 1
   isDying: 0
   IsInvincible: 0
   onDeath:

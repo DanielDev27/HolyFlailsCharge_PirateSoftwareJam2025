@@ -86,12 +86,10 @@ MonoBehaviour:
   isAttacking: 0
   isDead: 0
   health: 0
-  timerCD: 0
   healthScript: {fileID: 584431052457812470}
   agent: {fileID: 4337931503387777466}
   animator: {fileID: 360353500231038774}
   moveSpeed: 1
-  maxHealth: 0
   attackCD: 0
   weaponReach: 1.5
 --- !u!114 &584431052457812470
@@ -112,7 +110,7 @@ MonoBehaviour:
   stopVinyl: 0
   timeBeforeDeath: 0
   OnCooldown: 0
-  damageCooldownTime: 0
+  damageCooldownTime: 2
   isDying: 0
   IsInvincible: 0
   onDeath:
