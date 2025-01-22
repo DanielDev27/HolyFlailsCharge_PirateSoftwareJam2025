@@ -36,6 +36,9 @@ public class AIScript : MonoBehaviour {
     //[SerializeField] int maxHealth;
     [SerializeField] float attackCD;
     [SerializeField] float weaponReach;
+    
+    [Header ("Score Script")]
+    [SerializeField] ScoreSystem scoreSystemScript;
 
     void Awake () {
         Instance = this;
@@ -47,6 +50,7 @@ public class AIScript : MonoBehaviour {
         healthScript.ResetHealth ();
         health = healthScript.maxHp;
         attackCD = healthScript.damageCooldownTime;
+        scoreSystemScript = FindFirstObjectByType<ScoreSystem>();
     }
 
     void Update () {
@@ -171,6 +175,7 @@ public class AIScript : MonoBehaviour {
     public void TakeHit (int damage) {
         healthScript.TakeDamage (damage);
         UpdateHealth ();
+        scoreSystemScript.AddScoreDamage();
     }
 
     void UpdateHealth () {
@@ -178,7 +183,10 @@ public class AIScript : MonoBehaviour {
         isDead = healthScript.isDying;
     }
 
-    public void EnemyDie () { StartCoroutine (OnDead ()); }
+    public void EnemyDie () {
+        scoreSystemScript.AddScoreKill();
+        StartCoroutine (OnDead ()); 
+    }
 
     IEnumerator OnDead () {
         coroutineInProgress = true;
@@ -188,7 +196,7 @@ public class AIScript : MonoBehaviour {
 
     IEnumerator EnemyDespawn () {
         yield return new WaitForSeconds (1);
-        this.gameObject.SetActive (false);
+        this.gameObject.SetActive (false); //why not destroy the gameObject?
     }
 }
 
