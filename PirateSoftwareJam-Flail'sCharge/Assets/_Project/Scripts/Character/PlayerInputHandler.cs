@@ -10,7 +10,6 @@ public class PlayerInputHandler {
     //Events
     public static UnityEvent<Vector2> OnMovePerformed = new UnityEvent<Vector2> ();
     public static UnityEvent<bool> OnAttackPerformed = new UnityEvent<bool> ();
-
     public static UnityEvent<bool> OnPausePerformed = new UnityEvent<bool> ();
 
     //Values
@@ -18,7 +17,7 @@ public class PlayerInputHandler {
     [ShowInInspector] public static bool attack = false;
 
     static PlayerInputHandler instance;
-
+    //Defining function for the PlayerInputHandler
     public static PlayerInputHandler Instance {
         get {
             if (instance == null) {
@@ -64,7 +63,7 @@ public class PlayerInputHandler {
         playerInputs.Player.Attack.performed += AttackPerformed;
         playerInputs.Player.Attack.canceled += AttackCanceled;
     }
-
+//Movement Input Logic
     public static void MovePerformed (InputAction.CallbackContext ctx) {
         if (ctx.ReadValue<Vector2> ().normalized != Vector2.zero) {
             moveInput = ctx.ReadValue<Vector2> ().normalized;
@@ -76,7 +75,7 @@ public class PlayerInputHandler {
 
         OnMovePerformed?.Invoke (moveInput);
     }
-
+//Attack Input Logic
     public static void AttackPerformed (InputAction.CallbackContext ctx) {
         attack = true;
         //Debug.Log ("Attack performed");

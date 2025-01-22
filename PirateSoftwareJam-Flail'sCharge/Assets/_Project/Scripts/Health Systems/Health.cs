@@ -92,6 +92,7 @@ public class Health : MonoBehaviour {
         }
     }
 
+//Damage trigger for entering a collider
     void OnTriggerEnter (Collider other) {
         if (Player) {
             playerController = this.GetComponentInParent<PlayerController> ();

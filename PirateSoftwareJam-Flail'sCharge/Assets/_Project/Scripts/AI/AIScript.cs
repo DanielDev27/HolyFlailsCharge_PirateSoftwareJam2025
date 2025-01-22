@@ -7,18 +7,20 @@ public class AIScript : MonoBehaviour {
     public static AIScript Instance;
 
     [Header ("Debug")]
+    //Player Reference Info
     [SerializeField] PlayerController player;
 
     [SerializeField] public GameObject playerReference;
-    public AiStates currentState;
     [SerializeField] public Vector3 directionToPlayer;
-    [SerializeField] float distanceToPlayer;
-    [SerializeField] bool coroutineInProgress;
 
+    [SerializeField] float distanceToPlayer;
+
+    //AI Info
+    public AiStates currentState;
+    [SerializeField] bool coroutineInProgress;
     [SerializeField] public bool isMoving;
     [SerializeField] public bool isAttacking;
     [SerializeField] public bool isDead;
-
     [SerializeField] int health;
     //[SerializeField] float timerCD;
 
@@ -33,24 +35,27 @@ public class AIScript : MonoBehaviour {
     [Header ("Settings")]
     [SerializeField] float moveSpeed;
 
-    //[SerializeField] int maxHealth;
     [SerializeField] float attackCD;
     [SerializeField] float weaponReach;
-    
+
     [Header ("Score Script")]
     [SerializeField] ScoreSystem scoreSystemScript;
 
     void Awake () {
         Instance = this;
-        coroutineInProgress = false;
-        isDead = false;
+        //Player Reference
         player = FindObjectOfType<PlayerController> ();
         playerReference = player?.gameObject;
+        //Health Script Reference
         healthScript = GetComponentInChildren<Health> ();
         healthScript.ResetHealth ();
+        //Score Script Reference
+        scoreSystemScript = FindFirstObjectByType<ScoreSystem> ();
+        //AI
+        coroutineInProgress = false;
+        isDead = false;
         health = healthScript.maxHp;
         attackCD = healthScript.damageCooldownTime;
-        scoreSystemScript = FindFirstObjectByType<ScoreSystem>();
     }
 
     void Update () {
@@ -58,6 +63,7 @@ public class AIScript : MonoBehaviour {
             distanceToPlayer = Vector3.Distance (transform.position, playerReference.transform.position);
         }
 
+        //Switch for current AI State
         if (!coroutineInProgress) {
             switch (currentState) {
                 case AiStates.Idle:
@@ -84,6 +90,7 @@ public class AIScript : MonoBehaviour {
         }
     }
 
+    //Animator update from AI State
     void OnAnimatorUpdate () {
         switch (currentState) {
             case AiStates.Idle:
@@ -97,6 +104,7 @@ public class AIScript : MonoBehaviour {
         }
     }
 
+//Idle State Logic
     IEnumerator OnIdle () {
         coroutineInProgress = true;
 
@@ -105,17 +113,20 @@ public class AIScript : MonoBehaviour {
             if (!isDead && !isAttacking) {
                 yield return new WaitForSeconds (1);
                 if (playerReference != null) {
+                    //Logic for no player
                     currentState = AiStates.Chasing;
                     coroutineInProgress = false;
                 } else {
                     currentState = AiStates.Idle;
                 }
             } else {
+                //Set state to Dead
                 if (isDead) {
                     currentState = AiStates.Dead;
                 }
 
                 if (isAttacking) {
+                    //Set state to Attacking
                     currentState = AiStates.Attacking;
                 }
             }
@@ -130,8 +141,10 @@ public class AIScript : MonoBehaviour {
         coroutineInProgress = false;
     }
 
+//Chasing Logic
     void Chasing () {
         if (playerReference != null && !isDead && !isAttacking) {
+            //Player present
             agent.destination = playerReference.transform.position;
             isMoving = true;
             agent.speed = moveSpeed;
@@ -142,16 +155,22 @@ public class AIScript : MonoBehaviour {
                 agent.isStopped = true;
                 currentState = AiStates.Attacking;
             }
-        } else {
+        }
+
+        if (playerReference == null) {
+            agent.isStopped = true;
             isMoving = false;
-            if (!isDead) {
-                currentState = AiStates.Idle;
-            } else {
-                currentState = AiStates.Dead;
-            }
+            currentState = AiStates.Idle;
+        }
+
+        if (isDead) {
+            agent.isStopped = true;
+            isMoving = false;
+            currentState = AiStates.Dead;
         }
     }
 
+//Attack Logic
     IEnumerator OnAttack () {
         if (!isDead) {
             coroutineInProgress = true;
@@ -172,31 +191,30 @@ public class AIScript : MonoBehaviour {
         }
     }
 
+    //Damage
     public void TakeHit (int damage) {
         healthScript.TakeDamage (damage);
         UpdateHealth ();
-        scoreSystemScript.AddScoreDamage();
+        scoreSystemScript.AddScoreDamage ();
     }
 
+    //Health Update
     void UpdateHealth () {
         health = healthScript.currentHp;
         isDead = healthScript.isDying;
     }
 
     public void EnemyDie () {
-        scoreSystemScript.AddScoreKill();
-        StartCoroutine (OnDead ()); 
+        scoreSystemScript.AddScoreKill ();
+        StartCoroutine (OnDead ());
     }
 
     IEnumerator OnDead () {
         coroutineInProgress = true;
         yield return new WaitForSeconds (1);
-        StartCoroutine (EnemyDespawn ());
-    }
-
-    IEnumerator EnemyDespawn () {
-        yield return new WaitForSeconds (1);
         this.gameObject.SetActive (false); //why not destroy the gameObject?
+                                           //-Destroying prefabs causes errors
+                                           //-Potential for Object Pooling
     }
 }
 

@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour {
 
     void Awake () {
         Instance = this;
-        isDead = false;
+        //Verify and Set PLayer Input script
         if (playerInput == null) {
             playerInput = new PlayerInput ();
         }
@@ -53,6 +53,8 @@ public class PlayerController : MonoBehaviour {
             playerInputActions = PlayerInputHandler.playerInputs;
         }
 
+        //Set values and references
+        isDead = false;
         healthScript = GetComponentInChildren<Health> ();
         healthScript.ResetHealth ();
         health = healthScript.maxHp;
@@ -74,10 +76,11 @@ public class PlayerController : MonoBehaviour {
 
     void Update () {
         if (moveInput != Vector2.zero) {
-            OnPlayerMove ();
+            OnPlayerMove (); //Get the player move input when it's not zero
         }
     }
 
+    //Move Input and Debug bools
     void InputMove (Vector2 _input) {
         moveInput = _input;
         if (moveInput != Vector2.zero) {
@@ -87,6 +90,7 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    //Move Logic
     void OnPlayerMove () {
         moveDirection = moveInput.x * transform.right + moveInput.y * transform.up;
         Vector3 moveCombined = new Vector3 (moveInput.x, 0, moveInput.y);
@@ -97,26 +101,28 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    //Attack Input
     void OnAttack (bool _attacking) {
         if (_attacking && !isAttacking) {
             StartCoroutine (AttackLimit ());
         }
     }
 
+    //Attack Logic and Debug
     IEnumerator AttackLimit () {
-        weaponTrigger.GetComponent<Collider> ().enabled = true;
+        weaponTrigger.GetComponent<Collider> ().enabled = true; //Turn on Weapon collider
         isAttacking = true;
         //Debug.Log ("Player Attack");
         yield return new WaitForSeconds (attackCD);
         isAttacking = false;
-        weaponTrigger.GetComponent<Collider> ().enabled = false;
+        weaponTrigger.GetComponent<Collider> ().enabled = false; ////Turn off Weapon collider
     }
-
+    //Damage Function
     public void TakeHit (int damage) {
         healthScript.TakeDamage (damage);
         UpdateHealth ();
     }
-
+    //Health Update Function
     void UpdateHealth () {
         health = healthScript.currentHp;
     }
