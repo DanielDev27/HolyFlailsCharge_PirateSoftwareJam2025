@@ -15,8 +15,10 @@ public class PlayerInputHandler {
     //Values
     [ShowInInspector, ReadOnly] public static Vector2 moveInput;
     [ShowInInspector] public static bool attack = false;
+    public static bool pause = false;
 
     static PlayerInputHandler instance;
+
     //Defining function for the PlayerInputHandler
     public static PlayerInputHandler Instance {
         get {
@@ -62,7 +64,10 @@ public class PlayerInputHandler {
         //Attack
         playerInputs.Player.Attack.performed += AttackPerformed;
         playerInputs.Player.Attack.canceled += AttackCanceled;
+        //Pause
+        playerInputs.Player.Pause.performed += PausePerformed;
     }
+
 //Movement Input Logic
     public static void MovePerformed (InputAction.CallbackContext ctx) {
         if (ctx.ReadValue<Vector2> ().normalized != Vector2.zero) {
@@ -75,6 +80,7 @@ public class PlayerInputHandler {
 
         OnMovePerformed?.Invoke (moveInput);
     }
+
 //Attack Input Logic
     public static void AttackPerformed (InputAction.CallbackContext ctx) {
         attack = true;
@@ -86,5 +92,11 @@ public class PlayerInputHandler {
         attack = false;
         //Debug.Log ("Attack canceled");
         OnAttackPerformed?.Invoke (attack);
+    }
+
+    //Pause Input Logic
+    public static void PausePerformed (InputAction.CallbackContext ctx) {
+        pause = true;
+        OnPausePerformed?.Invoke (pause);
     }
 }
