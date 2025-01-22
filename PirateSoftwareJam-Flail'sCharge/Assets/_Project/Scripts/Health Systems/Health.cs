@@ -41,6 +41,11 @@ public class Health : MonoBehaviour {
         currentHp = maxHp;
         OnCooldown = false;
         _coroutineActivated = false;
+        if (Player) {
+            playerController = this.GetComponentInParent<PlayerController> ();
+        } else {
+            aiScript = this.GetComponentInParent<AIScript> ();
+        }
     }
 
     void OnEnable () { }
@@ -103,7 +108,6 @@ public class Health : MonoBehaviour {
                 //playerController.weaponTrigger.GetComponent<Collider> ().enabled = false;
             }
         } else {
-            aiScript = this.GetComponentInParent<AIScript> ();
             if (aiScript.isAttacking && other.gameObject.GetComponent<PlayerController> () != null) {
                 Debug.Log ("Hit Player");
                 playerController = other.gameObject.GetComponent<PlayerController> ();

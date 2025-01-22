@@ -195,7 +195,7 @@ public class AIScript : MonoBehaviour {
     public void TakeHit (int damage) {
         healthScript.TakeDamage (damage);
         UpdateHealth ();
-        scoreSystemScript.AddScoreDamage ();
+        scoreSystemScript?.AddScoreDamage ();
     }
 
     //Health Update
@@ -205,7 +205,7 @@ public class AIScript : MonoBehaviour {
     }
 
     public void EnemyDie () {
-        scoreSystemScript.AddScoreKill ();
+        scoreSystemScript?.AddScoreKill ();
         StartCoroutine (OnDead ());
     }
 
