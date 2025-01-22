@@ -38,8 +38,12 @@ public class AIScript : MonoBehaviour {
     [Header ("Settings")]
     [SerializeField] float weaponReach;
 
+    [SerializeField] bool ranged;
+    [SerializeField] LayerMask obstructionLayerMask;
+
     [Header ("Score Script")]
     [SerializeField] ScoreSystem scoreSystemScript;
+
 
     void Awake () {
         Instance = this;
@@ -89,6 +93,8 @@ public class AIScript : MonoBehaviour {
                     break;
             }
         }
+
+        if (ranged) { VisionCheck (); }
     }
 
     //Animator update from AI State
@@ -102,6 +108,21 @@ public class AIScript : MonoBehaviour {
                 break;
             case AiStates.Dead:
                 break;
+        }
+    }
+
+    void VisionCheck () {
+        if (playerReference != null && !isDead) {
+            RaycastHit _hit;
+            Vector3 _playerPosition = playerReference.transform.position;
+            directionToPlayer = _playerPosition - transform.position;
+            bool _hitLayer = Physics.Raycast (transform.position, directionToPlayer, out _hit, Mathf.Infinity, obstructionLayerMask, QueryTriggerInteraction.Ignore);
+            if (_hitLayer && _hit.collider.gameObject.layer == 7) {
+                transform.LookAt (new Vector3 (playerReference.transform.position.x, transform.position.y, playerReference.transform.position.z));
+                Debug.DrawRay (transform.position + transform.up * 0.6f, directionToPlayer * weaponReach, Color.blue);
+            } else {
+                Debug.DrawRay (transform.position + transform.up * 0.6f, directionToPlayer * weaponReach, Color.red);
+            }
         }
     }
 
