@@ -22,22 +22,20 @@ public class AIScript : MonoBehaviour {
     [SerializeField] public bool isAttacking;
     [SerializeField] public bool isDead;
     [SerializeField] int health;
+    [SerializeField] float moveSpeed;
+    [SerializeField] float attackCD;
     //[SerializeField] float timerCD;
 
     [Header ("References")]
     [SerializeField] public Enemy enemySO;
 
     [SerializeField] Health healthScript;
-
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator animator;
     [SerializeField] public GameObject weaponTrigger;
 
 
     [Header ("Settings")]
-    [SerializeField] float moveSpeed;
-
-    [SerializeField] float attackCD;
     [SerializeField] float weaponReach;
 
     [Header ("Score Script")]
@@ -58,6 +56,8 @@ public class AIScript : MonoBehaviour {
         isDead = false;
         health = healthScript.maxHp;
         attackCD = healthScript.damageCooldownTime;
+        //Scriptable Object Information Pull
+        moveSpeed = enemySO.EnemyMoveSpeed;
     }
 
     void Update () {
@@ -69,17 +69,16 @@ public class AIScript : MonoBehaviour {
         if (!coroutineInProgress) {
             switch (currentState) {
                 case AiStates.Idle:
-                    Debug.Log ("Idle {" + this.gameObject.name + "}");
+                    //Debug.Log ("Idle {" + this.gameObject.name + "}");
                     OnAnimatorUpdate ();
                     StartCoroutine (OnIdle ());
                     break;
                 case AiStates.Chasing:
-                    Debug.Log ("Chasing {" + this.gameObject.name + "}");
+                    //Debug.Log ("Chasing {" + this.gameObject.name + "}");
                     OnAnimatorUpdate ();
                     Chasing ();
                     break;
                 case AiStates.Attacking:
-                    Debug.Log ("Attacking {" + this.gameObject.name + "}");
                     OnAnimatorUpdate ();
                     StartCoroutine (OnAttack ());
                     break;
@@ -175,19 +174,19 @@ public class AIScript : MonoBehaviour {
 //Attack Logic
     IEnumerator OnAttack () {
         if (!isDead) {
+            Debug.Log ("Attacking {" + this.gameObject.name + "}");
             coroutineInProgress = true;
             isAttacking = true;
             weaponTrigger.GetComponent<Collider> ().enabled = true;
             yield return new WaitForSeconds (attackCD);
+            isAttacking = false;
+            coroutineInProgress = false;
+            weaponTrigger.GetComponent<Collider> ().enabled = false;
             if (distanceToPlayer > weaponReach) {
                 currentState = AiStates.Chasing;
             } else {
                 currentState = AiStates.Attacking;
             }
-
-            isAttacking = false;
-            coroutineInProgress = false;
-            weaponTrigger.GetComponent<Collider> ().enabled = false;
         } else {
             currentState = AiStates.Dead;
         }

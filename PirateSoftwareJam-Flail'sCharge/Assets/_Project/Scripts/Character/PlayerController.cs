@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour {
         PlayerInputHandler.OnAttackPerformed.AddListener (OnAttack);
     }
 
+
     public void OnDisable () {
         PlayerInputHandler.OnMovePerformed.RemoveListener (InputMove);
         PlayerInputHandler.OnAttackPerformed.RemoveListener (OnAttack);
@@ -117,13 +118,20 @@ public class PlayerController : MonoBehaviour {
         isAttacking = false;
         weaponTrigger.GetComponent<Collider> ().enabled = false; ////Turn off Weapon collider
     }
+
     //Damage Function
     public void TakeHit (int damage) {
+        Debug.Log ("Hit Player");
         healthScript.TakeDamage (damage);
         UpdateHealth ();
     }
+
     //Health Update Function
     void UpdateHealth () {
         health = healthScript.currentHp;
+    }
+
+    public void Death () {
+        isDead = true;
     }
 }

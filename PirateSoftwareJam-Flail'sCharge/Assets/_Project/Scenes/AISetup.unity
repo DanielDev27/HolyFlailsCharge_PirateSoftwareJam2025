@@ -690,10 +690,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7088197556121051024, guid: dc81922a39bf1f442ac1435bb7827e7a, type: 3}
-      propertyPath: enemySO
-      value: 
-      objectReference: {fileID: 11400000, guid: 1ad972771478b274eb21109d95cfbde0, type: 2}
     - target: {fileID: 9074906759742733164, guid: dc81922a39bf1f442ac1435bb7827e7a, type: 3}
       propertyPath: m_Name
       value: Goblin
