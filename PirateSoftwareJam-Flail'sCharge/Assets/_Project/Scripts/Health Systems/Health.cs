@@ -100,6 +100,9 @@ public class Health : MonoBehaviour {
             _coroutineActivated = false;
         }
     }*/
+    public float GetDamage () {
+        return damage;
+    }
 
 //Damage trigger for entering a collider
     void OnTriggerEnter (Collider other) {

@@ -625,6 +625,63 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: a21521091c136974c8883cce69030ba8, type: 2}
   m_BuildHeightMesh: 0
+--- !u!1001 &396787381441027872
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 9074750709642016873, guid: 42c73b5b0018ad149814516d9724128b, type: 3}
+      propertyPath: m_Name
+      value: Mage
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219142636176871299, guid: 42c73b5b0018ad149814516d9724128b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219142636176871299, guid: 42c73b5b0018ad149814516d9724128b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219142636176871299, guid: 42c73b5b0018ad149814516d9724128b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219142636176871299, guid: 42c73b5b0018ad149814516d9724128b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219142636176871299, guid: 42c73b5b0018ad149814516d9724128b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219142636176871299, guid: 42c73b5b0018ad149814516d9724128b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219142636176871299, guid: 42c73b5b0018ad149814516d9724128b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219142636176871299, guid: 42c73b5b0018ad149814516d9724128b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219142636176871299, guid: 42c73b5b0018ad149814516d9724128b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219142636176871299, guid: 42c73b5b0018ad149814516d9724128b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 42c73b5b0018ad149814516d9724128b, type: 3}
 --- !u!1001 &436957701450678924
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -641,6 +698,10 @@ PrefabInstance:
       propertyPath: enemySO
       value: 
       objectReference: {fileID: 11400000, guid: be997b0cd384c6349b2fe5923220f217, type: 2}
+    - target: {fileID: 2646859293947082187, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 6233235450677050260, guid: 837e8ef18dacea14dadfbebfc8bfd89c, type: 3}
     - target: {fileID: 2646859293947082187, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
       propertyPath: weaponReach
       value: 5
@@ -659,7 +720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4110187576334100189, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 3.53
       objectReference: {fileID: 0}
     - target: {fileID: 4110187576334100189, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
       propertyPath: m_LocalRotation.w
@@ -695,7 +756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4257402497276743991, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -825,6 +886,7 @@ SceneRoots:
   - {fileID: 351833222}
   - {fileID: 1795399969}
   - {fileID: 436957701450678924}
+  - {fileID: 396787381441027872}
   - {fileID: 3003346955526677097}
   - {fileID: 3264640638620711773}
   - {fileID: 223043447}

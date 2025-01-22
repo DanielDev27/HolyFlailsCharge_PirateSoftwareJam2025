@@ -21,6 +21,7 @@ public class AIScript : MonoBehaviour {
     [SerializeField] public bool isMoving;
     [SerializeField] public bool isAttacking;
     [SerializeField] public bool isDead;
+    [SerializeField] bool canSeePlayer;
     [SerializeField] int health;
     [SerializeField] float moveSpeed;
     [SerializeField] float attackCD;
@@ -29,10 +30,11 @@ public class AIScript : MonoBehaviour {
     [Header ("References")]
     [SerializeField] public Enemy enemySO;
 
-    [SerializeField] Health healthScript;
+    [SerializeField] public Health healthScript;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator animator;
     [SerializeField] public GameObject weaponTrigger;
+    [SerializeField] GameObject projectile;
 
 
     [Header ("Settings")]
@@ -120,8 +122,10 @@ public class AIScript : MonoBehaviour {
             if (_hitLayer && _hit.collider.gameObject.layer == 7) {
                 transform.LookAt (new Vector3 (playerReference.transform.position.x, transform.position.y, playerReference.transform.position.z));
                 Debug.DrawRay (transform.position + transform.up * 0.6f, directionToPlayer * weaponReach, Color.blue);
+                canSeePlayer = true;
             } else {
                 Debug.DrawRay (transform.position + transform.up * 0.6f, directionToPlayer * weaponReach, Color.red);
+                canSeePlayer = false;
             }
         }
     }
@@ -198,16 +202,32 @@ public class AIScript : MonoBehaviour {
             Debug.Log ("Attacking {" + this.gameObject.name + "}");
             coroutineInProgress = true;
             isAttacking = true;
-            weaponTrigger.GetComponent<Collider> ().enabled = true;
-            yield return new WaitForSeconds (attackCD);
-            isAttacking = false;
-            coroutineInProgress = false;
-            weaponTrigger.GetComponent<Collider> ().enabled = false;
-            if (distanceToPlayer > weaponReach) {
-                currentState = AiStates.Chasing;
-            } else {
-                currentState = AiStates.Attacking;
+            if (!ranged) {
+                weaponTrigger.GetComponent<Collider> ().enabled = true;
+                yield return new WaitForSeconds (attackCD);
+                isAttacking = false;
+                coroutineInProgress = false;
+                weaponTrigger.GetComponent<Collider> ().enabled = false;
             }
+
+            if (ranged) {
+                if (canSeePlayer) {
+                    //
+                    //Generate Projectile
+                    GameObject _projectile = Instantiate (projectile, weaponTrigger.transform.position, Quaternion.identity, transform);
+                    _projectile.transform.forward = new Vector3 (playerReference.transform.position.x, transform.position.y, playerReference.transform.position.z);
+                    //
+                    yield return new WaitForSeconds (attackCD);
+                    isAttacking = false;
+                    coroutineInProgress = false;
+                } else {
+                    isAttacking = false;
+                    currentState = AiStates.Chasing;
+                    coroutineInProgress = false;
+                }
+            }
+
+            currentState = distanceToPlayer > weaponReach ? AiStates.Chasing : AiStates.Attacking;
         } else {
             currentState = AiStates.Dead;
         }
@@ -233,10 +253,11 @@ public class AIScript : MonoBehaviour {
 
     IEnumerator OnDead () {
         coroutineInProgress = true;
+        //yield return new WaitForSeconds (1);
+        //Death Animation
         yield return new WaitForSeconds (1);
-        this.gameObject.SetActive (false); //why not destroy the gameObject?
-        //-Destroying prefabs causes errors
-        //-Potential for Object Pooling
+        //this.gameObject.SetActive (false); //why not destroy the gameObject?
+        Destroy (this.gameObject);
     }
 }
 

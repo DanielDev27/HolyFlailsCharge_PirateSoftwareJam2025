@@ -14,4 +14,5 @@ public enum EnemyType {
     Goblin,
     Orc,
     Wolf,
+    Mage,
 }
