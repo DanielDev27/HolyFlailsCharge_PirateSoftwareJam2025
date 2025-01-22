@@ -672,6 +672,7 @@ GameObject:
   - component: {fileID: 1795399967}
   - component: {fileID: 1795399966}
   - component: {fileID: 1795399970}
+  - component: {fileID: 1795399971}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -801,6 +802,21 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: a21521091c136974c8883cce69030ba8, type: 2}
   m_BuildHeightMesh: 0
+--- !u!114 &1795399971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795399965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22792b18ddaa810428b4f4eee1515907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  killScoreIncrease: 100
+  damageScoreIncrease: 10
 --- !u!1001 &396787381441027872
 PrefabInstance:
   m_ObjectHideFlags: 0

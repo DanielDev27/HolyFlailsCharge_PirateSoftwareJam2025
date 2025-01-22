@@ -32,6 +32,8 @@ public class Health : MonoBehaviour {
     public static UnityEvent onDeath;
     public static UnityEvent<int> onHit;
 
+    [SerializeField] ScoreSystem scoreSystemScript;
+
     [SerializeField] bool Player;
     [SerializeField] PlayerController playerController;
     [SerializeField] AIScript aiScript;
@@ -51,6 +53,8 @@ public class Health : MonoBehaviour {
         currentHp = maxHp;
         //OnCooldown = false;
         //_coroutineActivated = false;
+
+        scoreSystemScript = FindFirstObjectByType<ScoreSystem> ();
     }
 
     void OnEnable () { }
@@ -63,7 +67,6 @@ public class Health : MonoBehaviour {
             //if (OnCooldown) return;
             //if (IsInvincible) return;
             if (isDying) return;
-
             currentHp -= (damageAmount);
             //onHit.Invoke (currentHp);
             //StartCoroutine (DamageCooldown ());

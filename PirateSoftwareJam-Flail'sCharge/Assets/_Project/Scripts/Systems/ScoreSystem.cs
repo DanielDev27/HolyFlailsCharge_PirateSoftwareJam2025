@@ -1,30 +1,26 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class ScoreSystem : MonoBehaviour
-{
-    [Header("ai script ref")]
-    [SerializeField] AIScript aiScript;
+public class ScoreSystem : MonoBehaviour {
+    [Header ("Score")]
+    [FormerlySerializedAs ("_score")] public float score;
+
+    [Header ("Score Settings")]
     [SerializeField] float killScoreIncrease;
+
     [SerializeField] float damageScoreIncrease;
-    private float _score;
-    void Start(){
-        aiScript = GetComponent<AIScript>();
-        if (aiScript != null){
-            Debug.Log("AIScript found!");
-        }
+
+    void OnEnable () {
+        score = 0;
     }
 
-    void Update()
-    {
-        
+    public void AddScoreKill () {
+        score += killScoreIncrease;
+        Debug.Log ("Score increased to: " + score);
     }
 
-    public void AddScoreKill(){
-        _score += killScoreIncrease;
-        Debug.LogWarning("Score increased to: " + _score);
-    }
-    public void AddScoreDamage(){
-        _score += damageScoreIncrease;
-        Debug.LogWarning("Score increased to: " + _score);
+    public void AddScoreDamage () {
+        score += damageScoreIncrease;
+        Debug.Log ("Score increased to: " + score);
     }
 }
