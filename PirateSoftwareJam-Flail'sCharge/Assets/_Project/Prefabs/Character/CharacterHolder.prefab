@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 2362197531249372253}
   - component: {fileID: 1577998190959723489}
   - component: {fileID: 1364387067131923128}
+  - component: {fileID: 9144666797469199403}
   m_Layer: 7
   m_Name: CharacterHolder
   m_TagString: Untagged
@@ -253,12 +254,12 @@ MonoBehaviour:
   moveDirection: {x: 0, y: 0, z: 0}
   isMoving: 0
   isAttacking: 0
-  Health: 0
+  health: 0
   isDead: 0
   playerBody: {fileID: 1577998190959723489}
   playerAvatar: {fileID: 1856052405496884196}
   cameraTransform: {fileID: 2213474039271473466}
-  animator: {fileID: 0}
+  animator: {fileID: 9144666797469199403}
   healthScript: {fileID: 8666654157372227753}
   playerInput: {fileID: 3317204891117722609}
   weaponTrigger: {fileID: 8609598365875321043}
@@ -312,6 +313,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!95 &9144666797469199403
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5195184926594912488}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6361509834128213931
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,12 +608,6 @@ MonoBehaviour:
   damageCooldownTime: 1
   isDying: 0
   IsInvincible: 0
-  onDeath:
-    m_PersistentCalls:
-      m_Calls: []
-  onHit:
-    m_PersistentCalls:
-      m_Calls: []
   Player: 1
   playerController: {fileID: 0}
   aiScript: {fileID: 0}
