@@ -14,9 +14,11 @@ public class AIScript : MonoBehaviour {
     [SerializeField] public Vector3 directionToPlayer;
 
     [SerializeField] float distanceToPlayer;
+    [SerializeField] bool isPaused;
 
     //AI Info
     public AiStates currentState;
+    public AiStates returnState;
     [SerializeField] bool coroutineInProgress;
     [SerializeField] public bool isMoving;
     [SerializeField] public bool isAttacking;
@@ -62,8 +64,24 @@ public class AIScript : MonoBehaviour {
         isDead = false;
         health = healthScript.maxHp;
         attackCD = healthScript.damageCooldownTime;
+        isPaused = false;
         //Scriptable Object Information Pull
         moveSpeed = enemySO.EnemyMoveSpeed;
+    }
+
+    void OnEnable () {
+        MenuFunctionality.OnPause.AddListener (OnPause);
+    }
+
+    void OnPause (bool _isPaused) {
+        isPaused = _isPaused;
+        if (isPaused) {
+            returnState = currentState;
+        }
+
+        if (!isPaused) {
+            currentState = returnState;
+        }
     }
 
     void Update () {
@@ -132,44 +150,46 @@ public class AIScript : MonoBehaviour {
 
 //Idle State Logic
     IEnumerator OnIdle () {
-        coroutineInProgress = true;
-
-//Pause If statement
-        {
-            if (!isDead && !isAttacking) {
-                yield return new WaitForSeconds (1);
-                if (playerReference != null) {
-                    //Logic for no player
-                    currentState = AiStates.Chasing;
-                    coroutineInProgress = false;
+        if (!isPaused) {
+            //Pause If statement
+            {
+                coroutineInProgress = true;
+                if (!isDead && !isAttacking) {
+                    yield return new WaitForSeconds (1);
+                    if (playerReference != null) {
+                        //Logic for no player
+                        currentState = AiStates.Chasing;
+                        coroutineInProgress = false;
+                    } else {
+                        currentState = AiStates.Idle;
+                    }
                 } else {
-                    currentState = AiStates.Idle;
-                }
-            } else {
-                //Set state to Dead
-                if (isDead) {
-                    currentState = AiStates.Dead;
-                }
+                    //Set state to Dead
+                    if (isDead) {
+                        currentState = AiStates.Dead;
+                    }
 
-                if (isAttacking) {
-                    //Set state to Attacking
-                    currentState = AiStates.Attacking;
+                    if (isAttacking) {
+                        //Set state to Attacking
+                        currentState = AiStates.Attacking;
+                    }
                 }
             }
         } //Pause if End
-        /*else
-        {
-            currentAiState = AiStates.Idle;
+
+        else {
+            currentState = AiStates.Idle;
             isMoving = false;
             isAttacking = false;
             agent.isStopped = true;
-        }*/
+        }
+
         coroutineInProgress = false;
     }
 
 //Chasing Logic
     void Chasing () {
-        if (playerReference != null && !isDead && !isAttacking) {
+        if (playerReference != null && !isDead && !isAttacking && !isPaused) {
             //Player present
             agent.destination = playerReference.transform.position;
             isMoving = true;
@@ -183,7 +203,7 @@ public class AIScript : MonoBehaviour {
             }
         }
 
-        if (playerReference == null) {
+        if (playerReference == null || isPaused) {
             agent.isStopped = true;
             isMoving = false;
             currentState = AiStates.Idle;
@@ -198,7 +218,7 @@ public class AIScript : MonoBehaviour {
 
 //Attack Logic
     IEnumerator OnAttack () {
-        if (!isDead) {
+        if (!isDead && !isPaused) {
             Debug.Log ("Attacking {" + this.gameObject.name + "}");
             coroutineInProgress = true;
             isAttacking = true;
@@ -228,8 +248,10 @@ public class AIScript : MonoBehaviour {
             }
 
             currentState = distanceToPlayer > weaponReach ? AiStates.Chasing : AiStates.Attacking;
-        } else {
+        } else if (isDead) {
             currentState = AiStates.Dead;
+        } else if (isPaused) {
+            currentState = AiStates.Idle;
         }
     }
 

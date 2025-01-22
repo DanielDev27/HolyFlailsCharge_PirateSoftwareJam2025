@@ -1,13 +1,19 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class MenuFunctionality : MonoBehaviour {
     [Header ("Main Menu")]
+    Canvas menuCanvas;
+
     [Header ("Pause Menu")]
     [SerializeField] Canvas pauseCanvas;
 
     [SerializeField] bool isPaused = false;
+
+    //Event
+    public static UnityEvent<bool> OnPause = new UnityEvent<bool> ();
 
     void Awake () {
         if (pauseCanvas != null) {
@@ -35,10 +41,12 @@ public class MenuFunctionality : MonoBehaviour {
     public void InputPause (bool pause) {
         isPaused = pause;
         pauseCanvas.enabled = isPaused;
+        OnPause.Invoke (isPaused);
     }
 
     public void ResumeGame () {
         isPaused = false;
         pauseCanvas.enabled = isPaused;
+        OnPause.Invoke (isPaused);
     }
 }

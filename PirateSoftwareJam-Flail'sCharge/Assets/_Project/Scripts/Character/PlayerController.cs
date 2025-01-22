@@ -65,6 +65,16 @@ public class PlayerController : MonoBehaviour {
         PlayerInputHandler.Enable ();
         PlayerInputHandler.OnMovePerformed.AddListener (InputMove);
         PlayerInputHandler.OnAttackPerformed.AddListener (OnAttack);
+        MenuFunctionality.OnPause.AddListener (OnPause);
+    }
+
+    void OnPause (bool _isPaused) {
+        isPaused = _isPaused;
+        if (isPaused) {
+            PlayerInputHandler.Disable ();
+        } else {
+            PlayerInputHandler.Enable ();
+        }
     }
 
 
@@ -133,5 +143,6 @@ public class PlayerController : MonoBehaviour {
 
     public void Death () {
         isDead = true;
+        OnDisable ();
     }
 }
