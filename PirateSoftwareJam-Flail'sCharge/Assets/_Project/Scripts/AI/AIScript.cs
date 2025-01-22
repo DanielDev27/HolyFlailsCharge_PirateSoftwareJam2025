@@ -25,6 +25,8 @@ public class AIScript : MonoBehaviour {
     //[SerializeField] float timerCD;
 
     [Header ("References")]
+    [SerializeField] public Enemy enemySO;
+
     [SerializeField] Health healthScript;
 
     [SerializeField] NavMeshAgent agent;
@@ -213,8 +215,8 @@ public class AIScript : MonoBehaviour {
         coroutineInProgress = true;
         yield return new WaitForSeconds (1);
         this.gameObject.SetActive (false); //why not destroy the gameObject?
-                                           //-Destroying prefabs causes errors
-                                           //-Potential for Object Pooling
+        //-Destroying prefabs causes errors
+        //-Potential for Object Pooling
     }
 }
 
