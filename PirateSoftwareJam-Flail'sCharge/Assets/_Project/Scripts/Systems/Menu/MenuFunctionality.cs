@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MenuFunctionality : MonoBehaviour {
     [Header ("Main Menu")]
-    Canvas menuCanvas;
+    [SerializeField] Canvas menuCanvas;
+
+    [SerializeField] Canvas creditsCanvas;
 
     [Header ("Pause Menu")]
     [SerializeField] Canvas pauseCanvas;
@@ -36,6 +38,16 @@ public class MenuFunctionality : MonoBehaviour {
 
     public void QuitGame () {
         Application.Quit ();
+    }
+
+    public void SeeCredits () {
+        menuCanvas.enabled = false;
+        creditsCanvas.enabled = true;
+    }
+
+    public void LeaveCredits () {
+        creditsCanvas.enabled = false;
+        menuCanvas.enabled = true;
     }
 
     public void InputPause (bool pause) {
