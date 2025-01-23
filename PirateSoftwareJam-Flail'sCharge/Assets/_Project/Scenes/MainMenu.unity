@@ -929,18 +929,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 941682218}
-        m_TargetAssemblyTypeName: MenuFunctionality, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 4616586311328213433, guid: db5a3392c06b79043934d857c86ab4a0, type: 3}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: PlaySound
@@ -953,6 +941,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 941682218}
+        m_TargetAssemblyTypeName: MenuFunctionality, Assembly-CSharp
+        m_MethodName: LoadLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1262207169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1447,12 +1447,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4616586311328213433, guid: db5a3392c06b79043934d857c86ab4a0, type: 3}
       propertyPath: soundList.Array.data[5].sounds.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4616586311328213433, guid: db5a3392c06b79043934d857c86ab4a0, type: 3}
       propertyPath: 'soundList.Array.data[5].sounds.Array.data[0]'
       value: 
       objectReference: {fileID: 8300000, guid: 71ad3162a69fd4a438365bb4671e750c, type: 3}
+    - target: {fileID: 4616586311328213433, guid: db5a3392c06b79043934d857c86ab4a0, type: 3}
+      propertyPath: 'soundList.Array.data[5].sounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 93fd0e19aa10e034eb249e6c675810cd, type: 3}
     - target: {fileID: 7640858086646096401, guid: db5a3392c06b79043934d857c86ab4a0, type: 3}
       propertyPath: m_Name
       value: AudioManager

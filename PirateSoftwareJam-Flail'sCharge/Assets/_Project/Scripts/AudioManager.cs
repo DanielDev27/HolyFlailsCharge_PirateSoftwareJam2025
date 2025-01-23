@@ -1,4 +1,5 @@
 using System;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -6,16 +7,16 @@ using UnityEngine.Audio;
 // Each entry represents a type of sound that can be played
 public enum SoundType
 {
-    FLAIL,
+    FLAIL, //0
     MAGIC,
     ARROW,
     HURTGOBLIN,
     HURTORC,
-    MENUCLICK,
+    MENUCLICK, //5
     MENUHOVER,
     VICTORY,
     DEFEAT,
-    SPAWNBOSS
+    SPAWNBOSS //9
 }
 
 [RequireComponent(typeof(AudioSource)), ExecuteInEditMode] // Ensures an AudioSource component is present and allows this script to run in edit mode
@@ -36,34 +37,23 @@ public class AudioManager : MonoBehaviour
     // - volume: The volume at which to play the sound (default is 1)
     public void PlaySound(int sound){
         // Get the array of sound clips associated with the specified sound type
+        
         AudioClip[] clips = instance.soundList[sound].Sounds;
 
         // Select a random sound clip from the array
-        AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length)];
+        if(clips.Length > 1){
+        AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length - 1)];
+        instance.audioSource.PlayOneShot(randomClip, 1);
+        }
+        else {
+            AudioClip clip = clips[0];
+            instance.audioSource.PlayOneShot(clip, 1);
+        }
 
         // Play the selected sound clip at the specified volume
-        instance.audioSource.PlayOneShot(randomClip, 1);
+        
+        print("Played sound" + sound);
     }
-
-#if UNITY_EDITOR
-    // Called when the script is enabled in the editor
-    private void OnEnable()
-    {
-        print("I have run in edit mode"); 
-
-        // Get the names of all enum values in the SoundType enum
-        string[] names = Enum.GetNames(typeof(SoundType));
-
-        // Initialize the soundList array with the same length as the number of enum values
-        soundList = new SoundList[names.Length];
-
-        // Populate the soundList array with SoundList objects
-        for (int i = 0; i < names.Length; i++) {
-        // Create a new SoundList object and set its name to the corresponding enum value
-            soundList[i] = new SoundList { name = names[i] };
-        }
-    }
-#endif
 }
 
 // Serializable class to represent a list of sounds associated with a specific SoundType
