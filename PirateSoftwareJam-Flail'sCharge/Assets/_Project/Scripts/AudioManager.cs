@@ -57,7 +57,7 @@ public class AudioManager : MonoBehaviour
         string[] names = Enum.GetNames(typeof(SoundType));
         Array.Resize(ref soundList, names.Length);
         for (int i = 0; i < soundList.Length; i++){
-            soundList[i].name = names[i];
+            soundList[i].name = names[i].ToString();
         }
     }
 
