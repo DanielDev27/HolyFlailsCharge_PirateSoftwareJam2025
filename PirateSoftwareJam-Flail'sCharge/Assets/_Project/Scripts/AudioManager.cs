@@ -18,8 +18,7 @@ public enum SoundType
     SPAWNBOSS, 
     SPAWNWAVE, //10
     ATTACKSWORD, 
-    ATTACKMAGIC,
-    TESTWORD
+    ATTACKMAGIC
 }
 
 [RequireComponent(typeof(AudioSource)), ExecuteInEditMode] // Ensures an AudioSource component is present and allows this script to run in edit mode
