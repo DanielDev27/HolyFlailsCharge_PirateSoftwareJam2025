@@ -20,6 +20,8 @@ public enum SoundType
     SPAWNWAVE, //10
     ATTACKSWORD, 
     ATTACKMAGIC,
+    TEST1,
+    TEST2
 }
 
 [RequireComponent(typeof(AudioSource)), ExecuteInEditMode] // Ensures an AudioSource component is present and allows this script to run in edit mode
@@ -34,10 +36,6 @@ public class AudioManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>(); 
     }
 
-    // Static method to play a sound of the specified SoundType
-    // Parameters:
-    // - sound: The type of sound to play (from the SoundType enum)
-    // - volume: The volume at which to play the sound (default is 1)
     public void PlaySound(int sound){
         // Get the array of sound clips associated with the specified sound type
         
@@ -45,27 +43,32 @@ public class AudioManager : MonoBehaviour
 
         // Select a random sound clip from the array
         if(clips.Length > 1){
-        AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length - 1)];
+        AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length)];
         instance.audioSource.PlayOneShot(randomClip, 1);
         }
         else {
             AudioClip clip = clips[0];
             instance.audioSource.PlayOneShot(clip, 1);
         }
-
-        // Play the selected sound clip at the specified volume
-        
-        print("Played sound" + sound);
     }
+
+#if UNITY_EDITOR
+    private void OnEnable(){
+        string[] names = Enum.GetNames(typeof(SoundType));
+        Array.Resize(ref soundList, names.Length);
+        for (int i = 0; i < soundList.Length; i++){
+            soundList[i].name = names[i];
+        }
+    }
+
+#endif
 }
 
 // Serializable class to represent a list of sounds associated with a specific SoundType
 [Serializable]
 public class SoundList
 {
-    public string Name { get => name; set => name = value; } // Public property to get or set the name of the sound list
-    public AudioClip[] Sounds { get => sounds; } // Public getter for the array of sound clips
-
-    [SerializeField] public string name; // The name of the sound type (matches the SoundType enum)
-    [SerializeField] public AudioClip[] sounds; // Array of sound clips associated with this sound type
+    public AudioClip[] Sounds { get => Sounds; }
+    [SerializeField] public string name;
+    [SerializeField] private AudioClip[] sounds;
 }
