@@ -574,7 +574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6773593087978517261, guid: 49f0c09badf86b74c87f492a80aee7d9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.72
+      value: 11.33
       objectReference: {fileID: 0}
     - target: {fileID: 6773593087978517261, guid: 49f0c09badf86b74c87f492a80aee7d9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -582,7 +582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6773593087978517261, guid: 49f0c09badf86b74c87f492a80aee7d9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 20.35
+      value: -9.99
       objectReference: {fileID: 0}
     - target: {fileID: 6773593087978517261, guid: 49f0c09badf86b74c87f492a80aee7d9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1104,10 +1104,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Final Zone
       objectReference: {fileID: 0}
-    - target: {fileID: 5785890634751043507, guid: 3d8a70030cff36d4b997d2ac18506d80, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7202240474962135200, guid: 3d8a70030cff36d4b997d2ac18506d80, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1170,14 +1166,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Total Floor
       objectReference: {fileID: 0}
-    - target: {fileID: 1186074337752588819, guid: fcdfb96ff06686b48ab2d45401c5257e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2115228439668623505, guid: fcdfb96ff06686b48ab2d45401c5257e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2390714364322837081, guid: fcdfb96ff06686b48ab2d45401c5257e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1236,6 +1224,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 591672756}
     m_Modifications:
+    - target: {fileID: 978560839302384964, guid: 0ccaeb087f77c8549ba39eea75747bac, type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 978560839302384964, guid: 0ccaeb087f77c8549ba39eea75747bac, type: 3}
+      propertyPath: m_EnableTreeColliders
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1928846119570134199, guid: 0ccaeb087f77c8549ba39eea75747bac, type: 3}
       propertyPath: m_PolyMesh.m_Mesh
       value: 
@@ -1244,6 +1240,10 @@ PrefabInstance:
       propertyPath: m_OriginalMeshObject
       value: 
       objectReference: {fileID: 446998999}
+    - target: {fileID: 3643958597962470812, guid: 0ccaeb087f77c8549ba39eea75747bac, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6270579061819252713, guid: 0ccaeb087f77c8549ba39eea75747bac, type: 3}
       propertyPath: m_PolyMesh.m_Mesh
       value: 
@@ -1432,10 +1432,6 @@ PrefabInstance:
     - target: {fileID: 9093770799954183696, guid: 73f8dc5002c983f49be47d38550edaf4, type: 3}
       propertyPath: m_Name
       value: Inner Zone
-      objectReference: {fileID: 0}
-    - target: {fileID: 9093770799954183696, guid: 73f8dc5002c983f49be47d38550edaf4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
