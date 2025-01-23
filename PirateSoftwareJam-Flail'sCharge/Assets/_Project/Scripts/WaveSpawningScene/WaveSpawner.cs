@@ -76,8 +76,6 @@ public class WaveSpawner : MonoBehaviour {
 
     //Non-Test Functions
     private void NextWave () {
-        HUD.instance?.IncrementWaveCount ();
-
         countdownTimer -= Time.deltaTime;
         if (countdownTimer <= 0) {
             CullEnemies ();
@@ -89,6 +87,7 @@ public class WaveSpawner : MonoBehaviour {
             GenerateWave ();
             countdownTimer = waveCoolDown;
             currentWaveNumber = currentWaveData.waveNumber;
+            HUD.instance?.IncrementWaveCount ();
         }
     }
 
