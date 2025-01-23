@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b0fadbe821587d448f270125a254ddb, type: 3}
+  m_Name: Wave2Data
+  m_EditorClassIdentifier: 
+  waveNumber: 2
+  ListOfUnitsToSpawn:
+  - {fileID: 110172391928739149, guid: be09111b4ffbfbe4f9a58a2322687c4d, type: 3}
+  - {fileID: 110172391928739149, guid: be09111b4ffbfbe4f9a58a2322687c4d, type: 3}
+  ListOfUnitsSpawnLocations: []
