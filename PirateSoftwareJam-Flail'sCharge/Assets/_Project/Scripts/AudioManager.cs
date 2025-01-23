@@ -34,15 +34,15 @@ public class AudioManager : MonoBehaviour
     // Parameters:
     // - sound: The type of sound to play (from the SoundType enum)
     // - volume: The volume at which to play the sound (default is 1)
-    public static void PlaySound(SoundType sound, float volume = 1){
+    public void PlaySound(int sound){
         // Get the array of sound clips associated with the specified sound type
-        AudioClip[] clips = instance.soundList[(int)sound].Sounds;
+        AudioClip[] clips = instance.soundList[sound].Sounds;
 
         // Select a random sound clip from the array
         AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length)];
 
         // Play the selected sound clip at the specified volume
-        instance.audioSource.PlayOneShot(randomClip, volume);
+        instance.audioSource.PlayOneShot(randomClip, 1);
     }
 
 #if UNITY_EDITOR
