@@ -10,8 +10,7 @@ public class Health : MonoBehaviour
 
     public int maxHp;
 
-    [Header("Damage Settings")]
-    [SerializeField] int damage;
+
 
     [Header("Death Settings")]
     public bool slowmoOnDeath = false;
@@ -51,7 +50,6 @@ public class Health : MonoBehaviour
             aiScript = this.GetComponentInParent<AIScript>();
             //Refactored to pull information from the SO
             maxHp = (int)aiScript.enemySO.EnemyMaxHealth;
-            damage = (int)aiScript.enemySO.EnemyDamage;
             damageCooldownTime = aiScript.enemySO.EnemyAttackCD;
         }
 
@@ -69,6 +67,8 @@ public class Health : MonoBehaviour
         if (Player && !isDying)
         {
             currentHp -= (damageAmount);
+            HUD.instance.UpdateDisplayedHealth(currentHp);
+
         }
         else
         {
@@ -76,7 +76,6 @@ public class Health : MonoBehaviour
             //if (IsInvincible) return;
             if (isDying) return;
             currentHp -= (damageAmount);
-            //onHit.Invoke (currentHp);
             //StartCoroutine (DamageCooldown ());
         }
 
@@ -113,10 +112,7 @@ public class Health : MonoBehaviour
             _coroutineActivated = false;
         }
     }*/
-    public float GetDamage()
-    {
-        return damage;
-    }
+
 
 
 }

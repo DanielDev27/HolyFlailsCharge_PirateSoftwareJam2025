@@ -9,6 +9,10 @@ public class Damage : MonoBehaviour
     [SerializeField] int damage;
     //Damage trigger for entering a collider
 
+    public int GetDamage()
+    {
+        return damage;
+    }
     void Awake()
     {
         //Fill hp to its max
@@ -20,6 +24,8 @@ public class Damage : MonoBehaviour
         else
         {
             aiScript = this.GetComponentInParent<AIScript>();
+            damage = (int)aiScript.enemySO.EnemyDamage;
+
 
         }
 

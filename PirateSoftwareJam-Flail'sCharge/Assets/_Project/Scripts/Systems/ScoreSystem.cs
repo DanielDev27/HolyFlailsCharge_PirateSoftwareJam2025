@@ -1,26 +1,41 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class ScoreSystem : MonoBehaviour {
-    [Header ("Score")]
-    [FormerlySerializedAs ("_score")] public float score;
+public class ScoreSystem : MonoBehaviour
+{
 
-    [Header ("Score Settings")]
+    public static ScoreSystem instance;
+
+    [Header("Score")]
+    [FormerlySerializedAs("_score")] public float score;
+
+    [Header("Score Settings")]
     [SerializeField] float killScoreIncrease;
 
     [SerializeField] float damageScoreIncrease;
 
-    void OnEnable () {
+    private void Start()
+    {
+        instance = this;
+    }
+    void OnEnable()
+    {
         score = 0;
     }
 
-    public void AddScoreKill () {
+    public void AddScoreKill()
+    {
         score += killScoreIncrease;
-        Debug.Log ("Score increased to: " + score);
+        Debug.Log("Score increased to: " + score);
     }
 
-    public void AddScoreDamage () {
+    public void AddScoreDamage()
+    {
         score += damageScoreIncrease;
-        Debug.Log ("Score increased to: " + score);
+        Debug.Log("Score increased to: " + score);
+    }
+
+    void UpdateHUDScore(){
+        HUD.instance.UpdateScoreText(score);
     }
 }
