@@ -561,6 +561,84 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: b6318ad7c18b46a40a48b62539dad565, type: 2}
   m_BuildHeightMesh: 0
+--- !u!1001 &766738975
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1681225112}
+    m_Modifications:
+    - target: {fileID: 2922847042096137786, guid: a3b88e64e999ab44a97765a1df8364b1, type: 3}
+      propertyPath: MaxDistance
+      value: 40.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922847042096137786, guid: a3b88e64e999ab44a97765a1df8364b1, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].time
+      value: 0.6970595
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922847042096137786, guid: a3b88e64e999ab44a97765a1df8364b1, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].value
+      value: 0.7412027
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922847042096137786, guid: a3b88e64e999ab44a97765a1df8364b1, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692383617328989953, guid: a3b88e64e999ab44a97765a1df8364b1, type: 3}
+      propertyPath: m_Name
+      value: AMB Holder Field Environment (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8027861807342130853, guid: a3b88e64e999ab44a97765a1df8364b1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -29.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8027861807342130853, guid: a3b88e64e999ab44a97765a1df8364b1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 8027861807342130853, guid: a3b88e64e999ab44a97765a1df8364b1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -29.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8027861807342130853, guid: a3b88e64e999ab44a97765a1df8364b1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8027861807342130853, guid: a3b88e64e999ab44a97765a1df8364b1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8027861807342130853, guid: a3b88e64e999ab44a97765a1df8364b1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8027861807342130853, guid: a3b88e64e999ab44a97765a1df8364b1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8027861807342130853, guid: a3b88e64e999ab44a97765a1df8364b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8027861807342130853, guid: a3b88e64e999ab44a97765a1df8364b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8027861807342130853, guid: a3b88e64e999ab44a97765a1df8364b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a3b88e64e999ab44a97765a1df8364b1, type: 3}
+--- !u!4 &766738976 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8027861807342130853, guid: a3b88e64e999ab44a97765a1df8364b1, type: 3}
+  m_PrefabInstance: {fileID: 766738975}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &769389096
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1430,6 +1508,7 @@ Transform:
   - {fileID: 1888174624}
   - {fileID: 519826714}
   - {fileID: 1432736109}
+  - {fileID: 766738976}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1888174624 stripped
@@ -1883,6 +1962,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: AMB Holder Forest Environment
       objectReference: {fileID: 0}
+    - target: {fileID: 7525988885014614998, guid: 4c1f7566366c37c458813857a4d35a31, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].time
+      value: 0.7036208
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525988885014614998, guid: 4c1f7566366c37c458813857a4d35a31, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].value
+      value: 0.7460474
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525988885014614998, guid: 4c1f7566366c37c458813857a4d35a31, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].value
+      value: 0.004852295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525988885014614998, guid: 4c1f7566366c37c458813857a4d35a31, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].inSlope
+      value: 0.000024622772
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525988885014614998, guid: 4c1f7566366c37c458813857a4d35a31, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].inWeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525988885014614998, guid: 4c1f7566366c37c458813857a4d35a31, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].outSlope
+      value: 0.000024622772
+      objectReference: {fileID: 0}
     - target: {fileID: 9203470369832628753, guid: 4c1f7566366c37c458813857a4d35a31, type: 3}
       propertyPath: m_LocalPosition.x
       value: 43.6
@@ -1936,6 +2039,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1681225112}
     m_Modifications:
+    - target: {fileID: 2922847042096137786, guid: a3b88e64e999ab44a97765a1df8364b1, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].time
+      value: 0.6970595
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922847042096137786, guid: a3b88e64e999ab44a97765a1df8364b1, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].value
+      value: 0.7412027
+      objectReference: {fileID: 0}
     - target: {fileID: 7692383617328989953, guid: a3b88e64e999ab44a97765a1df8364b1, type: 3}
       propertyPath: m_Name
       value: AMB Holder Field Environment
