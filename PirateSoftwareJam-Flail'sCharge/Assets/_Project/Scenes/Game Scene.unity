@@ -636,7 +636,7 @@ MonoBehaviour:
   isDying: 0
   damageCooldownTime: 0
   scoreSystemScript: {fileID: 0}
-  Player: 0
+  Player: 1
   playerController: {fileID: 0}
   aiScript: {fileID: 0}
 --- !u!114 &769389100
@@ -1514,6 +1514,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1139531561}
     m_Modifications:
+    - target: {fileID: 461023698582045327, guid: 0454dd11e70acf342b655d0c4670b8a5, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1113289344711007153, guid: 0454dd11e70acf342b655d0c4670b8a5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1597,6 +1601,10 @@ PrefabInstance:
     - target: {fileID: 2108395265301106502, guid: 0454dd11e70acf342b655d0c4670b8a5, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2530978907583984936, guid: 0454dd11e70acf342b655d0c4670b8a5, type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2530978907583984936, guid: 0454dd11e70acf342b655d0c4670b8a5, type: 3}
       propertyPath: m_TargetGraphic
