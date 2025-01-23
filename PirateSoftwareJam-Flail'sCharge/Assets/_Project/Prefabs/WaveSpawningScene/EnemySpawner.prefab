@@ -45,13 +45,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 6337187256111496943, guid: dfd73e22f2a339646bdb92d806c815e7, type: 3}
-  - {fileID: 8016742817443684664, guid: 12d664736b82e2749a1ceca4baeb12f8, type: 3}
-  - {fileID: 4362303626773835296, guid: bf5319e050fd4624fa0e3558fabef510, type: 3}
+  - {fileID: 8273190334839793325, guid: 4a641da95d086784e8c1b369d7c71861, type: 3}
+  - {fileID: 2580785512730965626, guid: d46dda100bc42c24e884c88c4a385bf4, type: 3}
+  - {fileID: 7219797007166471575, guid: f9f2508793211cd4cadf243e939749ce, type: 3}
+  miniBossPrefab:
+  - {fileID: 720624507401919619, guid: f2129dba6eac1254dbef3062b17c0f95, type: 3}
+  bossPrefab:
+  - {fileID: 5136856809743100676, guid: 18e1ce65b75cf5b4ab8392d62b303b7b, type: 3}
+  miniBossWaves: 050000000a0000000f00000014000000190000001e00000023000000280000002d000000
+  bossWaveNumber: 20
+  maxEnemiesAlive: 15
   spawnPoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  countdown: 8
+  waveData:
+  - {fileID: 11400000, guid: 41bd5e81a95984c40a1cf04ce881dba9, type: 2}
+  - {fileID: 11400000, guid: 2ab25b9d5bf7414419ea3676eca389f0, type: 2}
+  - {fileID: 11400000, guid: 3b012982ce68f3f4d986ca1f72fe8387, type: 2}
+  - {fileID: 11400000, guid: d580cb6a27a23e1409d0826b25a52828, type: 2}
+  - {fileID: 11400000, guid: 209a4e3b487a8fa4d98c66d8c0270c74, type: 2}
+  - {fileID: 11400000, guid: c85dcf4c05fbe704ca981a49faaa5fb0, type: 2}
+  - {fileID: 11400000, guid: 2e70af88495e2554093e8440ef23eadf, type: 2}
+  - {fileID: 11400000, guid: fa9b02bbbfa02f0438a42369c6385927, type: 2}
+  - {fileID: 11400000, guid: fcc04c5058459b14dad62005ad1b4276, type: 2}
+  - {fileID: 11400000, guid: 6499b2e8920921245a0c133abb897b9b, type: 2}
+  waveCoolDown: 8
   enemiesPerWave: 0
+  testEnemiesToSpawn: 3
+  enemySpawnDelay: 1.5
+  miniBossSpawnDelay: 5
+  finalBossSpawnDelay: 10
   spawnVariance: 3

@@ -706,7 +706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22792b18ddaa810428b4f4eee1515907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aiScript: {fileID: 2646859293947082187, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
+  score: 0
   killScoreIncrease: 100
   damageScoreIncrease: 10
 --- !u!1001 &1145514413
@@ -1583,34 +1583,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner
       objectReference: {fileID: 0}
-    - target: {fileID: 4592497420868729487, guid: bede9d61c827d7444b61e10d4a002af8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5594823325841469419, guid: bede9d61c827d7444b61e10d4a002af8, type: 3}
-      propertyPath: testEnemiesToSpawn
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5594823325841469419, guid: bede9d61c827d7444b61e10d4a002af8, type: 3}
-      propertyPath: BossPrefab.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5594823325841469419, guid: bede9d61c827d7444b61e10d4a002af8, type: 3}
-      propertyPath: bossPrefab.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5594823325841469419, guid: bede9d61c827d7444b61e10d4a002af8, type: 3}
-      propertyPath: 'BossPrefab.Array.data[0]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5594823325841469419, guid: bede9d61c827d7444b61e10d4a002af8, type: 3}
-      propertyPath: 'bossPrefab.Array.data[0]'
-      value: 
-      objectReference: {fileID: 5136856809743100676, guid: 18e1ce65b75cf5b4ab8392d62b303b7b, type: 3}
-    - target: {fileID: 5594823325841469419, guid: bede9d61c827d7444b61e10d4a002af8, type: 3}
-      propertyPath: miniBossPrefab.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5594823325841469419, guid: bede9d61c827d7444b61e10d4a002af8, type: 3}
       propertyPath: 'spawnPoints.Array.data[0]'
       value: 
@@ -1623,22 +1595,6 @@ PrefabInstance:
       propertyPath: 'spawnPoints.Array.data[2]'
       value: 
       objectReference: {fileID: 4515248845692626156}
-    - target: {fileID: 5594823325841469419, guid: bede9d61c827d7444b61e10d4a002af8, type: 3}
-      propertyPath: 'enemyPrefabs.Array.data[0]'
-      value: 
-      objectReference: {fileID: 8273190334839793325, guid: 4a641da95d086784e8c1b369d7c71861, type: 3}
-    - target: {fileID: 5594823325841469419, guid: bede9d61c827d7444b61e10d4a002af8, type: 3}
-      propertyPath: 'enemyPrefabs.Array.data[1]'
-      value: 
-      objectReference: {fileID: 2580785512730965626, guid: d46dda100bc42c24e884c88c4a385bf4, type: 3}
-    - target: {fileID: 5594823325841469419, guid: bede9d61c827d7444b61e10d4a002af8, type: 3}
-      propertyPath: 'enemyPrefabs.Array.data[2]'
-      value: 
-      objectReference: {fileID: 7219797007166471575, guid: f9f2508793211cd4cadf243e939749ce, type: 3}
-    - target: {fileID: 5594823325841469419, guid: bede9d61c827d7444b61e10d4a002af8, type: 3}
-      propertyPath: 'miniBossPrefab.Array.data[0]'
-      value: 
-      objectReference: {fileID: 720624507401919619, guid: f2129dba6eac1254dbef3062b17c0f95, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

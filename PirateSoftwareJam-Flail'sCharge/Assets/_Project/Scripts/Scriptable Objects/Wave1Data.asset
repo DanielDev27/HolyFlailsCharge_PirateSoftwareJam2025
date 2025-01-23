@@ -17,4 +17,6 @@ MonoBehaviour:
   - {fileID: 9074906759742733164, guid: dc81922a39bf1f442ac1435bb7827e7a, type: 3}
   - {fileID: 9074906759742733164, guid: dc81922a39bf1f442ac1435bb7827e7a, type: 3}
   - {fileID: 9074906759742733164, guid: dc81922a39bf1f442ac1435bb7827e7a, type: 3}
-  ListOfUnitsSpawnLocations: []
+  ListOfUnitsSpawnLocations:
+  - {fileID: 0}
+  maxEnemiesAlive: 2
