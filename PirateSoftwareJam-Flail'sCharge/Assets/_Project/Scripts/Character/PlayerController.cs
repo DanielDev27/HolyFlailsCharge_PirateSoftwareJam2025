@@ -27,10 +27,10 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] GameObject playerAvatar;
     [SerializeField] Transform cameraTransform;
     [SerializeField] Animator animator;
-    [SerializeField] Health healthScript;
     [SerializeField] public PlayerInput playerInput;
     [SerializeField] PlayerInputActions playerInputActions;
     [SerializeField] PlayerInputHandler playerInputHandler;
+    [SerializeField] Health healthScript;
     [SerializeField] public GameObject weaponTrigger;
 
     [Header ("Settings")]
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour {
 
         //Set values and references
         isDead = false;
-        healthScript = GetComponentInChildren<Health> ();
+        healthScript = GetComponent<Health> ();
         healthScript.ResetHealth ();
         health = healthScript.maxHp;
         attackCD = healthScript.damageCooldownTime;

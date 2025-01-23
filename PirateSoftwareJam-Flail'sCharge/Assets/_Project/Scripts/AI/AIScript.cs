@@ -34,7 +34,6 @@ public class AIScript : MonoBehaviour
     [SerializeField] public Enemy enemySO;
 
     [SerializeField] public Health healthScript;
-    [SerializeField] public Damage damageScript;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator animator;
     [SerializeField] public GameObject weaponTrigger;
@@ -58,7 +57,7 @@ public class AIScript : MonoBehaviour
         player = FindObjectOfType<PlayerController>();
         playerReference = player?.gameObject;
         //Health Script Reference
-        healthScript = GetComponentInChildren<Health>();
+        healthScript = GetComponent<Health>();
         healthScript.ResetHealth();
         //Score Script Reference
         scoreSystemScript = FindFirstObjectByType<ScoreSystem>();

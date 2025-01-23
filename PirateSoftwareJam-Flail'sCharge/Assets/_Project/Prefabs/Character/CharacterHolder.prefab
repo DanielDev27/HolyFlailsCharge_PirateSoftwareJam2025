@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 6773593087978517261}
   - component: {fileID: 3317204891117722609}
   - component: {fileID: 2362197531249372253}
+  - component: {fileID: 1240043694565388611}
   - component: {fileID: 1577998190959723489}
   - component: {fileID: 1364387067131923128}
   - component: {fileID: 9144666797469199403}
@@ -260,11 +261,34 @@ MonoBehaviour:
   playerAvatar: {fileID: 1856052405496884196}
   cameraTransform: {fileID: 2213474039271473466}
   animator: {fileID: 9144666797469199403}
-  healthScript: {fileID: 8666654157372227753}
   playerInput: {fileID: 3317204891117722609}
+  healthScript: {fileID: 0}
   weaponTrigger: {fileID: 8609598365875321043}
   movementSpeed: 5
   attackCD: 0
+--- !u!114 &1240043694565388611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5195184926594912488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4281788382e39c4589428fc5223ce25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHp: 0
+  maxHp: 1000
+  slowmoOnDeath: 0
+  stopVinyl: 0
+  timeBeforeDeath: 0
+  isDying: 0
+  damageCooldownTime: 1
+  scoreSystemScript: {fileID: 0}
+  Player: 1
+  playerController: {fileID: 0}
+  aiScript: {fileID: 0}
 --- !u!54 &1577998190959723489
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -515,7 +539,7 @@ GameObject:
   - component: {fileID: 2587608912626828628}
   - component: {fileID: 762957910668557580}
   - component: {fileID: 5034433914562094977}
-  - component: {fileID: 8666654157372227753}
+  - component: {fileID: 7765233537874527144}
   m_Layer: 7
   m_Name: WeaponTemp
   m_TagString: Untagged
@@ -586,7 +610,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &8666654157372227753
+--- !u!114 &7765233537874527144
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -595,19 +619,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8609598365875321043}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4281788382e39c4589428fc5223ce25, type: 3}
+  m_Script: {fileID: 11500000, guid: 75311f4a5b2e4be469d1110fa98dfabc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHp: 0
-  maxHp: 1000
-  damage: 5
-  slowmoOnDeath: 0
-  stopVinyl: 0
-  timeBeforeDeath: 0
-  OnCooldown: 0
-  damageCooldownTime: 1
-  isDying: 0
-  IsInvincible: 0
   Player: 1
   playerController: {fileID: 0}
   aiScript: {fileID: 0}
+  damage: 5

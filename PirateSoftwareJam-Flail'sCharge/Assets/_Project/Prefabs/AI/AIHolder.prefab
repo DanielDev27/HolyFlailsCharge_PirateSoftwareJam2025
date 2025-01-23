@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4337931503387777466}
   - component: {fileID: 360353500231038774}
   - component: {fileID: 8758847272081124414}
+  - component: {fileID: 1894635628298333977}
   m_Layer: 6
   m_Name: AIHolder
   m_TagString: Untagged
@@ -81,19 +82,23 @@ MonoBehaviour:
   playerReference: {fileID: 0}
   directionToPlayer: {x: 0, y: 0, z: 0}
   distanceToPlayer: 0
+  isPaused: 0
   currentState: 0
+  returnState: 0
   coroutineInProgress: 0
   isMoving: 0
   isAttacking: 0
   isDead: 0
+  canSeePlayer: 0
   health: 0
   moveSpeed: 1
   attackCD: 0
   enemySO: {fileID: 0}
-  healthScript: {fileID: 6206505313733825757}
+  healthScript: {fileID: 0}
   agent: {fileID: 4337931503387777466}
   animator: {fileID: 360353500231038774}
   weaponTrigger: {fileID: 5650357827301214207}
+  projectile: {fileID: 0}
   weaponReach: 1.5
   ranged: 0
   obstructionLayerMask:
@@ -165,6 +170,29 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.6
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1894635628298333977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4257402497276743991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4281788382e39c4589428fc5223ce25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHp: 0
+  maxHp: 10
+  slowmoOnDeath: 0
+  stopVinyl: 0
+  timeBeforeDeath: 0
+  isDying: 0
+  damageCooldownTime: 2
+  scoreSystemScript: {fileID: 0}
+  Player: 0
+  playerController: {fileID: 0}
+  aiScript: {fileID: 0}
 --- !u!1 &5650357827301214207
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +204,7 @@ GameObject:
   - component: {fileID: 6544811243983895262}
   - component: {fileID: 1802784250065204889}
   - component: {fileID: 855880336699444105}
-  - component: {fileID: 6206505313733825757}
+  - component: {fileID: 7756000864898772971}
   m_Layer: 6
   m_Name: WeaponTemp
   m_TagString: Untagged
@@ -247,7 +275,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &6206505313733825757
+--- !u!114 &7756000864898772971
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -256,20 +284,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5650357827301214207}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4281788382e39c4589428fc5223ce25, type: 3}
+  m_Script: {fileID: 11500000, guid: 75311f4a5b2e4be469d1110fa98dfabc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHp: 0
-  maxHp: 10
-  damage: 10
-  slowmoOnDeath: 0
-  stopVinyl: 0
-  timeBeforeDeath: 0
-  isDying: 0
-  damageCooldownTime: 2
   Player: 0
   playerController: {fileID: 0}
   aiScript: {fileID: 0}
+  damage: 0
 --- !u!1 &9058490786642940101
 GameObject:
   m_ObjectHideFlags: 0

@@ -43,11 +43,11 @@ public class Health : MonoBehaviour
         //Fill hp to its max
         if (Player)
         {
-            playerController = this.GetComponentInParent<PlayerController>();
+            playerController = this.GetComponent<PlayerController>();
         }
         else
         {
-            aiScript = this.GetComponentInParent<AIScript>();
+            aiScript = this.GetComponent<AIScript>();
             //Refactored to pull information from the SO
             maxHp = (int)aiScript.enemySO.EnemyMaxHealth;
             damageCooldownTime = aiScript.enemySO.EnemyAttackCD;
@@ -67,7 +67,7 @@ public class Health : MonoBehaviour
         if (Player && !isDying)
         {
             currentHp -= (damageAmount);
-            HUD.instance.UpdateDisplayedHealth(currentHp);
+            HUD.instance?.UpdateDisplayedHealth(currentHp);
 
         }
         else
