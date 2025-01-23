@@ -178,3 +178,5 @@ MonoBehaviour:
     sounds: []
   - name: ATTACKMAGIC
     sounds: []
+  - name: TESTWORD
+    sounds: []
