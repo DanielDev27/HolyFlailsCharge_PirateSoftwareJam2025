@@ -282,3 +282,4 @@ Material:
     - _WaterShallowColor: {r: 0.47192374, g: 0.541, b: 0.26138204, a: 1}
     - _WaterShallowColor1: {r: 0.9607843, g: 0.7882353, b: 0.5764706, a: 0}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
