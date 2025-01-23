@@ -22,13 +22,12 @@ public enum SoundType
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private SoundList[] soundList; // Array to store lists of sounds, each associated with a specific SoundType
-    private static AudioManager instance; // Singleton instance of the AudioManager
-    private AudioSource audioSource; // Reference to the AudioSource component
+    private static AudioManager instance; 
+    private AudioSource audioSource; 
 
-    // Called when the script instance is being loaded
     private void Awake(){
         instance = this; // Set the static instance to this script instance
-        audioSource = GetComponent<AudioSource>(); // Cache the AudioSource component for playing sounds
+        audioSource = GetComponent<AudioSource>(); 
     }
 
     // Static method to play a sound of the specified SoundType
@@ -50,7 +49,7 @@ public class AudioManager : MonoBehaviour
     // Called when the script is enabled in the editor
     private void OnEnable()
     {
-        Debug.Log("I have run in edit mode"); // Log a message to indicate that the script has run in edit mode
+        print("I have run in edit mode"); 
 
         // Get the names of all enum values in the SoundType enum
         string[] names = Enum.GetNames(typeof(SoundType));
@@ -60,7 +59,7 @@ public class AudioManager : MonoBehaviour
 
         // Populate the soundList array with SoundList objects
         for (int i = 0; i < names.Length; i++) {
-            // Create a new SoundList object and set its name to the corresponding enum value
+        // Create a new SoundList object and set its name to the corresponding enum value
             soundList[i] = new SoundList { name = names[i] };
         }
     }
@@ -75,5 +74,5 @@ public class SoundList
     public AudioClip[] Sounds { get => sounds; } // Public getter for the array of sound clips
 
     [SerializeField] public string name; // The name of the sound type (matches the SoundType enum)
-    [SerializeField] private AudioClip[] sounds; // Array of sound clips associated with this sound type
+    [SerializeField] public AudioClip[] sounds; // Array of sound clips associated with this sound type
 }
