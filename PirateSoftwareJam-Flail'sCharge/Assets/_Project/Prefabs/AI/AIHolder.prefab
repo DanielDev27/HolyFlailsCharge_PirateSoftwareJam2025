@@ -175,8 +175,8 @@ MonoBehaviour:
   animator: {fileID: 360353500231038774}
   weaponTrigger: {fileID: 5650357827301214207}
   projectile: {fileID: 6233235450677050260, guid: 837e8ef18dacea14dadfbebfc8bfd89c, type: 3}
-  weaponReach: 5
-  ranged: 1
+  weaponReach: 1.5
+  ranged: 0
   obstructionLayerMask:
     serializedVersion: 2
     m_Bits: 129

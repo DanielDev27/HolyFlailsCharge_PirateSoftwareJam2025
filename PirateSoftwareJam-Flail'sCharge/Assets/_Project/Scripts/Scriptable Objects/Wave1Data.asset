@@ -19,4 +19,5 @@ MonoBehaviour:
   - {fileID: 7799217889801910561, guid: f81d6ad0644f2024dbc13fe6b4ebe161, type: 3}
   ListOfUnitsSpawnLocations:
   - {fileID: 0}
+  - {fileID: 0}
   maxEnemiesAlive: 2

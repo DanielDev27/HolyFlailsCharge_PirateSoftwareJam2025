@@ -9,9 +9,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2646859293947082187, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
+      propertyPath: ranged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646859293947082187, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
       propertyPath: enemySO
       value: 
       objectReference: {fileID: 11400000, guid: be997b0cd384c6349b2fe5923220f217, type: 2}
+    - target: {fileID: 2646859293947082187, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
+      propertyPath: weaponReach
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4110187576334100189, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -54,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4257402497276743991, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
       propertyPath: m_Name
-      value: Orc Mini Boss Variant
+      value: Mage Mini Boss Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -490,6 +490,10 @@ PrefabInstance:
       propertyPath: enemySO
       value: 
       objectReference: {fileID: 11400000, guid: a60a8a8514cd2964280dc800e0a533bc, type: 2}
+    - target: {fileID: 2646859293947082187, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
+      propertyPath: weaponReach
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3653837106098909298, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 1

@@ -3,65 +3,61 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class ScoreSystem : MonoBehaviour
-{
-
+public class ScoreSystem : MonoBehaviour {
     public static ScoreSystem instance;
 
     public bool isGameOver = false;
 
-    [Header("Score")]
-    [FormerlySerializedAs("_score")] public float score;
+    [Header ("Score")]
+    [FormerlySerializedAs ("_score")] public float score;
+
     int numberOfWaves;
 
-    [Header("Score Settings")]
+    [Header ("Score Settings")]
     [SerializeField] float killScoreIncrease;
 
     [SerializeField] float damageScoreIncrease;
 
-    [Header("Score UI")]
-
+    [Header ("Score UI")]
     [SerializeField] CanvasGroup gameEndCanvasGroup;
+
     [SerializeField] TMP_Text finalScoreText;
 
-    private void Start()
-    {
+    private void Start () {
         instance = this;
     }
-    void OnEnable()
-    {
+
+    void OnEnable () {
         numberOfWaves = 0;
         score = 0;
         isGameOver = false;
     }
 
-    public void AddScoreKill()
-    {
+    public void AddScoreKill () {
         score += killScoreIncrease;
-        Debug.Log("Score increased to: " + score);
+        Debug.Log ("Score increased to: " + score);
+        UpdateHUDScore ();
     }
 
-    public void AddScoreDamage()
-    {
+    public void AddScoreDamage () {
         score += damageScoreIncrease;
-        Debug.Log("Score increased to: " + score);
+        Debug.Log ("Score increased to: " + score);
+        UpdateHUDScore ();
     }
 
-    void UpdateHUDScore()
-    {
-        HUD.instance.UpdateScoreText(score);
+    void UpdateHUDScore () {
+        HUD.instance.UpdateScoreText (score);
     }
-    public void TriggerGameEnd()
-    {
+
+    public void TriggerGameEnd () {
         gameEndCanvasGroup.alpha = 1;
         gameEndCanvasGroup.interactable = true;
         gameEndCanvasGroup.blocksRaycasts = true;
         isGameOver = true;
         finalScoreText.text = "Your Score is " + score + Environment.NewLine + " You survived for " + numberOfWaves + "waves.";
     }
-    public void IncreaseWaveCounter()
-    {
+
+    public void IncreaseWaveCounter () {
         numberOfWaves += 1;
     }
-
 }
