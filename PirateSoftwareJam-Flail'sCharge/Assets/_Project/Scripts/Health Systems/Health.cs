@@ -30,12 +30,19 @@ public class Health : MonoBehaviour {
     public static UnityEvent<int> onHit;
 
     [Header ("References")]
+    //Other Systems
     [SerializeField] ScoreSystem scoreSystemScript;
 
-    [SerializeField] bool Player;
-    [SerializeField] PlayerController playerController;
-    [SerializeField] AIScript aiScript;
     [SerializeField] WaveSpawner waveSpawner;
+
+    //Player
+    [SerializeField] bool Player;
+
+    [SerializeField] PlayerController playerController;
+
+    //AI
+    [SerializeField] AIScript aiScript;
+    [SerializeField] HealthView healthView;
 
     void Awake () {
         //Fill hp to its max
@@ -43,12 +50,12 @@ public class Health : MonoBehaviour {
             playerController = this.GetComponent<PlayerController> ();
         } else {
             aiScript = this.GetComponent<AIScript> ();
+            healthView = this.GetComponentInChildren<HealthView> ();
             //Refactored to pull information from the SO
             maxHp = (int) aiScript.enemySO.EnemyMaxHealth;
             damageCooldownTime = aiScript.enemySO.EnemyAttackCD;
         }
 
-        ResetHealth ();
         //OnCooldown = false;
         //_coroutineActivated = false;
 
@@ -58,16 +65,27 @@ public class Health : MonoBehaviour {
 
     void OnEnable () { }
 
+    void Start () {
+        ResetHealth ();
+        if (!Player) {
+            healthView.UpdateHealthValue ((float) currentHp / (float) maxHp);
+        }
+    }
+
     public void TakeDamage (int damageAmount) //Take damage, if hp is below or equal to 0 - start death coroutine
     {
-        if (Player && !isDying) {
-            currentHp -= (damageAmount);
+        if (Player) {
+            if (!isDying) {
+                currentHp -= (damageAmount);
+            }
+
             HUD.instance?.UpdateDisplayedHealth (currentHp);
         } else {
             //if (OnCooldown) return;
             //if (IsInvincible) return;
             if (isDying) return;
             currentHp -= (damageAmount);
+            healthView.UpdateHealthValue ((float) currentHp / (float) maxHp);
             //StartCoroutine (DamageCooldown ());
         }
 
@@ -79,6 +97,9 @@ public class Health : MonoBehaviour {
 
     public void ResetHealth () {
         currentHp = maxHp;
+        if (Player) {
+            HUD.instance?.UpdateDisplayedHealth (currentHp);
+        }
     }
 
     IEnumerator DeathRoutine () //Wait for X seconds and then destroy entity

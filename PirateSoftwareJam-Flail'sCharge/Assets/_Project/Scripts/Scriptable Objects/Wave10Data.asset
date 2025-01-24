@@ -13,5 +13,14 @@ MonoBehaviour:
   m_Name: Wave10Data
   m_EditorClassIdentifier: 
   waveNumber: 10
-  ListOfUnitsToSpawn: []
-  ListOfUnitsSpawnLocations: []
+  ListOfUnitsToSpawn:
+  - {fileID: 7799217889801910561, guid: f81d6ad0644f2024dbc13fe6b4ebe161, type: 3}
+  - {fileID: 9074906759742733164, guid: dc81922a39bf1f442ac1435bb7827e7a, type: 3}
+  - {fileID: 9074906759742733164, guid: dc81922a39bf1f442ac1435bb7827e7a, type: 3}
+  - {fileID: 4858569914244012640, guid: 7601e049e7d85ff4d92ce539a3768c33, type: 3}
+  - {fileID: 7799217889801910561, guid: f81d6ad0644f2024dbc13fe6b4ebe161, type: 3}
+  ListOfUnitsSpawnLocations:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  maxEnemiesAlive: 4

@@ -44,21 +44,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e11618761e4dc94e82d25fd8ee6fbfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  countdownTimer: 0
+  currentWaveNumber: 1
+  enemiesAlive: 0
+  waveInProgress: 0
   enemyPrefabs:
   - {fileID: 8273190334839793325, guid: 4a641da95d086784e8c1b369d7c71861, type: 3}
   - {fileID: 2580785512730965626, guid: d46dda100bc42c24e884c88c4a385bf4, type: 3}
   - {fileID: 7219797007166471575, guid: f9f2508793211cd4cadf243e939749ce, type: 3}
-  miniBossPrefab:
-  - {fileID: 720624507401919619, guid: f2129dba6eac1254dbef3062b17c0f95, type: 3}
-  bossPrefab:
-  - {fileID: 5136856809743100676, guid: 18e1ce65b75cf5b4ab8392d62b303b7b, type: 3}
-  miniBossWaves: 050000000a0000000f00000014000000190000001e00000023000000280000002d000000
-  bossWaveNumber: 20
   maxEnemiesAlive: 15
   spawnPoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  waveCoolDown: 8
+  enemySpawnDelay: 1.5
   waveData:
   - {fileID: 11400000, guid: 41bd5e81a95984c40a1cf04ce881dba9, type: 2}
   - {fileID: 11400000, guid: 2ab25b9d5bf7414419ea3676eca389f0, type: 2}
@@ -70,10 +70,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fa9b02bbbfa02f0438a42369c6385927, type: 2}
   - {fileID: 11400000, guid: fcc04c5058459b14dad62005ad1b4276, type: 2}
   - {fileID: 11400000, guid: 6499b2e8920921245a0c133abb897b9b, type: 2}
-  waveCoolDown: 8
+  - {fileID: 11400000, guid: 757b9aae99a0b7442b31311b1853c988, type: 2}
+  - {fileID: 11400000, guid: 92728d4153dbf4f499eed32adf88e213, type: 2}
+  - {fileID: 11400000, guid: 62ac4c7cf883db24394f9438760fee87, type: 2}
+  - {fileID: 11400000, guid: f6e8a58baa08b5748aa949ba26d07398, type: 2}
+  - {fileID: 11400000, guid: 5947fccecf1d48940a923a1552e8cb84, type: 2}
+  - {fileID: 11400000, guid: c93db3d1849c9fd458541866cb7d0765, type: 2}
+  - {fileID: 11400000, guid: eb68c036d5d736240a32cce379398897, type: 2}
+  - {fileID: 11400000, guid: b3b83603101fabe4b8050e67e3fdd8d6, type: 2}
+  - {fileID: 11400000, guid: 3a294c0003f52e243a1843da19051655, type: 2}
+  - {fileID: 11400000, guid: 72882151922c1c842ad4533884051d4b, type: 2}
+  currentWaveData: {fileID: 0}
   enemiesPerWave: 0
-  testEnemiesToSpawn: 3
-  enemySpawnDelay: 1.5
-  miniBossSpawnDelay: 5
-  finalBossSpawnDelay: 10
   spawnVariance: 3
