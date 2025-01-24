@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuFunctionality : MonoBehaviour {
     [Header ("Main Menu")]
@@ -13,6 +15,12 @@ public class MenuFunctionality : MonoBehaviour {
     [SerializeField] Canvas pauseCanvas;
 
     [SerializeField] bool isPaused = false;
+
+    [Header ("Loading Screen")]
+    public GameObject loadingScreen;
+
+    public Image loadingProgressBar;
+    [SerializeField] bool isActive;
 
     //Event
     public static UnityEvent<bool> OnPause = new UnityEvent<bool> ();
@@ -33,7 +41,20 @@ public class MenuFunctionality : MonoBehaviour {
             return;
         }
 
-        SceneManager.LoadScene (_levelIndex);
+        StartCoroutine (LoadingSceneAsync (_levelIndex));
+    }
+
+    IEnumerator LoadingSceneAsync (int sceneID) {
+        loadingScreen?.SetActive (true);
+        yield return new WaitForSeconds (0.1f);
+        AsyncOperation _operation = SceneManager.LoadSceneAsync (sceneID);
+        while (!_operation.isDone) {
+            float progress = Mathf.Clamp01 (_operation.progress / 1f);
+            loadingProgressBar.fillAmount = progress;
+            yield return null;
+        }
+
+        Time.timeScale = 1f;
     }
 
     public void QuitGame () {
@@ -61,5 +82,4 @@ public class MenuFunctionality : MonoBehaviour {
         pauseCanvas.enabled = isPaused;
         OnPause.Invoke (isPaused);
     }
-
 }

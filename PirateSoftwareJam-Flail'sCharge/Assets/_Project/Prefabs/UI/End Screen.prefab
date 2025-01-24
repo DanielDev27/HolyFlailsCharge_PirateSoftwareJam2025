@@ -724,6 +724,9 @@ MonoBehaviour:
   creditsCanvas: {fileID: 0}
   pauseCanvas: {fileID: 5655781441073858529}
   isPaused: 0
+  loadingScreen: {fileID: 0}
+  loadingProgressBar: {fileID: 0}
+  isActive: 0
 --- !u!225 &8791509023464387492
 CanvasGroup:
   m_ObjectHideFlags: 0
