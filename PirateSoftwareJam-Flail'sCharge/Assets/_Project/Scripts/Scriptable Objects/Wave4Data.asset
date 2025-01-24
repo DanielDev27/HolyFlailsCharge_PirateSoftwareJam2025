@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveNumber: 4
   ListOfUnitsToSpawn:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 110172391928739149, guid: be09111b4ffbfbe4f9a58a2322687c4d, type: 3}
+  - {fileID: 110172391928739149, guid: be09111b4ffbfbe4f9a58a2322687c4d, type: 3}
+  - {fileID: 110172391928739149, guid: be09111b4ffbfbe4f9a58a2322687c4d, type: 3}
+  - {fileID: 9074750709642016873, guid: 42c73b5b0018ad149814516d9724128b, type: 3}
   ListOfUnitsSpawnLocations: []
+  maxEnemiesAlive: 0

@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: Wave5Data
   m_EditorClassIdentifier: 
   waveNumber: 5
-  ListOfUnitsToSpawn: []
+  ListOfUnitsToSpawn:
+  - {fileID: 110172391928739149, guid: be09111b4ffbfbe4f9a58a2322687c4d, type: 3}
+  - {fileID: 9074906759742733164, guid: dc81922a39bf1f442ac1435bb7827e7a, type: 3}
   ListOfUnitsSpawnLocations: []
+  maxEnemiesAlive: 2
