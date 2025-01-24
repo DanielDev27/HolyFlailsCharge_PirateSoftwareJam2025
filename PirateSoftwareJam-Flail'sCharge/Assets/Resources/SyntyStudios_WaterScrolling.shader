@@ -3923,7 +3923,7 @@ Shader "SyntyStudios/WaterScrolling"
 				float2 texCoord26 = input.ase_texcoord1.xy * appendResult348 + appendResult347;
 				float2 panner37 = ( 1.0 * _Time.y * appendResult349 + texCoord26);
 				float4 tex2DNode39 = tex2D( _Foam_Texture, panner37 );
-				float foam62 = saturate( ( ( ( 1.0 - saturate( pow( ( distanceDepth170 + _FoamShoreline ) , _FoamFalloff ) ) ) * ( ( tex2DNode39.r + 2.0 ) / 3.0 ) ) + tex2DNode39.r ) );
+				float foam62 = saturate( ( ( ( 1.0 - saturate( pow( max(distanceDepth170 + _FoamShoreline, 0.0001), _FoamFalloff ) ) ) * ( ( tex2DNode39.r + 2.0 ) / 3.0 ) ) + tex2DNode39.r ) );
 				float waterOpacity218 = ( ( (_OpacityMin + (saturate( ( distanceDepth234 / _OpacityFalloff ) ) - 0.0) * (1.0 - _OpacityMin) / (1.0 - 0.0)) * _Opacity ) + ( foam62 * _FoamOpacity ) );
 				
 
