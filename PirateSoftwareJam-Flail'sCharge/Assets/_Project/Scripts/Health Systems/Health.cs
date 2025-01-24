@@ -48,7 +48,6 @@ public class Health : MonoBehaviour {
             damageCooldownTime = aiScript.enemySO.EnemyAttackCD;
         }
 
-        ResetHealth ();
         //OnCooldown = false;
         //_coroutineActivated = false;
 
@@ -58,10 +57,17 @@ public class Health : MonoBehaviour {
 
     void OnEnable () { }
 
+    void Start () {
+        ResetHealth ();
+    }
+
     public void TakeDamage (int damageAmount) //Take damage, if hp is below or equal to 0 - start death coroutine
     {
-        if (Player && !isDying) {
-            currentHp -= (damageAmount);
+        if (Player) {
+            if (!isDying) {
+                currentHp -= (damageAmount);
+            }
+
             HUD.instance?.UpdateDisplayedHealth (currentHp);
         } else {
             //if (OnCooldown) return;
@@ -79,6 +85,9 @@ public class Health : MonoBehaviour {
 
     public void ResetHealth () {
         currentHp = maxHp;
+        if (Player) {
+            HUD.instance?.UpdateDisplayedHealth (currentHp);
+        }
     }
 
     IEnumerator DeathRoutine () //Wait for X seconds and then destroy entity
