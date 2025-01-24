@@ -30,12 +30,19 @@ public class Health : MonoBehaviour {
     public static UnityEvent<int> onHit;
 
     [Header ("References")]
+    //Other Systems
     [SerializeField] ScoreSystem scoreSystemScript;
 
-    [SerializeField] bool Player;
-    [SerializeField] PlayerController playerController;
-    [SerializeField] AIScript aiScript;
     [SerializeField] WaveSpawner waveSpawner;
+
+    //Player
+    [SerializeField] bool Player;
+
+    [SerializeField] PlayerController playerController;
+
+    //AI
+    [SerializeField] AIScript aiScript;
+    [SerializeField] HealthView healthView;
 
     void Awake () {
         //Fill hp to its max
@@ -43,6 +50,7 @@ public class Health : MonoBehaviour {
             playerController = this.GetComponent<PlayerController> ();
         } else {
             aiScript = this.GetComponent<AIScript> ();
+            healthView = this.GetComponentInChildren<HealthView> ();
             //Refactored to pull information from the SO
             maxHp = (int) aiScript.enemySO.EnemyMaxHealth;
             damageCooldownTime = aiScript.enemySO.EnemyAttackCD;
@@ -59,6 +67,9 @@ public class Health : MonoBehaviour {
 
     void Start () {
         ResetHealth ();
+        if (!Player) {
+            healthView.UpdateHealthValue ((float) currentHp / (float) maxHp);
+        }
     }
 
     public void TakeDamage (int damageAmount) //Take damage, if hp is below or equal to 0 - start death coroutine
@@ -74,6 +85,7 @@ public class Health : MonoBehaviour {
             //if (IsInvincible) return;
             if (isDying) return;
             currentHp -= (damageAmount);
+            healthView.UpdateHealthValue ((float) currentHp / (float) maxHp);
             //StartCoroutine (DamageCooldown ());
         }
 
