@@ -61,4 +61,5 @@ public class MenuFunctionality : MonoBehaviour {
         pauseCanvas.enabled = isPaused;
         OnPause.Invoke (isPaused);
     }
+
 }
