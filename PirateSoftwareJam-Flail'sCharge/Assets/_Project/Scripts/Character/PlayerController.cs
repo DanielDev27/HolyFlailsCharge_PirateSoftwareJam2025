@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerInputHandler playerInputHandler;
     [SerializeField] Health healthScript;
     [SerializeField] public GameObject weaponTrigger;
+    [SerializeField] HUD hud;
 
     [Header("Settings")]
     [SerializeField] float movementSpeed;
@@ -64,6 +65,7 @@ public class PlayerController : MonoBehaviour
         healthScript.ResetHealth();
         health = healthScript.maxHp;
         attackCD = healthScript.damageCooldownTime;
+        hud = FindObjectOfType<HUD> ();
     }
 
     public void OnEnable()
@@ -165,6 +167,7 @@ public class PlayerController : MonoBehaviour
     void UpdateHealth()
     {
         health = healthScript.currentHp;
+        //hud?.UpdateDisplayedHealth (health);
     }
 
     public void Death()
