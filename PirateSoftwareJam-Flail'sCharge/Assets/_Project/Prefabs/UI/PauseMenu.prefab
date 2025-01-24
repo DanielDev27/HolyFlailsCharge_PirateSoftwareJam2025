@@ -120,6 +120,9 @@ MonoBehaviour:
   creditsCanvas: {fileID: 0}
   pauseCanvas: {fileID: 5514016009114012841}
   isPaused: 0
+  loadingScreen: {fileID: 0}
+  loadingProgressBar: {fileID: 0}
+  isActive: 0
 --- !u!1 &2406197601419552612
 GameObject:
   m_ObjectHideFlags: 0
