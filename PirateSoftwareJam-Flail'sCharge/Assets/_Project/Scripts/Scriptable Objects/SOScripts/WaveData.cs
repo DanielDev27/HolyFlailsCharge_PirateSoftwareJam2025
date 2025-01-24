@@ -1,12 +1,12 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu (fileName = "WaveData", menuName = "Scriptable Objects/WaveData")]
+[CreateAssetMenu (fileName = "WaveData", menuName = "Scriptable Objects/WaveData"), Serializable]
 public class WaveData : ScriptableObject {
-    public int waveNumber;
+    [SerializeField] public int waveNumber;
 
-    public GameObject[] ListOfUnitsToSpawn;
-    public Transform[] ListOfUnitsSpawnLocations;
-    public int maxEnemiesAlive;
-    
+    [SerializeField] public GameObject[] ListOfUnitsToSpawn;
+    [SerializeField] public Transform[] ListOfUnitsSpawnLocations;
+    [SerializeField] public int maxEnemiesAlive;
 }
