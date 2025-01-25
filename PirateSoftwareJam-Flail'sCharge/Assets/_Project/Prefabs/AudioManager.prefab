@@ -151,33 +151,42 @@ MonoBehaviour:
     sounds: []
   - name: HURTGOBLIN
     sounds:
-    - {fileID: 8300000, guid: d3c6aae3424d46a42bb07c7a1f8fef1e, type: 3}
+    - {fileID: 8300000, guid: aefcb7d7c4b1e304091bdaad904bbdc3, type: 3}
+    - {fileID: 8300000, guid: 1715f19e31e8a064aa79cf36542c7f3b, type: 3}
+    - {fileID: 8300000, guid: 0de48514711fb4d40abae7b5850f5518, type: 3}
+    - {fileID: 8300000, guid: 0f3a485049f45ec4c96a38bb6036cb6e, type: 3}
+    - {fileID: 8300000, guid: 14ef9036ae85deb4a9f3ce1ff441a5f3, type: 3}
   - name: HURTORC
     sounds:
     - {fileID: 8300000, guid: e9ecb662a77fbe649998db3caab7c5f7, type: 3}
     - {fileID: 8300000, guid: 94ea836b709726845bcdc25d5b03d96e, type: 3}
-  - name: MENUHOVER
+    - {fileID: 8300000, guid: 22ab8394e0ac7664e9558ea4f40c8fc8, type: 3}
+  - name: HURTMAGE
     sounds:
     - {fileID: 8300000, guid: 94bb940b554bca84db9c1d4ff95b1e23, type: 3}
-  - name: MENUCLICK
+  - name: HURTWOLF
     sounds:
     - {fileID: 8300000, guid: ed3d618d11cb85f4b95a9fc78acf16cb, type: 3}
-  - name: VICTORY
+  - name: MENUHOVER
     sounds:
     - {fileID: 8300000, guid: eacfa5453116f344a9a5dbd89672756b, type: 3}
-  - name: DEFEAT
+  - name: MENUCLICK
     sounds:
     - {fileID: 8300000, guid: 0c9ccec9cb8b59540b78df365f1e6261, type: 3}
-  - name: SPAWNBOSS
+  - name: VICTORY
     sounds:
     - {fileID: 8300000, guid: a144d1a8bdf7a524882c2c5ee7eb72dd, type: 3}
-  - name: SPAWNWAVE
+  - name: DEFEAT
     sounds:
     - {fileID: 8300000, guid: dfdd4a6f39c0c284082f1d8ba27b5721, type: 3}
-  - name: ATTACKSWORD
+  - name: SPAWNBOSS
     sounds: []
+  - name: SPAWNWAVE
+    sounds: []
+  - name: ATTACKSWORD
+    sounds:
+    - {fileID: 8300000, guid: 2f95a08e6672bb24fbe82eb2f45a9e57, type: 3}
   - name: ATTACKMAGIC
     sounds: []
   - name: SPAWNWOLFBOSS
-    sounds:
-    - {fileID: 8300000, guid: 2f95a08e6672bb24fbe82eb2f45a9e57, type: 3}
+    sounds: []
