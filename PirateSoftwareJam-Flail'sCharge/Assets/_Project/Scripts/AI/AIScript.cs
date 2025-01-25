@@ -37,6 +37,7 @@ public class AIScript : MonoBehaviour {
     [SerializeField] Animator animator;
     [SerializeField] public GameObject weaponTrigger;
     [SerializeField] GameObject projectile;
+    [SerializeField] AudioSource audioSource;
 
 
     [Header ("Settings")]
@@ -47,12 +48,13 @@ public class AIScript : MonoBehaviour {
 
     [Header ("Score Script")]
     [SerializeField] ScoreSystem scoreSystemScript;
+    
 
 
     void Awake () {
         Instance = this;
         //Player Reference
-        player = FindObjectOfType<PlayerController> ();
+        player = FindFirstObjectByType<PlayerController> ();
         playerReference = player?.gameObject;
         //Health Script Reference
         healthScript = GetComponent<Health> ();
@@ -269,6 +271,7 @@ public class AIScript : MonoBehaviour {
     public void EnemyDie () {
         ScoreSystem.instance?.AddScoreKill ();
         StartCoroutine (OnDead ());
+        audioSource.Stop();
     }
 
     IEnumerator OnDead () {

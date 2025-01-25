@@ -106,7 +106,7 @@ public class WaveSpawner : MonoBehaviour
             currentWaveNumber = currentWaveData.waveNumber;
             HUD.instance?.IncrementWaveCount();
 
-            if (currentWaveNumber == 5){
+            if (currentWaveNumber == 5 || currentWaveNumber == 10 || currentWaveNumber == 15){
                 AudioManager.PlaySound((int)SoundType.SPAWNWOLFBOSS);
             }
         }
