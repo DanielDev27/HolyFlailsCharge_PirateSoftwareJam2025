@@ -31,6 +31,8 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private int enemiesPerWave;
 
     [SerializeField] private float spawnVariance = 3f; // This will control the maximum distance between spawns of the spawn point. This way the enemy doesn't spawn on once another.
+    [Header("Audio Manager Script")]
+    [SerializeField] public AudioManager audioManagerScript;
     //********
     //Commented Out Variables
     //********
@@ -103,6 +105,10 @@ public class WaveSpawner : MonoBehaviour
             countdownTimer = waveCoolDown;
             currentWaveNumber = currentWaveData.waveNumber;
             HUD.instance?.IncrementWaveCount();
+
+            if (currentWaveNumber == 5){
+                AudioManager.PlaySound((int)SoundType.SPAWNWOLFBOSS);
+            }
         }
     }
 
@@ -212,7 +218,7 @@ public class WaveSpawner : MonoBehaviour
         }
     }*/
 
-    private void CullEnemies()
+    private void CullEnemies() // if everything is working correctly, this method can be removed. It's a failsafe.
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy"); // Find all game objects with the tag "Enemy"
 
@@ -226,11 +232,12 @@ public class WaveSpawner : MonoBehaviour
         Debug.Log("All enemies have been culled.");
     }
 
-    private void SkipWave()
+    /*private void SkipWave()
     {
         currentWaveNumber++;
         waveInProgress = false;
         Debug.Log("Skipped to wave: " + currentWaveNumber);
         CullEnemies();
     }
+    */
 }
