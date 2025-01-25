@@ -141,6 +141,7 @@ public class PlayerController : MonoBehaviour
         if (_attacking && !isAttacking)
         {
             StartCoroutine(AttackLimit());
+            AudioManager.PlaySound((int)SoundType.FLAIL);
         }
     }
 
