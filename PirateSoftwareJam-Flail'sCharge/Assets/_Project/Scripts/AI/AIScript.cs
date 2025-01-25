@@ -273,7 +273,7 @@ public class AIScript : MonoBehaviour {
                 AudioManager.PlaySound((int)SoundType.HURTGOBLIN);
                 break;
             case EnemyVariant.Wolf:
-                //AudioManager.PlaySound((int)SoundType.HURTWOLF);
+                AudioManager.PlaySound((int)SoundType.HURTWOLF);
                 break;
             case EnemyVariant.Orc:
                 AudioManager.PlaySound((int)SoundType.HURTORC);
