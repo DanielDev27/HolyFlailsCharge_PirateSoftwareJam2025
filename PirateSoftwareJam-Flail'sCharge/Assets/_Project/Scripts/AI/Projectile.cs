@@ -17,12 +17,13 @@ public class Projectile : MonoBehaviour {
 
     void Start () {
         aiScript = GetComponentInParent<AIScript> ();
-        target = aiScript.playerReference.transform;
+        target = FindAnyObjectByType<PlayerController> ().transform;
         healthScript = aiScript.healthScript;
         damageScript = aiScript.GetComponentInChildren<Damage> ();
         damage = damageScript.GetDamage ();
         transform.parent = null;
-        rb.linearVelocity = new Vector3 (target.position.x, target.position.y, target.position.z) * pSpeed;
+        transform.LookAt (target);
+        rb.linearVelocity = new Vector3 (target.position.x - transform.position.x, target.position.y - transform.position.y, target.position.z - transform.position.z) * pSpeed;
     }
 
     void OnTriggerEnter (Collider other) {
