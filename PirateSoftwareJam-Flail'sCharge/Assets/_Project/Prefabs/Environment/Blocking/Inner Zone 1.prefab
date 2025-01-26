@@ -1294,7 +1294,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
@@ -1840,6 +1840,80 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.000002, y: 0.09791671, z: 4.999999}
   m_Center: {x: -2.500001, y: 0.045907862, z: 2.4999995}
+--- !u!1 &792627564509447449
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3896837750983369778}
+  m_Layer: 8
+  m_Name: Terrain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3896837750983369778
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792627564509447449}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5658288205417206420}
+  - {fileID: 6431221429128461139}
+  - {fileID: 8083036974560730891}
+  - {fileID: 3781931922888077316}
+  - {fileID: 3800202083387636252}
+  - {fileID: 6041271455933462202}
+  - {fileID: 3524534978867711937}
+  - {fileID: 4764987554196424141}
+  - {fileID: 5648289702978373478}
+  - {fileID: 8579931794238059866}
+  - {fileID: 7459415238374839658}
+  - {fileID: 3752334750686612190}
+  - {fileID: 3168090210755302813}
+  - {fileID: 4390668497024072188}
+  - {fileID: 6948933431884589906}
+  - {fileID: 8377652326404766301}
+  - {fileID: 3003254758489182645}
+  - {fileID: 8206576549223387397}
+  - {fileID: 7844105483162710945}
+  - {fileID: 6446359902452758365}
+  - {fileID: 4828662836632332102}
+  - {fileID: 5459370367995929967}
+  - {fileID: 2288094736955603139}
+  - {fileID: 4871761782995173916}
+  - {fileID: 4772887271263827436}
+  - {fileID: 8301500768199116763}
+  - {fileID: 7184090569628587692}
+  - {fileID: 7028750748784640794}
+  - {fileID: 3804605356769009708}
+  - {fileID: 3347047054886309529}
+  - {fileID: 3477130079043553003}
+  - {fileID: 5513749771837510517}
+  - {fileID: 2281614952155902430}
+  - {fileID: 3063994046481914175}
+  - {fileID: 3543043866586790286}
+  - {fileID: 4585940157938083534}
+  - {fileID: 1241954394207676921}
+  - {fileID: 2600745303693273774}
+  - {fileID: 2737658346151377675}
+  - {fileID: 2622727878124017942}
+  - {fileID: 8361206024074155765}
+  - {fileID: 4621141217086186744}
+  - {fileID: 461642596592239676}
+  m_Father: {fileID: 3548568887763420189}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &801620750816266351
 GameObject:
   m_ObjectHideFlags: 0
@@ -2318,7 +2392,7 @@ GameObject:
   - component: {fileID: 461642596592239676}
   - component: {fileID: 3587063139639675801}
   - component: {fileID: 1595182062225997651}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Mushroom_Group_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2338,7 +2412,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3587063139639675801
 MeshFilter:
@@ -2930,7 +3004,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
@@ -3039,7 +3113,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1.3694706, y: 2.7145662, z: 0.28285897}
   m_Center: {x: -0.64848804, y: 1.3572831, z: -0.000000059604645}
@@ -3643,7 +3717,7 @@ GameObject:
   - component: {fileID: 1241954394207676921}
   - component: {fileID: 1241954394204695433}
   - component: {fileID: 1241954394205425273}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Sunflower_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3663,7 +3737,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 146.09, z: 0}
 --- !u!33 &1241954394204695433
 MeshFilter:
@@ -7745,7 +7819,7 @@ GameObject:
   - component: {fileID: 2281614952153087926}
   - component: {fileID: 2281614952154102406}
   - component: {fileID: 2255683308617924104}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Flat_Sand_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7765,7 +7839,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2281614952153087926
 MeshFilter:
@@ -7961,7 +8035,7 @@ GameObject:
   - component: {fileID: 2288094736955603139}
   - component: {fileID: 2288094736954238637}
   - component: {fileID: 2288094736953572515}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Grass_03 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7981,7 +8055,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 26.35, z: 0}
 --- !u!33 &2288094736954238637
 MeshFilter:
@@ -10491,7 +10565,7 @@ GameObject:
   - component: {fileID: 3003254758489182645}
   - component: {fileID: 3003254758485725147}
   - component: {fileID: 3003254758486889941}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Grass_03 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10511,7 +10585,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3003254758485725147
 MeshFilter:
@@ -10637,7 +10711,7 @@ GameObject:
   - component: {fileID: 3063994046481914175}
   - component: {fileID: 3063994046478505945}
   - component: {fileID: 3063994046479609639}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Beach_Piles_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10657,7 +10731,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3063994046478505945
 MeshFilter:
@@ -11226,7 +11300,7 @@ GameObject:
   - component: {fileID: 3168090210755302813}
   - component: {fileID: 3168090210751908851}
   - component: {fileID: 3168090210753139197}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Grass_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11241,12 +11315,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3168090210755075929}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.08706885, z: 0, w: 0.99620235}
+  m_LocalRotation: {x: -0, y: -0.08706885, z: -0, w: 0.99620235}
   m_LocalPosition: {x: 10.427063, y: 0.059319735, z: -19.437775}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: -9.99, z: 0}
 --- !u!33 &3168090210751908851
 MeshFilter:
@@ -11420,7 +11494,7 @@ GameObject:
   - component: {fileID: 3347047054886309529}
   - component: {fileID: 3347047054889291275}
   - component: {fileID: 3347047054888653935}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Flowers_02 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11440,7 +11514,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: -46.11, z: 0}
 --- !u!33 &3347047054889291275
 MeshFilter:
@@ -11614,7 +11688,7 @@ GameObject:
   - component: {fileID: 2737658346151377675}
   - component: {fileID: 1320054245188400302}
   - component: {fileID: 3870053461771124836}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Mushroom_Group_05 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11634,7 +11708,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 48.21, z: 0}
 --- !u!33 &1320054245188400302
 MeshFilter:
@@ -11832,58 +11906,15 @@ Transform:
   - {fileID: 824607304643458428}
   - {fileID: 8890768147325781121}
   - {fileID: 3596827257726873165}
-  - {fileID: 5658288205417206420}
-  - {fileID: 6431221429128461139}
-  - {fileID: 8083036974560730891}
-  - {fileID: 3781931922888077316}
-  - {fileID: 3800202083387636252}
-  - {fileID: 6041271455933462202}
   - {fileID: 1237033737619442565}
-  - {fileID: 3524534978867711937}
-  - {fileID: 4764987554196424141}
-  - {fileID: 5648289702978373478}
-  - {fileID: 8579931794238059866}
   - {fileID: 5623982114323140428}
-  - {fileID: 7459415238374839658}
-  - {fileID: 3752334750686612190}
-  - {fileID: 3168090210755302813}
-  - {fileID: 4390668497024072188}
-  - {fileID: 6948933431884589906}
-  - {fileID: 8377652326404766301}
-  - {fileID: 3003254758489182645}
-  - {fileID: 8206576549223387397}
-  - {fileID: 7844105483162710945}
-  - {fileID: 6446359902452758365}
-  - {fileID: 4828662836632332102}
   - {fileID: 6825680629027228882}
-  - {fileID: 5459370367995929967}
-  - {fileID: 2288094736955603139}
-  - {fileID: 4871761782995173916}
-  - {fileID: 4772887271263827436}
   - {fileID: 1353047607466794387}
   - {fileID: 4637760528513211953}
-  - {fileID: 8301500768199116763}
-  - {fileID: 7184090569628587692}
   - {fileID: 1078869275805356139}
-  - {fileID: 7028750748784640794}
   - {fileID: 6345001467745815917}
-  - {fileID: 3804605356769009708}
-  - {fileID: 3347047054886309529}
-  - {fileID: 3477130079043553003}
-  - {fileID: 5513749771837510517}
-  - {fileID: 2281614952155902430}
-  - {fileID: 3063994046481914175}
-  - {fileID: 3543043866586790286}
-  - {fileID: 4585940157938083534}
-  - {fileID: 1241954394207676921}
-  - {fileID: 2600745303693273774}
-  - {fileID: 2737658346151377675}
-  - {fileID: 2622727878124017942}
-  - {fileID: 8361206024074155765}
   - {fileID: 5262571522752356647}
   - {fileID: 8260989903333726717}
-  - {fileID: 4621141217086186744}
-  - {fileID: 461642596592239676}
   m_Father: {fileID: 3548568887763420189}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3399687442216305580
@@ -11897,7 +11928,7 @@ GameObject:
   - component: {fileID: 2622727878124017942}
   - component: {fileID: 1425977034245904051}
   - component: {fileID: 3760190985091900025}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Mushroom_Group_05 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11917,7 +11948,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1425977034245904051
 MeshFilter:
@@ -11983,7 +12014,7 @@ GameObject:
   - component: {fileID: 2600745303693273774}
   - component: {fileID: 1421008305092306187}
   - component: {fileID: 3773058605439832513}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Mushroom_Group_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12003,7 +12034,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 68.04, z: 0}
 --- !u!33 &1421008305092306187
 MeshFilter:
@@ -12177,7 +12208,7 @@ GameObject:
   - component: {fileID: 3477130079043553003}
   - component: {fileID: 3477130079040061401}
   - component: {fileID: 3477130079041173391}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_GroundLeaves_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12197,7 +12228,7 @@ Transform:
   m_LocalScale: {x: 5.41, y: 5.41, z: 5.41}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3477130079040061401
 MeshFilter:
@@ -12263,7 +12294,7 @@ GameObject:
   - component: {fileID: 3524534978867711937}
   - component: {fileID: 3524534978868984711}
   - component: {fileID: 3524534978869958565}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Rubble_Pebbles_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12283,7 +12314,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3524534978868984711
 MeshFilter:
@@ -12873,7 +12904,7 @@ GameObject:
   - component: {fileID: 3543043866586790286}
   - component: {fileID: 3543043866590221480}
   - component: {fileID: 3543043866589178348}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_SugarCane_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12893,7 +12924,7 @@ Transform:
   m_LocalScale: {x: 1.54, y: 1.54, z: 1.54}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3543043866590221480
 MeshFilter:
@@ -13826,7 +13857,7 @@ GameObject:
   - component: {fileID: 3752334750689509672}
   - component: {fileID: 3752334750688361064}
   - component: {fileID: 3816385916003678268}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Wep_Goblin_Axe_Spikes_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13846,7 +13877,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 16.692, y: 0, z: 90}
 --- !u!33 &3752334750689509672
 MeshFilter:
@@ -13935,7 +13966,7 @@ GameObject:
   - component: {fileID: 3781931922884685956}
   - component: {fileID: 3781931922886215270}
   - component: {fileID: 3791905107416781158}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Rock_Round_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13955,7 +13986,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3781931922884685956
 MeshFilter:
@@ -14153,7 +14184,7 @@ GameObject:
   - component: {fileID: 3800202083390517456}
   - component: {fileID: 3800202083389911460}
   - component: {fileID: 3771015180449160322}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Brick_Rubble_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14173,7 +14204,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3800202083390517456
 MeshFilter:
@@ -14260,7 +14291,7 @@ GameObject:
   - component: {fileID: 3804605356769009708}
   - component: {fileID: 3804605356772319422}
   - component: {fileID: 3804605356770867930}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Flowers_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14280,7 +14311,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3804605356772319422
 MeshFilter:
@@ -15942,7 +15973,7 @@ GameObject:
   - component: {fileID: 4390668497024072188}
   - component: {fileID: 4390668497024903058}
   - component: {fileID: 4390668497026104732}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Grass_03 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15957,12 +15988,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4390668497023841080}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.08706885, z: 0, w: 0.99620235}
+  m_LocalRotation: {x: -0, y: -0.08706885, z: -0, w: 0.99620235}
   m_LocalPosition: {x: 19.27, y: 0.059319735, z: -16.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: -9.99, z: 0}
 --- !u!33 &4390668497024903058
 MeshFilter:
@@ -16245,7 +16276,7 @@ GameObject:
   - component: {fileID: 4585940157938083534}
   - component: {fileID: 4585940157939420136}
   - component: {fileID: 4585940157940479660}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_SugarCane_02 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16265,7 +16296,7 @@ Transform:
   m_LocalScale: {x: 1.54, y: 1.54, z: 1.54}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4585940157939420136
 MeshFilter:
@@ -17367,7 +17398,7 @@ GameObject:
   - component: {fileID: 4764987554199836813}
   - component: {fileID: 4764987554198685821}
   - component: {fileID: 4811487022572102159}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Barrel_Broken_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17387,7 +17418,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4764987554199836813
 MeshFilter:
@@ -17692,7 +17723,7 @@ GameObject:
   - component: {fileID: 4772887271263827436}
   - component: {fileID: 4772887271262951824}
   - component: {fileID: 4772887271261883060}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Grass_02 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17712,7 +17743,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4772887271262951824
 MeshFilter:
@@ -18104,7 +18135,7 @@ GameObject:
   - component: {fileID: 4828662836632332102}
   - component: {fileID: 4828662836633586490}
   - component: {fileID: 4828662836634589214}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Grass_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18124,7 +18155,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4828662836633586490
 MeshFilter:
@@ -18998,7 +19029,7 @@ GameObject:
   - component: {fileID: 4871761782995173916}
   - component: {fileID: 4871761782998604914}
   - component: {fileID: 4871761782997468796}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Grass_03 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19018,7 +19049,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: -48.51, z: 0}
 --- !u!33 &4871761782998604914
 MeshFilter:
@@ -21253,7 +21284,7 @@ GameObject:
   - component: {fileID: 4621141217086186744}
   - component: {fileID: 8614907691075742557}
   - component: {fileID: 5794650232222998423}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Mushroom_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21273,7 +21304,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8614907691075742557
 MeshFilter:
@@ -21447,7 +21478,7 @@ GameObject:
   - component: {fileID: 5459370367995929967}
   - component: {fileID: 5459370367993002753}
   - component: {fileID: 5459370367994028303}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Grass_03 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21467,7 +21498,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5459370367993002753
 MeshFilter:
@@ -21566,7 +21597,7 @@ GameObject:
   - component: {fileID: 5513749771837510517}
   - component: {fileID: 5513749771840498247}
   - component: {fileID: 5513749771839382033}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_GroundLeaves_03 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21586,7 +21617,7 @@ Transform:
   m_LocalScale: {x: 4.45, y: 4.45, z: 4.45}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5513749771840498247
 MeshFilter:
@@ -22195,7 +22226,7 @@ GameObject:
   - component: {fileID: 5648289702981202498}
   - component: {fileID: 5648289702980156354}
   - component: {fileID: 5658244095864171726}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Bricks_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22215,7 +22246,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5648289702981202498
 MeshFilter:
@@ -22412,7 +22443,7 @@ GameObject:
   - component: {fileID: 5658288205415908224}
   - component: {fileID: 5658288205414802048}
   - component: {fileID: 5648186557148554880}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_BonePile_Small_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22432,7 +22463,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5658288205415908224
 MeshFilter:
@@ -23371,7 +23402,7 @@ GameObject:
   - component: {fileID: 6041271455934214070}
   - component: {fileID: 6041271455935487818}
   - component: {fileID: 5994641332209564202}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Rock_Brick_Simple_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23391,7 +23422,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6041271455934214070
 MeshFilter:
@@ -25097,7 +25128,7 @@ GameObject:
   - component: {fileID: 6431221429128461139}
   - component: {fileID: 6431221429129206823}
   - component: {fileID: 6431221429130747221}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Rubble_Pebbles_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25117,7 +25148,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6431221429129206823
 MeshFilter:
@@ -25291,7 +25322,7 @@ GameObject:
   - component: {fileID: 6446359902452758365}
   - component: {fileID: 6446359902455621939}
   - component: {fileID: 6446359902455051069}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Grass_03 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25311,7 +25342,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6446359902455621939
 MeshFilter:
@@ -27847,7 +27878,7 @@ GameObject:
   - component: {fileID: 6948933431884589906}
   - component: {fileID: 6948933431885842222}
   - component: {fileID: 6948933431886910474}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Grass_02 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27867,7 +27898,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6948933431885842222
 MeshFilter:
@@ -28367,7 +28398,7 @@ GameObject:
   - component: {fileID: 7028750748785946918}
   - component: {fileID: 7028750748786954638}
   - component: {fileID: 7020315123773525394}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Debris_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28387,7 +28418,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 23.459, z: 0}
 --- !u!33 &7028750748785946918
 MeshFilter:
@@ -29126,7 +29157,7 @@ GameObject:
   - component: {fileID: 7184090569628587692}
   - component: {fileID: 7184090569625795280}
   - component: {fileID: 7184090569626855924}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Grass_02 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29143,10 +29174,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.67178524, z: -0, w: 0.740746}
   m_LocalPosition: {x: -18.97, y: 0.08883095, z: 11.14}
-  m_LocalScale: {x: 0.9100001, y: 0.91, z: 0.9100001}
+  m_LocalScale: {x: 0.91000015, y: 0.91, z: 0.91000015}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: -84.41, z: 0}
 --- !u!33 &7184090569625795280
 MeshFilter:
@@ -29862,7 +29893,7 @@ GameObject:
   - component: {fileID: 7459415238371360700}
   - component: {fileID: 7459415238372558304}
   - component: {fileID: 7448979315247314648}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Banner_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29882,7 +29913,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7459415238371360700
 MeshFilter:
@@ -31864,7 +31895,7 @@ GameObject:
   - component: {fileID: 7844105483162710945}
   - component: {fileID: 7844105483164036559}
   - component: {fileID: 7844105483164612545}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Grass_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31884,7 +31915,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7844105483164036559
 MeshFilter:
@@ -32814,7 +32845,7 @@ GameObject:
   - component: {fileID: 8083036974560730891}
   - component: {fileID: 8083036974564229025}
   - component: {fileID: 8083036974562791729}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Rubble_Pebbles_20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32834,7 +32865,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8083036974564229025
 MeshFilter:
@@ -33551,7 +33582,7 @@ GameObject:
   - component: {fileID: 8206576549226774883}
   - component: {fileID: 8206576549225332223}
   - component: {fileID: 8144420450916679273}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Roots_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33567,11 +33598,11 @@ Transform:
   m_GameObject: {fileID: 8206576549223632181}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.33416, y: 0.04, z: -17.400215}
+  m_LocalPosition: {x: -17.33416, y: 0.181, z: -17.400215}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8206576549226774883
 MeshFilter:
@@ -33643,7 +33674,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
@@ -33659,7 +33690,7 @@ GameObject:
   - component: {fileID: 8301500768199116763}
   - component: {fileID: 8301500768197897127}
   - component: {fileID: 8301500768196868227}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Grass_02 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33679,7 +33710,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8301500768197897127
 MeshFilter:
@@ -33853,7 +33884,7 @@ GameObject:
   - component: {fileID: 8377652326404766301}
   - component: {fileID: 8377652326405552807}
   - component: {fileID: 8377652326406614583}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Env_Grass_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33873,7 +33904,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8377652326405552807
 MeshFilter:
@@ -34374,7 +34405,7 @@ GameObject:
   - component: {fileID: 8579931794237194366}
   - component: {fileID: 8579931794236148222}
   - component: {fileID: 8644329682592407282}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Bricks_04 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34389,12 +34420,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8579931794238303752}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.5246547, z: 0, w: 0.85131514}
+  m_LocalRotation: {x: -0, y: 0.5246547, z: -0, w: 0.85131514}
   m_LocalPosition: {x: 19.97, y: 0.056919813, z: 4.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 63.29, z: 0}
 --- !u!33 &8579931794237194366
 MeshFilter:
@@ -36180,6 +36211,7 @@ Transform:
   - {fileID: 3673608221306995636}
   - {fileID: 2032287252234507989}
   - {fileID: 7955481663561988990}
+  - {fileID: 3896837750983369778}
   - {fileID: 3067571640826119798}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -36519,7 +36551,7 @@ GameObject:
   - component: {fileID: 8361206024074155765}
   - component: {fileID: 4874903609000909136}
   - component: {fileID: 7224851636740697498}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Mushroom_Group_05 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36539,7 +36571,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 3067571640826119798}
+  m_Father: {fileID: 3896837750983369778}
   m_LocalEulerAnglesHint: {x: 0, y: 48.21, z: 0}
 --- !u!33 &4874903609000909136
 MeshFilter:

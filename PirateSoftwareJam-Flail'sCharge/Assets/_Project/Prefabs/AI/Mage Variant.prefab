@@ -626,6 +626,10 @@ PrefabInstance:
       propertyPath: m_BaseOffset
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4337931503387777466, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
+      propertyPath: m_AgentTypeID
+      value: 1479372276
+      objectReference: {fileID: 0}
     - target: {fileID: 8758847272081124414, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
       propertyPath: m_Enabled
       value: 0

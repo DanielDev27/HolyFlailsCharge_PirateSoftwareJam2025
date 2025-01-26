@@ -650,6 +650,10 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 4337931503387777466, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
     - target: {fileID: 5650357827301214207, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
       propertyPath: m_Layer
       value: 6
