@@ -159,6 +159,7 @@ MonoBehaviour:
   directionToPlayer: {x: 0, y: 0, z: 0}
   distanceToPlayer: 0
   isPaused: 0
+  enemyVariant: 0
   currentState: 0
   returnState: 0
   coroutineInProgress: 0
@@ -175,11 +176,12 @@ MonoBehaviour:
   animator: {fileID: 360353500231038774}
   weaponTrigger: {fileID: 5650357827301214207}
   projectile: {fileID: 6233235450677050260, guid: 837e8ef18dacea14dadfbebfc8bfd89c, type: 3}
+  audioSource: {fileID: 0}
   weaponReach: 1.5
   ranged: 0
   obstructionLayerMask:
     serializedVersion: 2
-    m_Bits: 129
+    m_Bits: 193
   scoreSystemScript: {fileID: 0}
 --- !u!195 &4337931503387777466
 NavMeshAgent:
