@@ -144,7 +144,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundList:
   - name: FLAIL
-    sounds: []
+    sounds:
+    - {fileID: 8300000, guid: 7a505568cbbab3b4a87e0bbd7be08395, type: 3}
+    - {fileID: 8300000, guid: 0d07e157fadcf674ea618b4fa08a876f, type: 3}
+    - {fileID: 8300000, guid: b5259c55e73f9384c8fc42a2486770e8, type: 3}
+    - {fileID: 8300000, guid: 5b12495dc9623914795bae5f5fdcc6b7, type: 3}
   - name: MAGIC
     sounds: []
   - name: ARROW
@@ -164,7 +168,11 @@ MonoBehaviour:
   - name: HURTMAGE
     sounds: []
   - name: HURTWOLF
-    sounds: []
+    sounds:
+    - {fileID: 8300000, guid: 9745e8d80f67c984980028ed7094a12a, type: 3}
+    - {fileID: 8300000, guid: 460b5edd3366d5e41af80435d8d07a1e, type: 3}
+    - {fileID: 8300000, guid: 0ef2bd05c40206d4b892068797381081, type: 3}
+    - {fileID: 8300000, guid: 9eb4741652b2f1a4c8da9147366708bf, type: 3}
   - name: MENUHOVER
     sounds:
     - {fileID: 8300000, guid: cf6e4dad656d49b4c80d6aafa625c871, type: 3}

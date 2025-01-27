@@ -104,7 +104,7 @@ public class Health : MonoBehaviour {
 
         if (currentHp <= 0 && isDying == false) //Activate death coroutine if hp is below or equal to 0 and if entity isnt already dying
         {
-            StartCoroutine (DeathRoutine ());
+            DeathRoutine ();
         }
     }
 
@@ -119,13 +119,12 @@ public class Health : MonoBehaviour {
         }
     }
 
-    IEnumerator DeathRoutine () //Wait for X seconds and then destroy entity
+    public void DeathRoutine () //Wait for X seconds and then destroy entity
     {
         isDying = true;
         waveSpawner?.HandleEnemyDeath ();
-        yield return new WaitForSeconds (timeBeforeDeath);
         if (Player) {
-            playerController.Death ();
+            playerController.StartCoroutine (playerController.Death ());
         }
     }
 }

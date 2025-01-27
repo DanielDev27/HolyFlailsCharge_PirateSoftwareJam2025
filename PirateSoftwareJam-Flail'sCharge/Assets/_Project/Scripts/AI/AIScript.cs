@@ -2,13 +2,14 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
- public enum EnemyVariant 
-{
+
+public enum EnemyVariant {
     Goblin,
     Wolf,
     Mage,
     Orc
 }
+
 public class AIScript : MonoBehaviour {
     public static AIScript Instance;
 
@@ -55,7 +56,6 @@ public class AIScript : MonoBehaviour {
 
     [Header ("Score Script")]
     [SerializeField] ScoreSystem scoreSystemScript;
-    
 
 
     void Awake () {
@@ -128,12 +128,24 @@ public class AIScript : MonoBehaviour {
     void OnAnimatorUpdate () {
         switch (currentState) {
             case AiStates.Idle:
+                animator.SetBool ("IsWalking", isMoving);
+                animator.SetBool ("IsAttacking", isAttacking);
+                animator.SetBool ("IsDead", isDead);
                 break;
             case AiStates.Chasing:
+                animator.SetBool ("IsWalking", isMoving);
+                animator.SetBool ("IsAttacking", isAttacking);
+                animator.SetBool ("IsDead", isDead);
                 break;
             case AiStates.Attacking:
+                animator.SetBool ("IsWalking", isMoving);
+                animator.SetBool ("IsAttacking", isAttacking);
+                animator.SetBool ("IsDead", isDead);
                 break;
             case AiStates.Dead:
+                animator.SetBool ("IsWalking", isMoving);
+                animator.SetBool ("IsAttacking", isAttacking);
+                animator.SetBool ("IsDead", isDead);
                 break;
         }
     }
@@ -267,16 +279,15 @@ public class AIScript : MonoBehaviour {
         healthScript.TakeDamage (damage);
         UpdateHealth ();
         ScoreSystem.instance?.AddScoreDamage ();
-        switch (enemyVariant)
-        {
+        switch (enemyVariant) {
             case EnemyVariant.Goblin:
-                AudioManager.PlaySound((int)SoundType.HURTGOBLIN);
+                AudioManager.PlaySound ((int) SoundType.HURTGOBLIN);
                 break;
             case EnemyVariant.Wolf:
-                AudioManager.PlaySound((int)SoundType.HURTWOLF);
+                AudioManager.PlaySound ((int) SoundType.HURTWOLF);
                 break;
             case EnemyVariant.Orc:
-                AudioManager.PlaySound((int)SoundType.HURTORC);
+                AudioManager.PlaySound ((int) SoundType.HURTORC);
                 break;
             case EnemyVariant.Mage:
                 //AudioManager.PlaySound((int)SoundType.HURTMAGE);
@@ -293,15 +304,12 @@ public class AIScript : MonoBehaviour {
     public void EnemyDie () {
         ScoreSystem.instance?.AddScoreKill ();
         StartCoroutine (OnDead ());
-        audioSource.Stop();
+        audioSource.Stop ();
     }
 
     IEnumerator OnDead () {
         coroutineInProgress = true;
-        //yield return new WaitForSeconds (1);
-        //Death Animation
         yield return new WaitForSeconds (1);
-        //this.gameObject.SetActive (false); //why not destroy the gameObject?
         Destroy (this.gameObject);
     }
 }
