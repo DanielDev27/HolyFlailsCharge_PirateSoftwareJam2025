@@ -33,6 +33,8 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private float spawnVariance = 3f; // This will control the maximum distance between spawns of the spawn point. This way the enemy doesn't spawn on once another.
     [Header("Audio Manager Script")]
     [SerializeField] public AudioManager audioManagerScript;
+    private bool IsWolfBossWave(int waveNumber) => waveNumber > 0 && waveNumber % 5 == 0 && waveNumber != 20;
+    private bool IsMajorBossWave(int waveNumber) => waveNumber > 0 && waveNumber % 20 == 0;
     //********
     //Commented Out Variables
     //********
@@ -105,10 +107,23 @@ public class WaveSpawner : MonoBehaviour
             countdownTimer = waveCoolDown;
             currentWaveNumber = currentWaveData.waveNumber;
             HUD.instance?.IncrementWaveCount();
+            PlaySpawnSound();
+        }
+    }
 
-            if (currentWaveNumber == 5 || currentWaveNumber == 10 || currentWaveNumber == 15){
-                AudioManager.PlaySound((int)SoundType.SPAWNWOLFBOSS);
-            }
+    private void PlaySpawnSound()
+    {
+        if (IsWolfBossWave(currentWaveNumber))
+        {
+            AudioManager.PlaySound((int)SoundType.SPAWNWOLFBOSS);
+        }
+        else if (IsMajorBossWave(currentWaveNumber))
+        {
+            AudioManager.PlaySound((int)SoundType.SPAWNBOSS);
+        }
+        else
+        {
+            AudioManager.PlaySound((int)SoundType.SPAWNWAVE);
         }
     }
 
