@@ -159,11 +159,11 @@ MonoBehaviour:
     sounds: []
   - name: HURTGOBLIN
     sounds:
-    - {fileID: 8300000, guid: aefcb7d7c4b1e304091bdaad904bbdc3, type: 3}
-    - {fileID: 8300000, guid: 1715f19e31e8a064aa79cf36542c7f3b, type: 3}
-    - {fileID: 8300000, guid: 0de48514711fb4d40abae7b5850f5518, type: 3}
-    - {fileID: 8300000, guid: 0f3a485049f45ec4c96a38bb6036cb6e, type: 3}
-    - {fileID: 8300000, guid: 14ef9036ae85deb4a9f3ce1ff441a5f3, type: 3}
+    - {fileID: 8300000, guid: 042b41701cb71cb448119ea8aaf2768d, type: 3}
+    - {fileID: 8300000, guid: 0da370f6f4ac96340a2324778a17a472, type: 3}
+    - {fileID: 8300000, guid: b787f5bde67765744aa4aa58b5c73515, type: 3}
+    - {fileID: 8300000, guid: ce14ceb23e8b92649acf342d6eb2c300, type: 3}
+    - {fileID: 8300000, guid: 6cfb87a703d831d4e928ce582d3e1a26, type: 3}
   - name: HURTORC
     sounds:
     - {fileID: 8300000, guid: e9ecb662a77fbe649998db3caab7c5f7, type: 3}
