@@ -276,22 +276,25 @@ public class AIScript : MonoBehaviour {
 
     //Damage
     public void TakeHit (int damage) {
-        healthScript.TakeDamage (damage);
-        UpdateHealth ();
-        ScoreSystem.instance?.AddScoreDamage ();
-        switch (enemyVariant) {
-            case EnemyVariant.Goblin:
-                AudioManager.PlaySound ((int) SoundType.HURTGOBLIN);
-                break;
-            case EnemyVariant.Wolf:
-                AudioManager.PlaySound ((int) SoundType.HURTWOLF);
-                break;
-            case EnemyVariant.Orc:
-                AudioManager.PlaySound ((int) SoundType.HURTORC);
-                break;
-            case EnemyVariant.Mage:
-                //AudioManager.PlaySound((int)SoundType.HURTMAGE);
-                break;
+        if (!healthScript.IsInvincible) {
+            switch (enemyVariant) {
+                case EnemyVariant.Goblin:
+                    AudioManager.PlaySound ((int) SoundType.HURTGOBLIN);
+                    break;
+                case EnemyVariant.Wolf:
+                    AudioManager.PlaySound ((int) SoundType.HURTWOLF);
+                    break;
+                case EnemyVariant.Orc:
+                    AudioManager.PlaySound ((int) SoundType.HURTORC);
+                    break;
+                case EnemyVariant.Mage:
+                    //AudioManager.PlaySound((int)SoundType.HURTMAGE);
+                    break;
+            }
+
+            healthScript.TakeDamage (damage);
+            UpdateHealth ();
+            ScoreSystem.instance?.AddScoreDamage ();
         }
     }
 
