@@ -574,6 +574,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 360353500231038774, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 1468f8c1cc6eda54ca84778754338588, type: 3}
+    - target: {fileID: 360353500231038774, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ccbbb0617a65b1b4589f6e69895a1f08, type: 2}
     - target: {fileID: 1802784250065204889, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
       value: 64
