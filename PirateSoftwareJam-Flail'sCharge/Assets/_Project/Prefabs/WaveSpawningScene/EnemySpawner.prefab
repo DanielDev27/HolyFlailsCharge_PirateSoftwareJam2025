@@ -83,3 +83,4 @@ MonoBehaviour:
   currentWaveData: {fileID: 0}
   enemiesPerWave: 0
   spawnVariance: 3
+  audioManagerScript: {fileID: 0}

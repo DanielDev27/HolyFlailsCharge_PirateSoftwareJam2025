@@ -32,6 +32,6 @@ public class HUD : MonoBehaviour {
 
     public void IncrementWaveCount () {
         waveCount += 1;
-        waveText.text = $"Wave {waveCount}";
+        waveText.text = $"Wave: {waveCount}";
     }
 }

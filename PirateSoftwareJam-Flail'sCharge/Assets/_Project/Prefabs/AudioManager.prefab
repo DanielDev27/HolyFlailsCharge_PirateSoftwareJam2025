@@ -153,6 +153,10 @@ MonoBehaviour:
     sounds: []
   - name: ARROW
     sounds: []
+  - name: ATTACKSWORD
+    sounds: []
+  - name: ATTACKMAGIC
+    sounds: []
   - name: HURTGOBLIN
     sounds:
     - {fileID: 8300000, guid: aefcb7d7c4b1e304091bdaad904bbdc3, type: 3}
@@ -173,6 +177,15 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 460b5edd3366d5e41af80435d8d07a1e, type: 3}
     - {fileID: 8300000, guid: 0ef2bd05c40206d4b892068797381081, type: 3}
     - {fileID: 8300000, guid: 9eb4741652b2f1a4c8da9147366708bf, type: 3}
+  - name: SPAWNBOSS
+    sounds:
+    - {fileID: 8300000, guid: a144d1a8bdf7a524882c2c5ee7eb72dd, type: 3}
+  - name: SPAWNWAVE
+    sounds:
+    - {fileID: 8300000, guid: dfdd4a6f39c0c284082f1d8ba27b5721, type: 3}
+  - name: SPAWNWOLFBOSS
+    sounds:
+    - {fileID: 8300000, guid: 2f95a08e6672bb24fbe82eb2f45a9e57, type: 3}
   - name: MENUHOVER
     sounds:
     - {fileID: 8300000, guid: cf6e4dad656d49b4c80d6aafa625c871, type: 3}
@@ -187,16 +200,3 @@ MonoBehaviour:
   - name: DEFEAT
     sounds:
     - {fileID: 8300000, guid: 0c9ccec9cb8b59540b78df365f1e6261, type: 3}
-  - name: SPAWNBOSS
-    sounds:
-    - {fileID: 8300000, guid: a144d1a8bdf7a524882c2c5ee7eb72dd, type: 3}
-  - name: SPAWNWAVE
-    sounds:
-    - {fileID: 8300000, guid: dfdd4a6f39c0c284082f1d8ba27b5721, type: 3}
-  - name: ATTACKSWORD
-    sounds: []
-  - name: ATTACKMAGIC
-    sounds: []
-  - name: SPAWNWOLFBOSS
-    sounds:
-    - {fileID: 8300000, guid: 2f95a08e6672bb24fbe82eb2f45a9e57, type: 3}

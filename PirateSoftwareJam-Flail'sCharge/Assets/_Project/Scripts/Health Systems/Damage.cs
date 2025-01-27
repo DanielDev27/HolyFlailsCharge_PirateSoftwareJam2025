@@ -40,6 +40,7 @@ public class Damage : MonoBehaviour {
             if (aiScript.isAttacking && other.gameObject.GetComponent<PlayerController> () != null) {
                 playerController = other.gameObject.GetComponent<PlayerController> ();
                 playerController.TakeHit (damage);
+                
             }
         }
     }
