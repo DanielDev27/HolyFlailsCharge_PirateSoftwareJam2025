@@ -9,25 +9,24 @@ public enum SoundType {
     FLAIL, //0
     MAGIC,
     ARROW,
-    ATTACKSWORD,
-    ATTACKMAGIC,
+    SWORD,
 
     //Dammage
-    HURTGOBLIN,//5
+    HURTGOBLIN,
     HURTORC,
     HURTMAGE,
     HURTWOLF,
 
     //Spawn
     SPAWNBOSS,
-    SPAWNWAVE,//10
+    SPAWNWAVE,
     SPAWNWOLFBOSS,
 
     //UI
     MENUHOVER,
     MENUCLICK,
     VICTORY,
-    DEFEAT,//15
+    DEFEAT,
 }
 
 [RequireComponent (typeof (AudioSource)), ExecuteInEditMode] // Ensures an AudioSource component is present and allows this script to run in edit mode
