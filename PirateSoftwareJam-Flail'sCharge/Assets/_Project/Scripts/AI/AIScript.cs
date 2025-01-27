@@ -288,7 +288,7 @@ public class AIScript : MonoBehaviour {
                     AudioManager.PlaySound ((int) SoundType.HURTORC);
                     break;
                 case EnemyVariant.Mage:
-                    //AudioManager.PlaySound((int)SoundType.HURTMAGE);
+                    AudioManager.PlaySound((int)SoundType.HURTMAGE);
                     break;
             }
 
