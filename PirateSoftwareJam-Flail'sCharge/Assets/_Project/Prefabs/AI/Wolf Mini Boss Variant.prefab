@@ -358,6 +358,14 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: e0b8c616c0e910e42aec65c86cc6d6f3, type: 2}
+    - target: {fileID: 685871265797505959, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
+      propertyPath: m_Height
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 685871265797505959, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
+      propertyPath: m_Center.y
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2646859293947082187, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
       propertyPath: enemySO
       value: 
@@ -477,10 +485,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2.5
+  m_Radius: 0.35
+  m_Height: 2.1
   m_Direction: 2
-  m_Center: {x: 0, y: 0.5, z: -0.75}
+  m_Center: {x: 0, y: 0.5, z: -0.88}
 --- !u!82 &5468731016820783043
 AudioSource:
   m_ObjectHideFlags: 0

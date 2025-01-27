@@ -397,6 +397,7 @@ MonoBehaviour:
   timeBeforeDeath: 0
   isDying: 0
   damageCooldownTime: 1
+  IsInvincible: 0
   scoreSystemScript: {fileID: 0}
   waveSpawner: {fileID: 0}
   Player: 1
@@ -471,6 +472,7 @@ MonoBehaviour:
   timeBeforeDeath: 0
   isDying: 0
   damageCooldownTime: 0
+  IsInvincible: 0
   scoreSystemScript: {fileID: 0}
   waveSpawner: {fileID: 0}
   Player: 1
@@ -484,7 +486,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5195184926594912488}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: ef5b7cfd107b97d449cde59328e7e398, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 4337931503387777466}
   - component: {fileID: 360353500231038774}
   - component: {fileID: 8758847272081124414}
+  - component: {fileID: 685871265797505959}
   - component: {fileID: 1894635628298333977}
   m_Layer: 6
   m_Name: AIHolder
@@ -248,6 +249,29 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.6
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &685871265797505959
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4257402497276743991}
+  m_Material: {fileID: 13400000, guid: ef5b7cfd107b97d449cde59328e7e398, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Height: 1.4
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.7, z: 0}
 --- !u!114 &1894635628298333977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,6 +291,7 @@ MonoBehaviour:
   timeBeforeDeath: 0
   isDying: 0
   damageCooldownTime: 2
+  IsInvincible: 0
   scoreSystemScript: {fileID: 0}
   waveSpawner: {fileID: 0}
   Player: 0
