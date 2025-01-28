@@ -171,6 +171,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Hit Player");
         healthScript.TakeDamage(damage);
         UpdateHealth();
+        AudioManager.PlaySound((int)SoundType.HURTPLAYER);
     }
 
     //Health Update Function
