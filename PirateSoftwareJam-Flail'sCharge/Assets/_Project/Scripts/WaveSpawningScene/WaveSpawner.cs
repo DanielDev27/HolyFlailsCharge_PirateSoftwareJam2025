@@ -89,6 +89,7 @@ public class WaveSpawner : MonoBehaviour
             if (waveData[currentWaveNumber] == null)
             {
                 ScoreSystem.instance.TriggerGameEnd();
+                AudioManager.PlaySound((int)SoundType.VICTORY);
                 return;
             }
         }
