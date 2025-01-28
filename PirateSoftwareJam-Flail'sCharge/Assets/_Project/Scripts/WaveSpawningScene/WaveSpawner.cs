@@ -5,6 +5,8 @@ using UnityEngine.Serialization;
 
 public class WaveSpawner : MonoBehaviour
 {
+
+    public static WaveSpawner instance;
     [Header("Debug")]
     [SerializeField] private float countdownTimer;
 
@@ -46,7 +48,10 @@ public class WaveSpawner : MonoBehaviour
     //[SerializeField] private int testEnemiesToSpawn = 3;
     //[SerializeField] private float miniBossSpawnDelay = 5f;
     //[SerializeField] private float finalBossSpawnDelay = 10f;
-
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         countdownTimer = waveCoolDown;
@@ -233,7 +238,7 @@ public class WaveSpawner : MonoBehaviour
         }
     }*/
 
-    private void CullEnemies() // if everything is working correctly, this method can be removed. It's a failsafe.
+    public void CullEnemies() // if everything is working correctly, this method can be removed. It's a failsafe.
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy"); // Find all game objects with the tag "Enemy"
 
