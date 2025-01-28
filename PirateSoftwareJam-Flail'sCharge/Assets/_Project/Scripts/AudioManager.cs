@@ -15,6 +15,7 @@ public enum SoundType {
     FLAIL, 
     MAGIC,
     SWORD,
+    BITE,
 
     //Damage
     HURTGOBLIN,
