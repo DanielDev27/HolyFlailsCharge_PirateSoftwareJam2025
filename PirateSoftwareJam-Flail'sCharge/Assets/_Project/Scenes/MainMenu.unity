@@ -1416,7 +1416,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 11
+            m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -1472,7 +1472,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 12
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1618,7 +1618,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 12
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1697,7 +1697,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 11
+            m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -1903,7 +1903,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 11
+            m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -1959,7 +1959,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 12
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2335,7 +2335,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 12
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2414,7 +2414,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 11
+            m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -2604,34 +2604,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4616586311328213433, guid: db5a3392c06b79043934d857c86ab4a0, type: 3}
-      propertyPath: soundList.Array.data[1].sounds.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4616586311328213433, guid: db5a3392c06b79043934d857c86ab4a0, type: 3}
-      propertyPath: soundList.Array.data[3].sounds.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4616586311328213433, guid: db5a3392c06b79043934d857c86ab4a0, type: 3}
-      propertyPath: 'soundList.Array.data[1].sounds.Array.data[0]'
-      value: 
-      objectReference: {fileID: 8300000, guid: d3c6aae3424d46a42bb07c7a1f8fef1e, type: 3}
-    - target: {fileID: 4616586311328213433, guid: db5a3392c06b79043934d857c86ab4a0, type: 3}
-      propertyPath: 'soundList.Array.data[3].sounds.Array.data[0]'
-      value: 
-      objectReference: {fileID: 8300000, guid: c05a5c6a7fd86884fbb5a2e4c781a681, type: 3}
-    - target: {fileID: 4616586311328213433, guid: db5a3392c06b79043934d857c86ab4a0, type: 3}
-      propertyPath: 'soundList.Array.data[3].sounds.Array.data[1]'
-      value: 
-      objectReference: {fileID: 8300000, guid: ecbb053cf43faf6498b0ef8a0450caef, type: 3}
-    - target: {fileID: 4616586311328213433, guid: db5a3392c06b79043934d857c86ab4a0, type: 3}
-      propertyPath: 'soundList.Array.data[3].sounds.Array.data[2]'
-      value: 
-      objectReference: {fileID: 8300000, guid: b310dafac3bfa3b429402094f7d5c589, type: 3}
-    - target: {fileID: 4616586311328213433, guid: db5a3392c06b79043934d857c86ab4a0, type: 3}
-      propertyPath: 'soundList.Array.data[9].sounds.Array.data[0]'
-      value: 
-      objectReference: {fileID: 8300000, guid: dfdd4a6f39c0c284082f1d8ba27b5721, type: 3}
     - target: {fileID: 7640858086646096401, guid: db5a3392c06b79043934d857c86ab4a0, type: 3}
       propertyPath: m_Name
       value: AudioManager

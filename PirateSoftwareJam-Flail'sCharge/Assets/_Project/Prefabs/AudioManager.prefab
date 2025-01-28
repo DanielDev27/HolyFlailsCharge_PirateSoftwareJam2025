@@ -143,52 +143,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundList:
-  - name: FLAIL
-    sounds:
-    - {fileID: 8300000, guid: 7a505568cbbab3b4a87e0bbd7be08395, type: 3}
-    - {fileID: 8300000, guid: 0d07e157fadcf674ea618b4fa08a876f, type: 3}
-    - {fileID: 8300000, guid: b5259c55e73f9384c8fc42a2486770e8, type: 3}
-    - {fileID: 8300000, guid: 5b12495dc9623914795bae5f5fdcc6b7, type: 3}
-  - name: MAGIC
-    sounds: []
-  - name: ARROW
-    sounds: []
-  - name: SWORD
-    sounds: []
-  - name: HURTGOBLIN
-    sounds:
-    - {fileID: 8300000, guid: 042b41701cb71cb448119ea8aaf2768d, type: 3}
-    - {fileID: 8300000, guid: 0da370f6f4ac96340a2324778a17a472, type: 3}
-    - {fileID: 8300000, guid: b787f5bde67765744aa4aa58b5c73515, type: 3}
-    - {fileID: 8300000, guid: ce14ceb23e8b92649acf342d6eb2c300, type: 3}
-    - {fileID: 8300000, guid: 6cfb87a703d831d4e928ce582d3e1a26, type: 3}
-  - name: HURTORC
-    sounds:
-    - {fileID: 8300000, guid: 22ab8394e0ac7664e9558ea4f40c8fc8, type: 3}
-    - {fileID: 8300000, guid: e9ecb662a77fbe649998db3caab7c5f7, type: 3}
-    - {fileID: 8300000, guid: 94ea836b709726845bcdc25d5b03d96e, type: 3}
-  - name: HURTMAGE
-    sounds:
-    - {fileID: 8300000, guid: 3ff8285b7ba25ef49a9d708df9363384, type: 3}
-    - {fileID: 8300000, guid: 7b1fa9ba8c8483f45a14b149854457af, type: 3}
-    - {fileID: 8300000, guid: 2cdf1ce71e69f7443b8b47cd9a319061, type: 3}
-    - {fileID: 8300000, guid: fca3ab2b9be173d499f3b7d3669d6faa, type: 3}
-    - {fileID: 8300000, guid: 3c703776d81ff50418faca9821af5bde, type: 3}
-  - name: HURTWOLF
-    sounds:
-    - {fileID: 8300000, guid: 9745e8d80f67c984980028ed7094a12a, type: 3}
-    - {fileID: 8300000, guid: 460b5edd3366d5e41af80435d8d07a1e, type: 3}
-    - {fileID: 8300000, guid: 0ef2bd05c40206d4b892068797381081, type: 3}
-    - {fileID: 8300000, guid: 9eb4741652b2f1a4c8da9147366708bf, type: 3}
-  - name: SPAWNBOSS
-    sounds:
-    - {fileID: 8300000, guid: a144d1a8bdf7a524882c2c5ee7eb72dd, type: 3}
-  - name: SPAWNWAVE
-    sounds:
-    - {fileID: 8300000, guid: a144d1a8bdf7a524882c2c5ee7eb72dd, type: 3}
-  - name: SPAWNWOLFBOSS
-    sounds:
-    - {fileID: 8300000, guid: 2f95a08e6672bb24fbe82eb2f45a9e57, type: 3}
   - name: MENUHOVER
     sounds:
     - {fileID: 8300000, guid: cf6e4dad656d49b4c80d6aafa625c871, type: 3}
@@ -204,3 +158,54 @@ MonoBehaviour:
   - name: DEFEAT
     sounds:
     - {fileID: 8300000, guid: 0c9ccec9cb8b59540b78df365f1e6261, type: 3}
+  - name: FLAIL
+    sounds:
+    - {fileID: 8300000, guid: 7a505568cbbab3b4a87e0bbd7be08395, type: 3}
+    - {fileID: 8300000, guid: 0d07e157fadcf674ea618b4fa08a876f, type: 3}
+    - {fileID: 8300000, guid: b5259c55e73f9384c8fc42a2486770e8, type: 3}
+    - {fileID: 8300000, guid: 5b12495dc9623914795bae5f5fdcc6b7, type: 3}
+  - name: MAGIC
+    sounds:
+    - {fileID: 8300000, guid: d3c6aae3424d46a42bb07c7a1f8fef1e, type: 3}
+  - name: SWORD
+    sounds:
+    - {fileID: 8300000, guid: c05a5c6a7fd86884fbb5a2e4c781a681, type: 3}
+    - {fileID: 8300000, guid: ecbb053cf43faf6498b0ef8a0450caef, type: 3}
+    - {fileID: 8300000, guid: b310dafac3bfa3b429402094f7d5c589, type: 3}
+  - name: HURTGOBLIN
+    sounds:
+    - {fileID: 8300000, guid: 042b41701cb71cb448119ea8aaf2768d, type: 3}
+    - {fileID: 8300000, guid: b787f5bde67765744aa4aa58b5c73515, type: 3}
+    - {fileID: 8300000, guid: 0da370f6f4ac96340a2324778a17a472, type: 3}
+    - {fileID: 8300000, guid: 6cfb87a703d831d4e928ce582d3e1a26, type: 3}
+    - {fileID: 8300000, guid: ce14ceb23e8b92649acf342d6eb2c300, type: 3}
+  - name: HURTORC
+    sounds:
+    - {fileID: 8300000, guid: 22ab8394e0ac7664e9558ea4f40c8fc8, type: 3}
+    - {fileID: 8300000, guid: 94ea836b709726845bcdc25d5b03d96e, type: 3}
+    - {fileID: 8300000, guid: e9ecb662a77fbe649998db3caab7c5f7, type: 3}
+  - name: HURTMAGE
+    sounds:
+    - {fileID: 8300000, guid: 3ff8285b7ba25ef49a9d708df9363384, type: 3}
+    - {fileID: 8300000, guid: 7b1fa9ba8c8483f45a14b149854457af, type: 3}
+    - {fileID: 8300000, guid: 2cdf1ce71e69f7443b8b47cd9a319061, type: 3}
+    - {fileID: 8300000, guid: fca3ab2b9be173d499f3b7d3669d6faa, type: 3}
+    - {fileID: 8300000, guid: 3c703776d81ff50418faca9821af5bde, type: 3}
+  - name: HURTWOLF
+    sounds:
+    - {fileID: 8300000, guid: 9745e8d80f67c984980028ed7094a12a, type: 3}
+    - {fileID: 8300000, guid: 460b5edd3366d5e41af80435d8d07a1e, type: 3}
+    - {fileID: 8300000, guid: 0ef2bd05c40206d4b892068797381081, type: 3}
+    - {fileID: 8300000, guid: 9eb4741652b2f1a4c8da9147366708bf, type: 3}
+  - name: HURTPLAYER
+    sounds:
+    - {fileID: 0}
+  - name: SPAWNBOSS
+    sounds:
+    - {fileID: 8300000, guid: a144d1a8bdf7a524882c2c5ee7eb72dd, type: 3}
+  - name: SPAWNWAVE
+    sounds:
+    - {fileID: 8300000, guid: dfdd4a6f39c0c284082f1d8ba27b5721, type: 3}
+  - name: SPAWNWOLFBOSS
+    sounds:
+    - {fileID: 8300000, guid: 2f95a08e6672bb24fbe82eb2f45a9e57, type: 3}
