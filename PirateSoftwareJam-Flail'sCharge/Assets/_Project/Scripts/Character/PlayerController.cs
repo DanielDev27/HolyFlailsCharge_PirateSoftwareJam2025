@@ -7,10 +7,11 @@ using Sirenix.OdinInspector;
 using Random = UnityEngine.Random;
 
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
     public static PlayerController Instance;
 
-    [Header ("Debug")]
+    [Header("Debug")]
     [SerializeField] bool isPaused = false;
 
     [SerializeField] Vector2 moveInput;
@@ -21,7 +22,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] bool isDead = false;
     //[SerializeField] float timerCD = 0;
 
-    [Header ("References")]
+    [Header("References")]
     [SerializeField] Rigidbody playerBody;
 
     [SerializeField] GameObject playerAvatar;
@@ -34,126 +35,157 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] public GameObject weaponTrigger;
     [SerializeField] HUD hud;
 
-    [Header ("Settings")]
+    [Header("Settings")]
     [SerializeField] float movementSpeed;
 
     [SerializeField] float attackCD;
 
-    void Awake () {
+    void Awake()
+    {
         Instance = this;
         //Verify and Set PLayer Input script
-        if (playerInput == null) {
-            playerInput = new PlayerInput ();
+        if (playerInput == null)
+        {
+            playerInput = new PlayerInput();
         }
 
-        if (playerInputHandler == null) {
-            playerInputHandler = new PlayerInputHandler ();
+        if (playerInputHandler == null)
+        {
+            playerInputHandler = new PlayerInputHandler();
         }
 
-        if (playerInputActions == null) {
+        if (playerInputActions == null)
+        {
             playerInputActions = PlayerInputHandler.playerInputs;
         }
 
         //Set values and references
         isDead = false;
-        healthScript = GetComponent<Health> ();
-        healthScript.ResetHealth ();
+        healthScript = GetComponent<Health>();
+        healthScript.ResetHealth();
         health = healthScript.maxHp;
         attackCD = healthScript.damageCooldownTime;
-        hud = FindObjectOfType<HUD> ();
+        hud = FindObjectOfType<HUD>();
     }
 
-    public void OnEnable () {
-        PlayerInputHandler.Enable ();
-        PlayerInputHandler.OnMovePerformed.AddListener (InputMove);
-        PlayerInputHandler.OnAttackPerformed.AddListener (OnAttack);
-        MenuFunctionality.OnPause.AddListener (OnPause);
+    public void OnEnable()
+    {
+        PlayerInputHandler.Enable();
+        PlayerInputHandler.OnMovePerformed.AddListener(InputMove);
+        PlayerInputHandler.OnAttackPerformed.AddListener(OnAttack);
+        MenuFunctionality.OnPause.AddListener(OnPause);
     }
 
-    void OnPause (bool _isPaused) {
+    void OnPause(bool _isPaused)
+    {
         isPaused = _isPaused;
-        if (isPaused) {
-            PlayerInputHandler.Disable ();
-        } else {
-            PlayerInputHandler.Enable ();
+        if (isPaused)
+        {
+            PlayerInputHandler.Disable();
+        }
+        else
+        {
+            PlayerInputHandler.Enable();
         }
     }
 
 
-    public void OnDisable () {
-        PlayerInputHandler.OnMovePerformed.RemoveListener (InputMove);
-        PlayerInputHandler.OnAttackPerformed.RemoveListener (OnAttack);
+    public void OnDisable()
+    {
+        PlayerInputHandler.OnMovePerformed.RemoveListener(InputMove);
+        PlayerInputHandler.OnAttackPerformed.RemoveListener(OnAttack);
     }
 
-    public void OnDestroy () { }
+    public void OnDestroy() { }
 
-    void Update () {
-        if (moveInput != Vector2.zero) {
-            OnPlayerMove (); //Get the player move input when it's not zero
+    void Update()
+    {
+        if (moveInput != Vector2.zero && !TutorialSystem.instance.isShowingTutorial)
+        {
+            OnPlayerMove(); //Get the player move input when it's not zero
         }
     }
 
     //Move Input and Debug bools
-    void InputMove (Vector2 _input) {
+    void InputMove(Vector2 _input)
+    {
         moveInput = _input;
-        if (moveInput != Vector2.zero) {
+        if (moveInput != Vector2.zero)
+        {
             isMoving = true;
-            animator.SetBool ("IsWalking", isMoving);
-        } else {
+            animator.SetBool("IsWalking", isMoving);
+        }
+        else
+        {
             isMoving = false;
-            animator.SetBool ("IsWalking", isMoving);
+            animator.SetBool("IsWalking", isMoving);
         }
     }
 
     //Move Logic
-    void OnPlayerMove () {
+    void OnPlayerMove()
+    {
         moveDirection = moveInput.x * transform.right + moveInput.y * transform.up;
-        Vector3 moveCombined = new Vector3 (moveInput.x, 0, moveInput.y);
-        if (moveCombined != Vector3.zero) {
-            playerBody.linearVelocity = new Vector3 (moveDirection.x, 0, moveDirection.y) * movementSpeed;
-        } else {
+        Vector3 moveCombined = new Vector3(moveInput.x, 0, moveInput.y);
+        if (moveCombined != Vector3.zero)
+        {
+            playerBody.linearVelocity = new Vector3(moveDirection.x, 0, moveDirection.y) * movementSpeed;
+        }
+        else
+        {
             playerBody.linearVelocity = Vector3.zero;
         }
     }
 
     //Attack Input
-    void OnAttack (bool _attacking) {
-        if (_attacking && !isAttacking) {
-            StartCoroutine (AttackLimit ());
-            AudioManager.PlaySound ((int) SoundType.FLAIL);
+    void OnAttack(bool _attacking)
+    {
+        if (TutorialSystem.instance.isShowingTutorial)
+        {
+            TutorialSystem.instance.FinishTutorial();
         }
+        if (_attacking && !isAttacking)
+        {
+            StartCoroutine(AttackLimit());
+            AudioManager.PlaySound((int)SoundType.FLAIL);
+        }
+
     }
 
     //Attack Logic and Debug
-    IEnumerator AttackLimit () {
-        weaponTrigger.GetComponent<Collider> ().enabled = true; //Turn on Weapon collider
+    IEnumerator AttackLimit()
+    {
+        weaponTrigger.GetComponent<Collider>().enabled = true; //Turn on Weapon collider
         isAttacking = true;
-        animator.SetBool ("IsAttacking", isAttacking);
+        animator.SetBool("IsAttacking", isAttacking);
         //Debug.Log ("Player Attack");
-        yield return new WaitForSeconds (attackCD);
+        yield return new WaitForSeconds(attackCD);
         isAttacking = false;
-        animator.SetBool ("IsAttacking", isAttacking);
-        weaponTrigger.GetComponent<Collider> ().enabled = false; ////Turn off Weapon collider
+        animator.SetBool("IsAttacking", isAttacking);
+        weaponTrigger.GetComponent<Collider>().enabled = false; ////Turn off Weapon collider
     }
 
     //Damage Function
-    public void TakeHit (int damage) {
-        Debug.Log ("Hit Player");
-        healthScript.TakeDamage (damage);
-        UpdateHealth ();
+    public void TakeHit(int damage)
+    {
+        Debug.Log("Hit Player");
+        healthScript.TakeDamage(damage);
+        UpdateHealth();
     }
 
     //Health Update Function
-    void UpdateHealth () {
+    void UpdateHealth()
+    {
         health = healthScript.currentHp;
         //hud?.UpdateDisplayedHealth (health);
     }
 
-    public IEnumerator Death () {
+    public IEnumerator Death()
+    {
         isDead = true;
-        animator.SetBool ("IsDead", isDead);
-        yield return new WaitForSeconds (0.5f);
-        ScoreSystem.instance.TriggerGameEnd ();
-        OnDisable ();
+        animator.SetBool("IsDead", isDead);
+        yield return new WaitForSeconds(0.5f);
+        ScoreSystem.instance.TriggerGameEnd();
+        OnDisable();
     }
 }

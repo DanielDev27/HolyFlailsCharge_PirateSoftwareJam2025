@@ -5,7 +5,6 @@ using UnityEngine.Serialization;
 
 public class WaveSpawner : MonoBehaviour
 {
-
     public static WaveSpawner instance;
     [Header("Debug")]
     [SerializeField] private float countdownTimer;
@@ -51,6 +50,7 @@ public class WaveSpawner : MonoBehaviour
     private void Awake()
     {
         instance = this;
+
     }
     void Start()
     {
@@ -80,6 +80,10 @@ public class WaveSpawner : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (TutorialSystem.instance.isShowingTutorial)
+        {
+            return;
+        }
         if (!ScoreSystem.instance.isGameOver)
         {
             if (waveData[currentWaveNumber] == null)
@@ -246,7 +250,6 @@ public class WaveSpawner : MonoBehaviour
         {
             Destroy(enemy); // Destroy each enemy
         }
-
         enemiesAlive = 0; // Reset the enemiesAlive counter
         waveInProgress = false; // Reset the wave progress flag
         Debug.Log("All enemies have been culled.");
