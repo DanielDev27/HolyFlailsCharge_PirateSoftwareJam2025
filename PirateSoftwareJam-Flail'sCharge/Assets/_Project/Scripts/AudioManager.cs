@@ -5,28 +5,28 @@ using UnityEngine;
 // Enumeration for different sound types
 // Each entry represents a type of sound that can be played
 public enum SoundType {
-    //Attacks
-    FLAIL, //0
-    MAGIC,
-    ARROW,
-    SWORD,
-
-    //Dammage
-    HURTGOBLIN,
-    HURTORC,
-    HURTMAGE,
-    HURTWOLF,
-
-    //Spawn
-    SPAWNBOSS,
-    SPAWNWAVE,
-    SPAWNWOLFBOSS,
-
-    //UI
+    //UI     Moved this to the top so that I don't have to keep changing the numbers every time I add or remove a sound type
     MENUHOVER,
     MENUCLICK,
     VICTORY,
     DEFEAT,
+
+    //Attacks
+    FLAIL, 
+    MAGIC,
+    SWORD,
+
+    //Damage
+    HURTGOBLIN,
+    HURTORC,
+    HURTMAGE,
+    HURTWOLF,
+    HURTPLAYER,
+
+    //Spawn
+    SPAWNBOSS,
+    SPAWNWAVE,
+    SPAWNWOLFBOSS
 }
 
 [RequireComponent (typeof (AudioSource)), ExecuteInEditMode] // Ensures an AudioSource component is present and allows this script to run in edit mode
