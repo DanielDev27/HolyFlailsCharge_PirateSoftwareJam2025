@@ -186,6 +186,7 @@ public class PlayerController : MonoBehaviour
         isDead = true;
         animator.SetBool("IsDead", isDead);
         yield return new WaitForSeconds(0.5f);
+        AudioManager.PlaySound((int)SoundType.DEFEAT);
         ScoreSystem.instance.TriggerGameEnd();
         OnDisable();
     }

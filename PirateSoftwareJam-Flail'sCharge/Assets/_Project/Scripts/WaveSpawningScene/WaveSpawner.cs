@@ -92,7 +92,7 @@ public class WaveSpawner : MonoBehaviour
                 return;
             }
         }
-        if (!waveInProgress && enemiesAlive == 0)
+        if (!waveInProgress && enemiesAlive == 0) 
         // Checking if there is no wave in progress and if there are no enemies alive before I run the code
         {
             NextWave();
