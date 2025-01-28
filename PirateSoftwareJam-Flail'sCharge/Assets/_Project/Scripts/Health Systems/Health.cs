@@ -102,7 +102,7 @@ public class Health : MonoBehaviour {
             }
         }
 
-        if (currentHp <= 0 && isDying == false) //Activate death coroutine if hp is below or equal to 0 and if entity isnt already dying
+        if (currentHp <= 0 && isDying == false) //Activate death coroutine if hp is below or equal to 0 and if entity isn't already dying
         {
             DeathRoutine ();
         }

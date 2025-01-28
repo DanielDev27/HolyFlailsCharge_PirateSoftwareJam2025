@@ -676,6 +676,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wolf
       objectReference: {fileID: 0}
+    - target: {fileID: 7799217889801910561, guid: f81d6ad0644f2024dbc13fe6b4ebe161, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7936300802507214539, guid: f81d6ad0644f2024dbc13fe6b4ebe161, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -845,14 +849,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedVersion: 0
-  m_AgentTypeID: 1479372276
+  m_AgentTypeID: -902729914
   m_CollectObjects: 0
   m_Size: {x: 10, y: 10, z: 10}
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 7
-  m_UseGeometry: 1
+  m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
   m_IgnoreNavMeshAgent: 1
@@ -860,7 +864,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.1
+  m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: a21521091c136974c8883cce69030ba8, type: 2}
   m_BuildHeightMesh: 0
@@ -893,6 +897,10 @@ PrefabInstance:
     - target: {fileID: 9074750709642016873, guid: 42c73b5b0018ad149814516d9724128b, type: 3}
       propertyPath: m_Name
       value: Mage
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074750709642016873, guid: 42c73b5b0018ad149814516d9724128b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9219142636176871299, guid: 42c73b5b0018ad149814516d9724128b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1016,6 +1024,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goblin
       objectReference: {fileID: 0}
+    - target: {fileID: 9074906759742733164, guid: dc81922a39bf1f442ac1435bb7827e7a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9218744521713847430, guid: dc81922a39bf1f442ac1435bb7827e7a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1073,6 +1085,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Orc
       objectReference: {fileID: 0}
+    - target: {fileID: 110172391928739149, guid: be09111b4ffbfbe4f9a58a2322687c4d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 259077812099678887, guid: be09111b4ffbfbe4f9a58a2322687c4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1129,6 +1145,10 @@ PrefabInstance:
     - target: {fileID: 7798372762313519493, guid: 6ccdb5c97e32bf740a7a024e1e0aafe8, type: 3}
       propertyPath: m_Name
       value: Wolf Mini Boss Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7798372762313519493, guid: 6ccdb5c97e32bf740a7a024e1e0aafe8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7937143976733427311, guid: 6ccdb5c97e32bf740a7a024e1e0aafe8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1227,6 +1247,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goblin Mini Boss Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4858569914244012640, guid: 7601e049e7d85ff4d92ce539a3768c33, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1243,6 +1267,10 @@ PrefabInstance:
     - target: {fileID: 3261461335021554556, guid: 41ef41a59b706c04cafcf92662261530, type: 3}
       propertyPath: m_Name
       value: Mage Mini Boss Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3261461335021554556, guid: 41ef41a59b706c04cafcf92662261530, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3412617034523294870, guid: 41ef41a59b706c04cafcf92662261530, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1300,6 +1328,10 @@ PrefabInstance:
     - target: {fileID: 9022727052337425884, guid: 61d9242121572d94984f5632771dc0b3, type: 3}
       propertyPath: m_Name
       value: Orc Final Boss Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022727052337425884, guid: 61d9242121572d94984f5632771dc0b3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9162624716420520502, guid: 61d9242121572d94984f5632771dc0b3, type: 3}
       propertyPath: m_LocalPosition.x

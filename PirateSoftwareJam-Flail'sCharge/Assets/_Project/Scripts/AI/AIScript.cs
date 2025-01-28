@@ -12,6 +12,9 @@ public enum EnemyVariant {
 
 public class AIScript : MonoBehaviour {
     public static AIScript Instance;
+    static readonly int IsWalking = Animator.StringToHash ("IsWalking");
+    static readonly int IsAttacking = Animator.StringToHash ("IsAttacking");
+    static readonly int IsDead = Animator.StringToHash ("IsDead");
 
     [Header ("Debug")]
     //Player Reference Info
@@ -101,21 +104,17 @@ public class AIScript : MonoBehaviour {
             switch (currentState) {
                 case AiStates.Idle:
                     //Debug.Log ("Idle {" + this.gameObject.name + "}");
-                    OnAnimatorUpdate ();
                     StartCoroutine (OnIdle ());
                     break;
                 case AiStates.Chasing:
                     //Debug.Log ("Chasing {" + this.gameObject.name + "}");
-                    OnAnimatorUpdate ();
                     Chasing ();
                     break;
                 case AiStates.Attacking:
-                    OnAnimatorUpdate ();
                     StartCoroutine (OnAttack ());
                     break;
                 case AiStates.Dead:
                     Debug.Log ("Dead {" + this.gameObject.name + "}");
-                    OnAnimatorUpdate ();
                     EnemyDie ();
                     break;
             }
@@ -128,24 +127,24 @@ public class AIScript : MonoBehaviour {
     void OnAnimatorUpdate () {
         switch (currentState) {
             case AiStates.Idle:
-                animator.SetBool ("IsWalking", isMoving);
-                animator.SetBool ("IsAttacking", isAttacking);
-                animator.SetBool ("IsDead", isDead);
+                animator.SetBool (IsWalking, isMoving);
+                animator.SetBool (IsAttacking, isAttacking);
+                animator.SetBool (IsDead, isDead);
                 break;
             case AiStates.Chasing:
-                animator.SetBool ("IsWalking", isMoving);
-                animator.SetBool ("IsAttacking", isAttacking);
-                animator.SetBool ("IsDead", isDead);
+                animator.SetBool (IsWalking, isMoving);
+                animator.SetBool (IsAttacking, isAttacking);
+                animator.SetBool (IsDead, isDead);
                 break;
             case AiStates.Attacking:
-                animator.SetBool ("IsWalking", isMoving);
-                animator.SetBool ("IsAttacking", isAttacking);
-                animator.SetBool ("IsDead", isDead);
+                animator.SetBool (IsWalking, isMoving);
+                animator.SetBool (IsAttacking, isAttacking);
+                animator.SetBool (IsDead, isDead);
                 break;
             case AiStates.Dead:
-                animator.SetBool ("IsWalking", isMoving);
-                animator.SetBool ("IsAttacking", isAttacking);
-                animator.SetBool ("IsDead", isDead);
+                animator.SetBool (IsWalking, isMoving);
+                animator.SetBool (IsAttacking, isAttacking);
+                animator.SetBool (IsDead, isDead);
                 break;
         }
     }
@@ -173,6 +172,7 @@ public class AIScript : MonoBehaviour {
             //Pause If statement
             {
                 coroutineInProgress = true;
+                OnAnimatorUpdate ();
                 if (!isDead && !isAttacking) {
                     yield return new WaitForSeconds (1);
                     if (playerReference != null) {
@@ -233,6 +233,8 @@ public class AIScript : MonoBehaviour {
             isMoving = false;
             currentState = AiStates.Dead;
         }
+
+        OnAnimatorUpdate ();
     }
 
     //Attack Logic
@@ -241,6 +243,7 @@ public class AIScript : MonoBehaviour {
             Debug.Log ("Attacking {" + this.gameObject.name + "}");
             coroutineInProgress = true;
             isAttacking = true;
+            OnAnimatorUpdate ();
             if (!ranged) {
                 weaponTrigger.GetComponent<Collider> ().enabled = true;
                 yield return new WaitForSeconds (attackCD);
@@ -288,7 +291,7 @@ public class AIScript : MonoBehaviour {
                     AudioManager.PlaySound ((int) SoundType.HURTORC);
                     break;
                 case EnemyVariant.Mage:
-                    AudioManager.PlaySound((int)SoundType.HURTMAGE);
+                    AudioManager.PlaySound ((int) SoundType.HURTMAGE);
                     break;
             }
 
@@ -312,6 +315,8 @@ public class AIScript : MonoBehaviour {
 
     IEnumerator OnDead () {
         coroutineInProgress = true;
+        isDead = true;
+        OnAnimatorUpdate ();
         yield return new WaitForSeconds (1);
         Destroy (this.gameObject);
     }
