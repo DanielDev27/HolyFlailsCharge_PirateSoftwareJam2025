@@ -290,6 +290,7 @@ public class AIScript : MonoBehaviour {
     }
     //Sound pushes
     public void TakeDamageSound () {
+        AudioManager.PlaySound((int)SoundType.HURTFLESH);
         switch (enemyVariant) {
             case EnemyVariant.Goblin:
                 AudioManager.PlaySound ((int) SoundType.HURTGOBLIN);
@@ -311,7 +312,7 @@ public class AIScript : MonoBehaviour {
                 AudioManager.PlaySound ((int) SoundType.SWORD);
                 break;
             case EnemyVariant.Wolf:
-                AudioManager.PlaySound ((int) SoundType.SWORD);
+                AudioManager.PlaySound ((int) SoundType.SWORD);//placeholder
                 break;
             case EnemyVariant.Orc:
                 AudioManager.PlaySound ((int) SoundType.SWORD);

@@ -22,6 +22,7 @@ public enum SoundType {
     HURTMAGE,
     HURTWOLF,
     HURTPLAYER,
+    HURTFLESH,
 
     //Spawn
     SPAWNBOSS,

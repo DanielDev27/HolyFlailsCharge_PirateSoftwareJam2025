@@ -199,7 +199,18 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 9eb4741652b2f1a4c8da9147366708bf, type: 3}
   - name: HURTPLAYER
     sounds:
-    - {fileID: 0}
+    - {fileID: 8300000, guid: 1daed9100a82dd64686c17782e8da56e, type: 3}
+    - {fileID: 8300000, guid: d1d41792e0cef1d4bb054ba9f3ca2346, type: 3}
+    - {fileID: 8300000, guid: 3ef2947c203c1d1489382b6adf711293, type: 3}
+    - {fileID: 8300000, guid: acc2c588c1a26284f8376c3e996b3bd6, type: 3}
+    - {fileID: 8300000, guid: f138f665e39dbee46945e451625aa489, type: 3}
+    - {fileID: 8300000, guid: 77568443f5b4f4f4f99c76d5475cf745, type: 3}
+  - name: HURTFLESH
+    sounds:
+    - {fileID: 8300000, guid: d72aec5f590893c488f1da94d012968e, type: 3}
+    - {fileID: 8300000, guid: 91ceb2bf44074aa40a444b80be7b38ca, type: 3}
+    - {fileID: 8300000, guid: b8a0705fa2c985a4f91aa272f0f1322c, type: 3}
+    - {fileID: 8300000, guid: a8bb9a949ca505745a52f0dbab3ea1c7, type: 3}
   - name: SPAWNBOSS
     sounds:
     - {fileID: 8300000, guid: a144d1a8bdf7a524882c2c5ee7eb72dd, type: 3}
