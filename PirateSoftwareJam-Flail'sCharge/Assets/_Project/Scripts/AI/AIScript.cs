@@ -246,6 +246,7 @@ public class AIScript : MonoBehaviour {
             OnAnimatorUpdate ();
             if (!ranged) {
                 weaponTrigger.GetComponent<Collider> ().enabled = true;
+                DealDamageSound();
                 yield return new WaitForSeconds (attackCD);
                 isAttacking = false;
                 coroutineInProgress = false;
@@ -255,6 +256,7 @@ public class AIScript : MonoBehaviour {
             if (ranged) {
                 if (canSeePlayer) {
                     //
+                    DealDamageSound();
                     //Generate Projectile
                     GameObject _projectile = Instantiate (projectile, weaponTrigger.transform.position, Quaternion.identity, transform);
                     _projectile.transform.forward = new Vector3 (playerReference.transform.position.x, transform.position.y, playerReference.transform.position.z);
@@ -280,26 +282,46 @@ public class AIScript : MonoBehaviour {
     //Damage
     public void TakeHit (int damage) {
         if (!healthScript.IsInvincible) {
-            switch (enemyVariant) {
-                case EnemyVariant.Goblin:
-                    AudioManager.PlaySound ((int) SoundType.HURTGOBLIN);
-                    break;
-                case EnemyVariant.Wolf:
-                    AudioManager.PlaySound ((int) SoundType.HURTWOLF);
-                    break;
-                case EnemyVariant.Orc:
-                    AudioManager.PlaySound ((int) SoundType.HURTORC);
-                    break;
-                case EnemyVariant.Mage:
-                    AudioManager.PlaySound ((int) SoundType.HURTMAGE);
-                    break;
-            }
-
+            TakeDamageSound ();
             healthScript.TakeDamage (damage);
             UpdateHealth ();
             ScoreSystem.instance?.AddScoreDamage ();
         }
     }
+    //Sound pushes
+    public void TakeDamageSound () {
+        switch (enemyVariant) {
+            case EnemyVariant.Goblin:
+                AudioManager.PlaySound ((int) SoundType.HURTGOBLIN);
+                break;
+            case EnemyVariant.Wolf:
+                AudioManager.PlaySound ((int) SoundType.HURTWOLF);
+                break;
+            case EnemyVariant.Orc:
+                AudioManager.PlaySound ((int) SoundType.HURTORC);
+                break;
+            case EnemyVariant.Mage:
+                AudioManager.PlaySound ((int) SoundType.HURTMAGE);
+                break;
+        }
+    }
+    public void DealDamageSound () {
+        switch (enemyVariant) {
+            case EnemyVariant.Goblin:
+                AudioManager.PlaySound ((int) SoundType.SWORD);
+                break;
+            case EnemyVariant.Wolf:
+                AudioManager.PlaySound ((int) SoundType.SWORD);
+                break;
+            case EnemyVariant.Orc:
+                AudioManager.PlaySound ((int) SoundType.SWORD);
+                break;
+            case EnemyVariant.Mage:
+                AudioManager.PlaySound ((int) SoundType.MAGIC);
+                break;
+        }
+    }
+    
 
     //Health Update
     void UpdateHealth () {
