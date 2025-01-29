@@ -65,12 +65,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Arise Honoured Weapon! \n\nThe valiant champion that wielded you has fallen
-    and his will passed onto you!\n\nFend of waves of enemies and honour your knight's
-    memory!\n\nUse the WASD keys to move yourself, and use Spacebar to unleash a
-    mighty attack. \n\nUse Escape to pause the game for a brief respite. \n\nWhen
-    you are ready to start the battle, press Spacebar to unleash the first swin.\n\nGood
-    luck, honourable weapon!"
+  m_text: "Arise Honoured Weapon! \n\nA valiant champion has summoned you whilst
+    they dispell an ancient curse.\n\nFend of waves of enemies and protect you Knight!\n\nUse
+    the WASD keys to move yourself, and use Left Click to unleash a mighty attack.
+    \n\nUse Escape to pause the game for a brief respite. \n\nWhen you are ready
+    to start the battle, press Left Click to unleash the first swin.\n\nGood luck,
+    honourable weapon!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
