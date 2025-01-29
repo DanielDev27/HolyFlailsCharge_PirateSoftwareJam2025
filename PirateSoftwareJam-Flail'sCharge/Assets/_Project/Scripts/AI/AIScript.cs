@@ -15,6 +15,7 @@ public class AIScript : MonoBehaviour {
     static readonly int IsWalking = Animator.StringToHash ("IsWalking");
     static readonly int IsAttacking = Animator.StringToHash ("IsAttacking");
     static readonly int IsDead = Animator.StringToHash ("IsDead");
+    static readonly int TakeDamage = Animator.StringToHash ("TakeDamage");
 
     [Header ("Debug")]
     //Player Reference Info
@@ -129,22 +130,22 @@ public class AIScript : MonoBehaviour {
             case AiStates.Idle:
                 animator.SetBool (IsWalking, isMoving);
                 animator.SetBool (IsAttacking, isAttacking);
-                animator.SetBool (IsDead, isDead);
+                //animator.SetBool (IsDead, isDead);
                 break;
             case AiStates.Chasing:
                 animator.SetBool (IsWalking, isMoving);
                 animator.SetBool (IsAttacking, isAttacking);
-                animator.SetBool (IsDead, isDead);
+                //animator.SetBool (IsDead, isDead);
                 break;
             case AiStates.Attacking:
                 animator.SetBool (IsWalking, isMoving);
                 animator.SetBool (IsAttacking, isAttacking);
-                animator.SetBool (IsDead, isDead);
+                //animator.SetBool (IsDead, isDead);
                 break;
             case AiStates.Dead:
                 animator.SetBool (IsWalking, isMoving);
                 animator.SetBool (IsAttacking, isAttacking);
-                animator.SetBool (IsDead, isDead);
+                animator.SetTrigger (IsDead);
                 break;
         }
     }
@@ -154,13 +155,13 @@ public class AIScript : MonoBehaviour {
             RaycastHit _hit;
             Vector3 _playerPosition = playerReference.transform.position;
             directionToPlayer = _playerPosition - transform.position;
-            bool _hitLayer = Physics.Raycast (transform.position, directionToPlayer, out _hit, Mathf.Infinity, obstructionLayerMask, QueryTriggerInteraction.Ignore);
+            bool _hitLayer = Physics.Raycast (weaponTrigger.transform.position, directionToPlayer, out _hit, Mathf.Infinity, obstructionLayerMask, QueryTriggerInteraction.Ignore);
             if (_hitLayer && _hit.collider.gameObject.layer == 7) {
                 transform.LookAt (new Vector3 (playerReference.transform.position.x, transform.position.y, playerReference.transform.position.z));
-                Debug.DrawRay (transform.position + transform.up * 0.6f, directionToPlayer * weaponReach, Color.blue);
+                Debug.DrawRay (weaponTrigger.transform.position, directionToPlayer * weaponReach, Color.blue);
                 canSeePlayer = true;
             } else {
-                Debug.DrawRay (transform.position + transform.up * 0.6f, directionToPlayer * weaponReach, Color.red);
+                Debug.DrawRay (weaponTrigger.transform.position, directionToPlayer * weaponReach, Color.red);
                 canSeePlayer = false;
             }
         }
@@ -256,11 +257,11 @@ public class AIScript : MonoBehaviour {
             if (ranged) {
                 if (canSeePlayer) {
                     //
-                    DealDamageSound ();
                     //Generate Projectile
                     GameObject _projectile = Instantiate (projectile, weaponTrigger.transform.position, Quaternion.identity, transform);
                     _projectile.transform.forward = new Vector3 (playerReference.transform.position.x, 0.5f, playerReference.transform.position.z);
                     //
+                    DealDamageSound ();
                     yield return new WaitForSeconds (attackCD);
                     isAttacking = false;
                     coroutineInProgress = false;
@@ -286,6 +287,7 @@ public class AIScript : MonoBehaviour {
             healthScript.TakeDamage (damage);
             UpdateHealth ();
             ScoreSystem.instance?.AddScoreDamage ();
+            animator.SetTrigger (TakeDamage);
         }
     }
 
@@ -333,6 +335,9 @@ public class AIScript : MonoBehaviour {
     }
 
     public void EnemyDie () {
+        isDead = true;
+        //currentState = AiStates.Dead;
+        OnAnimatorUpdate ();
         ScoreSystem.instance?.AddScoreKill ();
         StartCoroutine (OnDead ());
         audioSource.Stop ();
@@ -340,8 +345,6 @@ public class AIScript : MonoBehaviour {
 
     IEnumerator OnDead () {
         coroutineInProgress = true;
-        isDead = true;
-        OnAnimatorUpdate ();
         yield return new WaitForSeconds (1);
         Destroy (this.gameObject);
     }

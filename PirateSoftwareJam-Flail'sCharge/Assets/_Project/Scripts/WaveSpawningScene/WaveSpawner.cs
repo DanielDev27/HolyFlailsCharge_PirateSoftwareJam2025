@@ -97,7 +97,6 @@ public class WaveSpawner : MonoBehaviour
         // Checking if there is no wave in progress and if there are no enemies alive before I run the code
         {
             NextWave();
-            ScoreSystem.instance.IncreaseWaveCounter();
         }
     }
 
@@ -107,6 +106,7 @@ public class WaveSpawner : MonoBehaviour
         countdownTimer -= Time.deltaTime;
         if (countdownTimer <= 0)
         {
+            ScoreSystem.instance.IncreaseWaveCounter ();
             CullEnemies();
             Debug.Log("_________________________________");
             Debug.Log("____________Next Wave____________");

@@ -47,6 +47,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 81a528225712c074fac54e8b83dce53f, type: 2}
+    - target: {fileID: 640697199040233432, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 685871265797505959, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
       propertyPath: m_Height
       value: 1.7
@@ -174,6 +178,10 @@ PrefabInstance:
     - target: {fileID: 9129583010341547688, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
       propertyPath: m_Mass
       value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 9129583010341547688, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8758847272081124414, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}

@@ -11,7 +11,7 @@ public class ScoreSystem : MonoBehaviour {
     [Header ("Score")]
     [FormerlySerializedAs ("_score")] public float score;
 
-    int numberOfWaves;
+    [SerializeField] int numberOfWaves;
 
     [Header ("Score Settings")]
     [SerializeField] float killScoreIncrease;
@@ -35,13 +35,13 @@ public class ScoreSystem : MonoBehaviour {
 
     public void AddScoreKill () {
         score += killScoreIncrease;
-        Debug.Log ("Score increased to: " + score);
+        //Debug.Log ("Score increased to: " + score);
         UpdateHUDScore ();
     }
 
     public void AddScoreDamage () {
         score += damageScoreIncrease;
-        Debug.Log ("Score increased to: " + score);
+        //Debug.Log ("Score increased to: " + score);
         UpdateHUDScore ();
     }
 
@@ -54,7 +54,7 @@ public class ScoreSystem : MonoBehaviour {
         gameEndCanvasGroup.interactable = true;
         gameEndCanvasGroup.blocksRaycasts = true;
         isGameOver = true;
-        finalScoreText.text = "Your Score is " + score + Environment.NewLine + " You survived for " + numberOfWaves + "waves.";
+        finalScoreText.text = "Your Score is " + score + " " + Environment.NewLine + " You survived for " + numberOfWaves + " waves.";
     }
 
     public void IncreaseWaveCounter () {

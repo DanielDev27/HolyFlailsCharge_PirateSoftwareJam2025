@@ -849,7 +849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedVersion: 0
-  m_AgentTypeID: -334000983
+  m_AgentTypeID: 1479372276
   m_CollectObjects: 0
   m_Size: {x: 10, y: 10, z: 10}
   m_Center: {x: 0, y: 2, z: 0}
@@ -864,7 +864,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.1
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: a21521091c136974c8883cce69030ba8, type: 2}
   m_BuildHeightMesh: 0
@@ -882,6 +882,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGameOver: 0
   score: 0
+  numberOfWaves: 0
   killScoreIncrease: 100
   damageScoreIncrease: 10
   gameEndCanvasGroup: {fileID: 0}
@@ -1389,6 +1390,7 @@ SceneRoots:
   - {fileID: 1690741000}
   - {fileID: 1415344472}
   - {fileID: 351833222}
+  - {fileID: 1285076345}
   - {fileID: 1795399969}
   - {fileID: 436957701450678924}
   - {fileID: 396787381441027872}
@@ -1397,7 +1399,6 @@ SceneRoots:
   - {fileID: 1728661289}
   - {fileID: 223043447}
   - {fileID: 1118283989}
-  - {fileID: 1285076345}
   - {fileID: 7154048236346476418}
   - {fileID: 7564160559564619653}
   - {fileID: 7633770254974115378}

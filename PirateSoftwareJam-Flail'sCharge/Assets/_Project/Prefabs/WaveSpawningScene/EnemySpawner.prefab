@@ -58,8 +58,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  waveCoolDown: 8
-  enemySpawnDelay: 1.5
+  waveCoolDown: 3
+  enemySpawnDelay: 2
   waveData:
   - {fileID: 11400000, guid: 41bd5e81a95984c40a1cf04ce881dba9, type: 2}
   - {fileID: 11400000, guid: 2ab25b9d5bf7414419ea3676eca389f0, type: 2}
