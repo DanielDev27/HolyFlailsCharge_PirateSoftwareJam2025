@@ -13,7 +13,7 @@ public class MenuFunctionality : MonoBehaviour {
     [SerializeField] Canvas creditsCanvas;
 
     [Header ("Pause Menu")]
-    [SerializeField] Canvas pauseCanvas;
+    [SerializeField] GameObject pauseCanvas;
 
     [SerializeField] bool isPaused = false;
 
@@ -38,16 +38,17 @@ public class MenuFunctionality : MonoBehaviour {
     //Event
     public static UnityEvent<bool> OnPause = new UnityEvent<bool> ();
 
-    void Awake () {
-        if (pauseCanvas != null) {
-            pauseCanvas.enabled = false;
-        }
-    }
-
     void OnEnable () {
+        if (pauseCanvas != null) {
+            pauseCanvas.SetActive (false);
+        }
+
         PlayerInputHandler.Enable ();
         PlayerInputHandler.OnPausePerformed.AddListener (InputPause);
         EventSystem.current.SetSelectedGameObject (mainMenuFirst);
+    }
+
+    void Start () {
         InputControlsCheck.Instance.InputDeviceUIAssign ();
         inputControlsCheck = InputControlsCheck.Instance;
     }
@@ -64,7 +65,7 @@ public class MenuFunctionality : MonoBehaviour {
                     EventSystem.current.SetSelectedGameObject (creditsMenuFirst);
                 }
 
-                if (pauseCanvas != null && pauseCanvas.enabled) {
+                if (pauseCanvas != null && pauseCanvas.activeSelf) {
                     EventSystem.current.SetSelectedGameObject (pauseMenuFirst);
                 }
 
@@ -113,14 +114,14 @@ public class MenuFunctionality : MonoBehaviour {
     public void InputPause (bool pause) {
         if (pauseCanvas != null) {
             isPaused = pause;
-            pauseCanvas.enabled = isPaused;
+            pauseCanvas.SetActive (isPaused);
             OnPause.Invoke (isPaused);
         }
     }
 
     public void ResumeGame () {
         isPaused = false;
-        pauseCanvas.enabled = isPaused;
+        pauseCanvas.SetActive (isPaused);
         OnPause.Invoke (isPaused);
     }
 }

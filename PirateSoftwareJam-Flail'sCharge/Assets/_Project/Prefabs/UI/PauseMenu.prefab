@@ -12,15 +12,13 @@ GameObject:
   - component: {fileID: 5514016009114012841}
   - component: {fileID: 3022964109433621494}
   - component: {fileID: 3904055896626759631}
-  - component: {fileID: 8195482250639413781}
-  - component: {fileID: 8729797482509854231}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4301760541451948542
 RectTransform:
   m_ObjectHideFlags: 0
@@ -50,7 +48,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 233968578317836238}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -106,45 +104,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 247
---- !u!114 &8195482250639413781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 233968578317836238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33a1c70b0575d654287b7c7afd03d616, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuCanvas: {fileID: 0}
-  creditsCanvas: {fileID: 0}
-  pauseCanvas: {fileID: 5514016009114012841}
-  isPaused: 0
-  loadingScreen: {fileID: 0}
-  loadingProgressBar: {fileID: 0}
-  isActive: 0
-  inputControlsCheck: {fileID: 0}
-  gamepadEnabled: 0
-  mainMenuFirst: {fileID: 0}
-  creditsMenuFirst: {fileID: 0}
-  pauseMenuFirst: {fileID: 2406197601419552612}
-  endScreenFirst: {fileID: 0}
---- !u!114 &8729797482509854231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 233968578317836238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9da483dd3382e074289b01387905cdcb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  usingGamepad: 0
-  playerInput: {fileID: 0}
 --- !u!1 &2406197601419552612
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +238,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8195482250639413781}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuFunctionality, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
@@ -726,7 +685,7 @@ MonoBehaviour:
           m_StringArgument: 13
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8195482250639413781}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuFunctionality, Assembly-CSharp
         m_MethodName: LoadLevel
         m_Mode: 3
