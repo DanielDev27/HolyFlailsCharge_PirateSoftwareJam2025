@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -22,6 +23,18 @@ public class MenuFunctionality : MonoBehaviour {
     public Image loadingProgressBar;
     [SerializeField] bool isActive;
 
+    [Header ("Controller Support")]
+    [SerializeField] InputControlsCheck inputControlsCheck;
+
+    [SerializeField] bool gamepadEnabled;
+
+    [Header ("First Selections")]
+    [SerializeField] GameObject mainMenuFirst;
+
+    [SerializeField] GameObject creditsMenuFirst;
+    [SerializeField] GameObject pauseMenuFirst;
+    [SerializeField] GameObject endScreenFirst;
+
     //Event
     public static UnityEvent<bool> OnPause = new UnityEvent<bool> ();
 
@@ -34,6 +47,32 @@ public class MenuFunctionality : MonoBehaviour {
     void OnEnable () {
         PlayerInputHandler.Enable ();
         PlayerInputHandler.OnPausePerformed.AddListener (InputPause);
+        EventSystem.current.SetSelectedGameObject (mainMenuFirst);
+        InputControlsCheck.Instance.InputDeviceUIAssign ();
+        inputControlsCheck = InputControlsCheck.Instance;
+    }
+
+    void FixedUpdate () {
+        if (gamepadEnabled != InputControlsCheck.Instance.usingGamepad) {
+            gamepadEnabled = InputControlsCheck.Instance.usingGamepad;
+            if (gamepadEnabled) {
+                if (menuCanvas != null && menuCanvas.enabled) {
+                    EventSystem.current.SetSelectedGameObject (mainMenuFirst);
+                }
+
+                if (creditsCanvas != null && creditsCanvas.enabled) {
+                    EventSystem.current.SetSelectedGameObject (creditsMenuFirst);
+                }
+
+                if (pauseCanvas != null && pauseCanvas.enabled) {
+                    EventSystem.current.SetSelectedGameObject (pauseMenuFirst);
+                }
+
+                if (endScreenFirst != null && ScoreSystem.instance.isGameOver) {
+                    EventSystem.current.SetSelectedGameObject (endScreenFirst);
+                }
+            }
+        }
     }
 
     public void LoadLevel (int _levelIndex) {
@@ -72,9 +111,11 @@ public class MenuFunctionality : MonoBehaviour {
     }
 
     public void InputPause (bool pause) {
-        isPaused = pause;
-        pauseCanvas.enabled = isPaused;
-        OnPause.Invoke (isPaused);
+        if (pauseCanvas != null) {
+            isPaused = pause;
+            pauseCanvas.enabled = isPaused;
+            OnPause.Invoke (isPaused);
+        }
     }
 
     public void ResumeGame () {

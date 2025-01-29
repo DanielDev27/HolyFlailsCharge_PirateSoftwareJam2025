@@ -76,15 +76,6 @@ public class PlayerController : MonoBehaviour {
         MenuFunctionality.OnPause.AddListener (OnPause);
     }
 
-    void OnPause (bool _isPaused) {
-        isPaused = _isPaused;
-        if (isPaused) {
-            PlayerInputHandler.Disable ();
-        } else {
-            PlayerInputHandler.Enable ();
-        }
-    }
-
 
     public void OnDisable () {
         PlayerInputHandler.OnMovePerformed.RemoveListener (InputMove);
@@ -92,6 +83,15 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void OnDestroy () { }
+
+    void OnPause (bool _isPaused) {
+        isPaused = _isPaused;
+        if (isPaused) {
+            OnDisable ();
+        } else {
+            OnEnable ();
+        }
+    }
 
     void Update () {
         if (moveInput != Vector2.zero && !TutorialSystem.instance.isShowingTutorial) {
