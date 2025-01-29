@@ -246,7 +246,7 @@ public class AIScript : MonoBehaviour {
             OnAnimatorUpdate ();
             if (!ranged) {
                 weaponTrigger.GetComponent<Collider> ().enabled = true;
-                DealDamageSound();
+                DealDamageSound ();
                 yield return new WaitForSeconds (attackCD);
                 isAttacking = false;
                 coroutineInProgress = false;
@@ -256,10 +256,10 @@ public class AIScript : MonoBehaviour {
             if (ranged) {
                 if (canSeePlayer) {
                     //
-                    DealDamageSound();
+                    DealDamageSound ();
                     //Generate Projectile
                     GameObject _projectile = Instantiate (projectile, weaponTrigger.transform.position, Quaternion.identity, transform);
-                    _projectile.transform.forward = new Vector3 (playerReference.transform.position.x, transform.position.y, playerReference.transform.position.z);
+                    _projectile.transform.forward = new Vector3 (playerReference.transform.position.x, 0.5f, playerReference.transform.position.z);
                     //
                     yield return new WaitForSeconds (attackCD);
                     isAttacking = false;
@@ -288,9 +288,10 @@ public class AIScript : MonoBehaviour {
             ScoreSystem.instance?.AddScoreDamage ();
         }
     }
+
     //Sound pushes
     public void TakeDamageSound () {
-        AudioManager.PlaySound((int)SoundType.HURTFLESH);
+        AudioManager.PlaySound ((int) SoundType.HURTFLESH);
         switch (enemyVariant) {
             case EnemyVariant.Goblin:
                 AudioManager.PlaySound ((int) SoundType.HURTGOBLIN);
@@ -306,13 +307,14 @@ public class AIScript : MonoBehaviour {
                 break;
         }
     }
+
     public void DealDamageSound () {
         switch (enemyVariant) {
             case EnemyVariant.Goblin:
                 AudioManager.PlaySound ((int) SoundType.SWORD);
                 break;
             case EnemyVariant.Wolf:
-                AudioManager.PlaySound ((int) SoundType.SWORD);//placeholder
+                AudioManager.PlaySound ((int) SoundType.SWORD); //placeholder
                 break;
             case EnemyVariant.Orc:
                 AudioManager.PlaySound ((int) SoundType.SWORD);
@@ -322,7 +324,7 @@ public class AIScript : MonoBehaviour {
                 break;
         }
     }
-    
+
 
     //Health Update
     void UpdateHealth () {
