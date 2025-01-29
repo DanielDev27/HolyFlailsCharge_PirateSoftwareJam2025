@@ -314,7 +314,7 @@ public class AIScript : MonoBehaviour {
                 AudioManager.PlaySound ((int) SoundType.SWORD);
                 break;
             case EnemyVariant.Wolf:
-                AudioManager.PlaySound ((int) SoundType.SWORD); //placeholder
+                AudioManager.PlaySound ((int) SoundType.BITE);
                 break;
             case EnemyVariant.Orc:
                 AudioManager.PlaySound ((int) SoundType.SWORD);
