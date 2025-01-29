@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2550267768225727230}
   - component: {fileID: 5594823325841469419}
+  - component: {fileID: 4686347511426466043}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -84,3 +85,17 @@ MonoBehaviour:
   enemiesPerWave: 0
   spawnVariance: 3
   audioManagerScript: {fileID: 0}
+--- !u!114 &4686347511426466043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4592497420868729487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f237769be26f17c409fb87501c7ebb27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isShowingTutorial: 1
+  tutorialCanvas: {fileID: 0}
