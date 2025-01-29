@@ -230,7 +230,6 @@ GameObject:
   - component: {fileID: 1240043694565388611}
   - component: {fileID: 1577998190959723489}
   - component: {fileID: 9144666797469199403}
-  - component: {fileID: 3798291132722629838}
   - component: {fileID: 3000558004887585805}
   - component: {fileID: 4284049331631637871}
   - component: {fileID: 4556689333440446481}
@@ -456,32 +455,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3798291132722629838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5195184926594912488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4281788382e39c4589428fc5223ce25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentHp: 1
-  maxHp: 1000
-  slowmoOnDeath: 0
-  stopVinyl: 0
-  timeBeforeDeath: 0
-  isDying: 0
-  damageCooldownTime: 0
-  IsInvincible: 0
-  scoreSystemScript: {fileID: 0}
-  waveSpawner: {fileID: 0}
-  Player: 1
-  playerController: {fileID: 0}
-  aiScript: {fileID: 0}
-  healthView: {fileID: 0}
 --- !u!136 &3000558004887585805
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1493,6 +1466,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4616586311328213433, guid: db5a3392c06b79043934d857c86ab4a0, type: 3}
+      propertyPath: 'soundList.Array.data[9].sounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: dfdd4a6f39c0c284082f1d8ba27b5721, type: 3}
     - target: {fileID: 7640858086646096401, guid: db5a3392c06b79043934d857c86ab4a0, type: 3}
       propertyPath: m_Name
       value: AudioManager
