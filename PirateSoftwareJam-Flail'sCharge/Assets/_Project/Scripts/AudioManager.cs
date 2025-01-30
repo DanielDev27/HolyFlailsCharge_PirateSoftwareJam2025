@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 
@@ -37,23 +38,52 @@ public class AudioManager : MonoBehaviour {
     [SerializeField] private SoundList[] soundList; // Array to store lists of sounds, each associated with a specific SoundType
     [SerializeField] private AudioSource musicAudioSource;
     [SerializeField] private List<AudioClip> musicTracks = new List<AudioClip>();
+    [SerializeField] private float fadeTime = 1f; 
     private static AudioManager instance;
-    private AudioSource audioSource;
+    [SerializeField] private AudioSource SFXAudioSource;
+    
 
     private void Awake () {
         instance = this; // Set the static instance to this script instance
-        audioSource = GetComponent<AudioSource> ();
     }
     public void UpdateMusicForWave(int waveNumber)
     {
         AudioClip clipToPlay = GetClipForWave(waveNumber);
         
         // Only change the music if it's different from what's currently playing
-        if (audioSource.clip != clipToPlay)
+        if (musicAudioSource.clip != clipToPlay)
         {
-            audioSource.clip = clipToPlay;
-            audioSource.Play();
+            StartCoroutine(FadeTrack(clipToPlay));
         }
+    }
+    private IEnumerator FadeTrack(AudioClip newClip)
+    {
+        float timeElapsed = 0;
+        float startVolume = musicAudioSource.volume;
+
+        // Fade out current track
+        while (timeElapsed < fadeTime){
+            musicAudioSource.volume = Mathf.Lerp(startVolume, 0, timeElapsed / fadeTime);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // Change to new clip
+        musicAudioSource.clip = newClip;
+        musicAudioSource.Play();
+
+        // Reset time elapsed for fade in
+        timeElapsed = 0;
+
+        // Fade in new track
+        while (timeElapsed < fadeTime){
+            musicAudioSource.volume = Mathf.Lerp(0, startVolume, timeElapsed / fadeTime);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // Ensure we end at exact target volume
+        musicAudioSource.volume = startVolume;
     }
     private AudioClip GetClipForWave(int waveNumber)
     {
@@ -85,10 +115,10 @@ public class AudioManager : MonoBehaviour {
         // Select a random sound clip from the array
         if (clips.Length > 1) {
             AudioClip randomClip = clips[UnityEngine.Random.Range (0, clips.Length)];
-            instance.audioSource.PlayOneShot (randomClip);
+            instance.SFXAudioSource.PlayOneShot (randomClip);
         } else {
             AudioClip clip = clips[0];
-            instance.audioSource.PlayOneShot (clip);
+            instance.SFXAudioSource.PlayOneShot (clip);
         }
     }
 

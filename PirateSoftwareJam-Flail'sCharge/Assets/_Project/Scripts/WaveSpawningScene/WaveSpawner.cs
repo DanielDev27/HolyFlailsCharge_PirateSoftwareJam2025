@@ -118,6 +118,7 @@ public class WaveSpawner : MonoBehaviour
             currentWaveNumber = currentWaveData.waveNumber;
             HUD.instance?.IncrementWaveCount();
             PlaySpawnSound();
+            audioManagerScript.UpdateMusicForWave(currentWaveNumber);
         }
     }
 
@@ -140,20 +141,19 @@ public class WaveSpawner : MonoBehaviour
     void SetWaveInfo()
     {
         //Information about the wave is inherited from the Wave Data SO
+        waveInProgress = true;
         currentWaveData = waveData[currentWaveNumber];
         enemiesPerWave = currentWaveData.ListOfUnitsToSpawn.Length;
         //Debug.Log("The current wave number is: " + currentWaveNumber + ", Spawning " + enemiesPerWave + " enemies");
         enemyPrefabs = currentWaveData.ListOfUnitsToSpawn;
         spawnPoints = currentWaveData.ListOfUnitsSpawnLocations;
         maxEnemiesAlive = currentWaveData.maxEnemiesAlive;
-        waveInProgress = true;
     }
 
     private void GenerateWave()
     {
         // Start the coroutine to spawn enemies with a delay
         StartCoroutine(SpawnEnemiesWithDelay());
-
         /*        if (miniBossWaves.Contains (currentWaveNumber)) {
                     Debug.Log ("One of the enemies is a MINI BOSS");
                     StartCoroutine (SpawnMiniBossWithDelay ());
@@ -220,7 +220,7 @@ public class WaveSpawner : MonoBehaviour
 
         //Debug.Log("There are " + enemiesAlive + " enemies alive");
 
-        if (enemiesAlive == 0)
+        if (enemiesAlive == 0 && enemyQueue.Count == 0)
         {
             waveInProgress = false;
         }

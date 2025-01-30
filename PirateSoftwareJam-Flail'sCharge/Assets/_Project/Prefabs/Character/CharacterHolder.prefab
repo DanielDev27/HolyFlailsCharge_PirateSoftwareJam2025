@@ -471,9 +471,9 @@ AudioSource:
   m_GameObject: {fileID: 5195184926594912488}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b45d63ee7da0c274a93ecc725bcb2d9f, type: 3}
-  m_Resource: {fileID: 8300000, guid: b45d63ee7da0c274a93ecc725bcb2d9f, type: 3}
+  OutputAudioMixerGroup: {fileID: -2872725027880243209, guid: ff9a17530e0843642a13233b8e769e0e, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.269
   m_Pitch: 1
@@ -1335,7 +1335,7 @@ PrefabInstance:
     - target: {fileID: 3386750150766902794, guid: db5a3392c06b79043934d857c86ab4a0, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
-      objectReference: {fileID: 24300002, guid: ff9a17530e0843642a13233b8e769e0e, type: 2}
+      objectReference: {fileID: -5256465138333321584, guid: ff9a17530e0843642a13233b8e769e0e, type: 2}
     - target: {fileID: 3386750150766902794, guid: db5a3392c06b79043934d857c86ab4a0, type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
       value: 1
@@ -1380,6 +1380,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4616586311328213433, guid: db5a3392c06b79043934d857c86ab4a0, type: 3}
+      propertyPath: musicAudioSource
+      value: 
+      objectReference: {fileID: 4556689333440446481}
+    - target: {fileID: 4616586311328213433, guid: db5a3392c06b79043934d857c86ab4a0, type: 3}
+      propertyPath: musicTracks.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4616586311328213433, guid: db5a3392c06b79043934d857c86ab4a0, type: 3}
+      propertyPath: 'musicTracks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: b45d63ee7da0c274a93ecc725bcb2d9f, type: 3}
+    - target: {fileID: 4616586311328213433, guid: db5a3392c06b79043934d857c86ab4a0, type: 3}
+      propertyPath: 'musicTracks.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 32afeffa31a0c0948bb11ae5b2d7194d, type: 3}
+    - target: {fileID: 4616586311328213433, guid: db5a3392c06b79043934d857c86ab4a0, type: 3}
+      propertyPath: 'musicTracks.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 298ae417840aa694a82ba82a67e2f1e5, type: 3}
+    - target: {fileID: 4616586311328213433, guid: db5a3392c06b79043934d857c86ab4a0, type: 3}
+      propertyPath: 'musicTracks.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9cdc704bdc021084aa7f59818a19f875, type: 3}
+    - target: {fileID: 4616586311328213433, guid: db5a3392c06b79043934d857c86ab4a0, type: 3}
+      propertyPath: 'musicTracks.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 74f621755962d774d95e4b70e0075ac7, type: 3}
+    - target: {fileID: 4616586311328213433, guid: db5a3392c06b79043934d857c86ab4a0, type: 3}
+      propertyPath: 'musicTracks.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 843772d4149b44a469e725b3b1ec7c6d, type: 3}
+    - target: {fileID: 4616586311328213433, guid: db5a3392c06b79043934d857c86ab4a0, type: 3}
+      propertyPath: 'musicTracks.Array.data[6]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ff31f7316eab5aa4fa80343eb866b78e, type: 3}
+    - target: {fileID: 4616586311328213433, guid: db5a3392c06b79043934d857c86ab4a0, type: 3}
+      propertyPath: 'musicTracks.Array.data[7]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 78cdc28e7b604c2449c3e9c7429b3a0c, type: 3}
     - target: {fileID: 4616586311328213433, guid: db5a3392c06b79043934d857c86ab4a0, type: 3}
       propertyPath: 'soundList.Array.data[9].sounds.Array.data[0]'
       value: 
