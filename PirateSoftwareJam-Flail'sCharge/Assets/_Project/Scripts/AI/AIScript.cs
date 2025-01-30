@@ -219,7 +219,13 @@ public class AIScript : MonoBehaviour {
             agent.speed = moveSpeed;
             agent.isStopped = false;
             //Reached Player
-            if (distanceToPlayer <= weaponReach && canSeePlayer) {
+            if (distanceToPlayer <= weaponReach) {
+                isMoving = false;
+                agent.isStopped = true;
+                currentState = AiStates.Attacking;
+            }
+
+            if (ranged && canSeePlayer && distanceToPlayer <= weaponReach) {
                 isMoving = false;
                 agent.isStopped = true;
                 currentState = AiStates.Attacking;
