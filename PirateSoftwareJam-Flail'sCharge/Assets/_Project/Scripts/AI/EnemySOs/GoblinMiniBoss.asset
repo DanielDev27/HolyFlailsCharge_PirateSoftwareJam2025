@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6f07e3e7b16afe48869a17f140f409e, type: 3}
-  m_Name: Mage
+  m_Name: GoblinMiniBoss
   m_EditorClassIdentifier: 
-  EnemyType: 3
-  EnemyMoveSpeed: 1
-  EnemyMaxHealth: 10
+  EnemyType: 0
+  EnemyMoveSpeed: 2
+  EnemyMaxHealth: 20
   EnemyDamage: 10
-  EnemyAttackCD: 2
+  EnemyAttackCD: 1

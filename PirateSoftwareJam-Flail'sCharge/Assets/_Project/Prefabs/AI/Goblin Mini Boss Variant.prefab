@@ -122,7 +122,7 @@ PrefabInstance:
     - target: {fileID: 2646859293947082187, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
       propertyPath: enemySO
       value: 
-      objectReference: {fileID: 11400000, guid: 1ad972771478b274eb21109d95cfbde0, type: 2}
+      objectReference: {fileID: 11400000, guid: 6d818bbd6fcd4454798b75d90e04920b, type: 2}
     - target: {fileID: 2646859293947082187, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
       propertyPath: animator
       value: 
