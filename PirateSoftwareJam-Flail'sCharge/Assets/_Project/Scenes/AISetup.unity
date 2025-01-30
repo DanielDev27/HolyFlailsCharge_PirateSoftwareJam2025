@@ -849,7 +849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedVersion: 0
-  m_AgentTypeID: -334000983
+  m_AgentTypeID: -902729914
   m_CollectObjects: 0
   m_Size: {x: 10, y: 10, z: 10}
   m_Center: {x: 0, y: 2, z: 0}
@@ -1326,10 +1326,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 596839038162877204, guid: 61d9242121572d94984f5632771dc0b3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9022727052337425884, guid: 61d9242121572d94984f5632771dc0b3, type: 3}
       propertyPath: m_Name
       value: Orc Final Boss Variant
@@ -1392,12 +1388,12 @@ SceneRoots:
   - {fileID: 351833222}
   - {fileID: 1285076345}
   - {fileID: 1795399969}
+  - {fileID: 223043447}
   - {fileID: 436957701450678924}
   - {fileID: 396787381441027872}
   - {fileID: 3003346955526677097}
   - {fileID: 3264640638620711773}
   - {fileID: 1728661289}
-  - {fileID: 223043447}
   - {fileID: 1118283989}
   - {fileID: 7154048236346476418}
   - {fileID: 7564160559564619653}
