@@ -30,5 +30,4 @@ MonoBehaviour:
   - {fileID: 6506200123763792085, guid: e8c0181968d91a740b4a6491e7775150, type: 3}
   - {fileID: 7029259133153751057, guid: 88082151246c2ce42ba8c747ee98b123, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
   maxEnemiesAlive: 8

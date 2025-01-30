@@ -24,4 +24,5 @@ MonoBehaviour:
   ListOfUnitsSpawnLocations:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   maxEnemiesAlive: 9

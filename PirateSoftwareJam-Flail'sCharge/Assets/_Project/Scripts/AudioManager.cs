@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections.Generic;
 
 
 // Enumeration for different sound types
@@ -34,12 +35,47 @@ public enum SoundType {
 [RequireComponent (typeof (AudioSource)), ExecuteInEditMode] // Ensures an AudioSource component is present and allows this script to run in edit mode
 public class AudioManager : MonoBehaviour {
     [SerializeField] private SoundList[] soundList; // Array to store lists of sounds, each associated with a specific SoundType
+    [SerializeField] private AudioSource musicAudioSource;
+    [SerializeField] private List<AudioClip> musicTracks = new List<AudioClip>();
     private static AudioManager instance;
     private AudioSource audioSource;
 
     private void Awake () {
         instance = this; // Set the static instance to this script instance
         audioSource = GetComponent<AudioSource> ();
+    }
+    public void UpdateMusicForWave(int waveNumber)
+    {
+        AudioClip clipToPlay = GetClipForWave(waveNumber);
+        
+        // Only change the music if it's different from what's currently playing
+        if (audioSource.clip != clipToPlay)
+        {
+            audioSource.clip = clipToPlay;
+            audioSource.Play();
+        }
+    }
+    private AudioClip GetClipForWave(int waveNumber)
+    {
+        // Return based on your specified wave rules
+        if (waveNumber >= 1 && waveNumber <= 4)
+            return musicTracks[0];  // Track 1: Waves 1-4
+        else if (waveNumber == 5)
+            return musicTracks[1];  // Track 2: Wave 5
+        else if (waveNumber >= 6 && waveNumber <= 9)
+            return musicTracks[2];  // Track 3: Waves 6-9
+        else if (waveNumber == 10)
+            return musicTracks[3];  // Track 4: Wave 10
+        else if (waveNumber >= 11 && waveNumber <= 14)
+            return musicTracks[4];  // Track 5: Waves 11-14
+        else if (waveNumber == 15)
+            return musicTracks[5];  // Track 6: Wave 15
+        else if (waveNumber >= 16 && waveNumber <= 19)
+            return musicTracks[6];  // Track 7: Waves 16-19
+        else if (waveNumber == 20)
+            return musicTracks[7];  // Track 8: Wave 20
+        
+        return musicTracks[0];
     }
 
     public static void PlaySound (int sound) {
