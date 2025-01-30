@@ -92,6 +92,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2726953697776480658}
     - target: {fileID: 2646859293947082187, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
+      propertyPath: attackAnimation
+      value: 
+      objectReference: {fileID: 7400000, guid: 8b52e7f13aec38340a9fcc69e0c57733, type: 2}
+    - target: {fileID: 2646859293947082187, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
       propertyPath: visionCorrection
       value: 0.25
       objectReference: {fileID: 0}

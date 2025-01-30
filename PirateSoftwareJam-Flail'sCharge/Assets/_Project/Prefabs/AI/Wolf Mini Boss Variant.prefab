@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: enemyVariant
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2646859293947082187, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
+      propertyPath: attackAnimation
+      value: 
+      objectReference: {fileID: 7400000, guid: bf46acd90f64ba64bb9b8945f14e47e2, type: 2}
     - target: {fileID: 4110187576334100189, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

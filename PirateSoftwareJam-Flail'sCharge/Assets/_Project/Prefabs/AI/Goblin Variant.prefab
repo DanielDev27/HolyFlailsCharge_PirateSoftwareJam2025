@@ -366,6 +366,10 @@ PrefabInstance:
       propertyPath: weaponReach
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2646859293947082187, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
+      propertyPath: attackAnimation
+      value: 
+      objectReference: {fileID: 7400000, guid: 2288355fd063cdf43a3a8f9e5b0f4645, type: 2}
     - target: {fileID: 4110187576334100189, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

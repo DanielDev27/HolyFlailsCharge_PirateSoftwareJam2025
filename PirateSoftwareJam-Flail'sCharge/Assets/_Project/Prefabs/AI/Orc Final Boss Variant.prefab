@@ -139,6 +139,10 @@ PrefabInstance:
       propertyPath: enemyVariant
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2646859293947082187, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
+      propertyPath: attackAnimation
+      value: 
+      objectReference: {fileID: 7400000, guid: bbf87ff0b4e55ba4f84dd73e54441e13, type: 2}
     - target: {fileID: 3653837106098909298, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 2

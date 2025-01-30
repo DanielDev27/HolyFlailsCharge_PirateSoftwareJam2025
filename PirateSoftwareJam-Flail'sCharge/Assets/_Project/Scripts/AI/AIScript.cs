@@ -50,6 +50,7 @@ public class AIScript : MonoBehaviour {
     [SerializeField] public GameObject weaponTrigger;
     [SerializeField] GameObject projectile;
     [SerializeField] AudioSource audioSource;
+    [SerializeField] AnimationClip attackAnimation;
 
 
     [Header ("Settings")]
@@ -132,17 +133,14 @@ public class AIScript : MonoBehaviour {
             case AiStates.Idle:
                 animator.SetBool (IsWalking, isMoving);
                 animator.SetBool (IsAttacking, isAttacking);
-                //animator.SetBool (IsDead, isDead);
                 break;
             case AiStates.Chasing:
                 animator.SetBool (IsWalking, isMoving);
                 animator.SetBool (IsAttacking, isAttacking);
-                //animator.SetBool (IsDead, isDead);
                 break;
             case AiStates.Attacking:
                 animator.SetBool (IsWalking, isMoving);
                 animator.SetBool (IsAttacking, isAttacking);
-                //animator.SetBool (IsDead, isDead);
                 break;
             case AiStates.Dead:
                 animator.SetBool (IsWalking, isMoving);
@@ -269,7 +267,10 @@ public class AIScript : MonoBehaviour {
             OnAnimatorUpdate ();
             if (!ranged) {
                 DealDamageSound ();
-                yield return new WaitForSeconds (attackCD);
+
+                yield return new WaitForSeconds (attackAnimation.length - 0.2f);
+                animator.SetBool (IsAttacking, false);
+                yield return new WaitForSeconds (attackCD - attackAnimation.length);
                 isAttacking = false;
                 coroutineInProgress = false;
             }
@@ -278,7 +279,9 @@ public class AIScript : MonoBehaviour {
                 if (canSeePlayer) {
                     //
                     DealDamageSound ();
-                    yield return new WaitForSeconds (attackCD);
+                    yield return new WaitForSeconds (attackAnimation.length - 0.2f);
+                    animator.SetBool (IsAttacking, false);
+                    yield return new WaitForSeconds (attackCD - attackAnimation.length);
                     isAttacking = false;
                     coroutineInProgress = false;
                 } else {
