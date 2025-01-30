@@ -108,9 +108,9 @@ public class WaveSpawner : MonoBehaviour
         {
             ScoreSystem.instance.IncreaseWaveCounter ();
             CullEnemies();
-            Debug.Log("_________________________________");
+            /*Debug.Log("_________________________________");
             Debug.Log("____________Next Wave____________");
-            Debug.Log("_________________________________");
+            Debug.Log("_________________________________");*/
             //enemiesPerWave = currentWaveNumber + 2;
             SetWaveInfo();
             GenerateWave();
@@ -142,7 +142,7 @@ public class WaveSpawner : MonoBehaviour
         //Information about the wave is inherited from the Wave Data SO
         currentWaveData = waveData[currentWaveNumber];
         enemiesPerWave = currentWaveData.ListOfUnitsToSpawn.Length;
-        Debug.Log("The current wave number is: " + currentWaveNumber + ", Spawning " + enemiesPerWave + " enemies");
+        //Debug.Log("The current wave number is: " + currentWaveNumber + ", Spawning " + enemiesPerWave + " enemies");
         enemyPrefabs = currentWaveData.ListOfUnitsToSpawn;
         spawnPoints = currentWaveData.ListOfUnitsSpawnLocations;
         maxEnemiesAlive = currentWaveData.maxEnemiesAlive;
@@ -192,7 +192,7 @@ public class WaveSpawner : MonoBehaviour
         if (enemiesAlive >= maxEnemiesAlive) // Here, if the max enemies alive limit is reached, it will queue the enemy instead of spawning it
         {
             enemyQueue.Enqueue(entityPrefabs);
-            Debug.Log("Enemy queued for spawning. Total queued: " + enemyQueue.Count);
+            //Debug.Log("Enemy queued for spawning. Total queued: " + enemyQueue.Count);
             return; // However, if we're below, it will spawn it right away
         }
 
@@ -218,7 +218,7 @@ public class WaveSpawner : MonoBehaviour
     {
         enemiesAlive = Mathf.Max(enemiesAlive - 1, 0); // Preventing a negative
 
-        Debug.Log("There are " + enemiesAlive + " enemies alive");
+        //Debug.Log("There are " + enemiesAlive + " enemies alive");
 
         if (enemiesAlive == 0)
         {
@@ -230,7 +230,7 @@ public class WaveSpawner : MonoBehaviour
         {
             GameObject[] nextEnemy = enemyQueue.Dequeue(); // Here I am removing the enemy that is being spawned from the queue
             SpawnEntity(nextEnemy);
-            Debug.Log("Spawning an enemy from the queue. Total queued: " + enemyQueue.Count);
+            //Debug.Log("Spawning an enemy from the queue. Total queued: " + enemyQueue.Count);
         }
     }
     // Debugging, testing if spawning works the way I want it to
@@ -253,7 +253,7 @@ public class WaveSpawner : MonoBehaviour
         }
         enemiesAlive = 0; // Reset the enemiesAlive counter
         waveInProgress = false; // Reset the wave progress flag
-        Debug.Log("All enemies have been culled.");
+        //Debug.Log("All enemies have been culled.");
     }
 
     /*private void SkipWave()

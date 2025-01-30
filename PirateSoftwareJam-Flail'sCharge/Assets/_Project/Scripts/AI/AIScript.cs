@@ -57,6 +57,8 @@ public class AIScript : MonoBehaviour {
 
     [SerializeField] bool ranged;
     [SerializeField] LayerMask obstructionLayerMask;
+    [SerializeField] public float playerHeightCorrection;
+    [SerializeField] float visionCorrection;
 
     [Header ("Score Script")]
     [SerializeField] ScoreSystem scoreSystemScript;
@@ -154,7 +156,7 @@ public class AIScript : MonoBehaviour {
         if (playerReference != null && !isDead) {
             RaycastHit _hit;
             Vector3 _playerPosition = playerReference.transform.position;
-            directionToPlayer = _playerPosition - transform.position;
+            directionToPlayer = new Vector3 (_playerPosition.x - transform.position.x, _playerPosition.y - visionCorrection, _playerPosition.z - transform.position.z);
             bool _hitLayer = Physics.Raycast (weaponTrigger.transform.position, directionToPlayer, out _hit, Mathf.Infinity, obstructionLayerMask, QueryTriggerInteraction.Ignore);
             if (_hitLayer && _hit.collider.gameObject.layer == 7) {
                 transform.LookAt (new Vector3 (playerReference.transform.position.x, transform.position.y, playerReference.transform.position.z));
@@ -212,11 +214,12 @@ public class AIScript : MonoBehaviour {
         if (playerReference != null && !isDead && !isAttacking && !isPaused) {
             //Player present
             agent.destination = playerReference.transform.position;
+            FaceTarget ();
             isMoving = true;
             agent.speed = moveSpeed;
             agent.isStopped = false;
             //Reached Player
-            if (distanceToPlayer <= weaponReach /*&& timerCD >= attackCD*/) {
+            if (distanceToPlayer <= weaponReach && canSeePlayer) {
                 isMoving = false;
                 agent.isStopped = true;
                 currentState = AiStates.Attacking;
@@ -238,28 +241,35 @@ public class AIScript : MonoBehaviour {
         OnAnimatorUpdate ();
     }
 
+    /// <summary>
+    /// Face Target script sourced from InsaneDuane @ https://discussions.unity.com/t/how-do-i-update-the-rotation-of-a-navmeshagent/750004/3
+    /// Sets a significantly more immediate turn direction towards the next navmesh target.
+    /// </summary>
+    void FaceTarget () {
+        var turnTowardNavSteeringTarget = agent.steeringTarget;
+
+        Vector3 direction = (turnTowardNavSteeringTarget - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation (new Vector3 (direction.x, 0, direction.z));
+        transform.rotation = Quaternion.Slerp (transform.rotation, lookRotation, Time.deltaTime * 5);
+    }
+
     //Attack Logic
     IEnumerator OnAttack () {
+        transform.LookAt (new Vector3 (playerReference.transform.position.x, transform.position.y, playerReference.transform.position.z));
         if (!isDead && !isPaused) {
             Debug.Log ("Attacking {" + this.gameObject.name + "}");
             coroutineInProgress = true;
             isAttacking = true;
             OnAnimatorUpdate ();
             if (!ranged) {
-                weaponTrigger.GetComponent<Collider> ().enabled = true;
                 DealDamageSound ();
                 yield return new WaitForSeconds (attackCD);
                 isAttacking = false;
                 coroutineInProgress = false;
-                weaponTrigger.GetComponent<Collider> ().enabled = false;
             }
 
             if (ranged) {
                 if (canSeePlayer) {
-                    //
-                    //Generate Projectile
-                    GameObject _projectile = Instantiate (projectile, weaponTrigger.transform.position, Quaternion.identity, transform);
-                    _projectile.transform.forward = new Vector3 (playerReference.transform.position.x, 0.5f, playerReference.transform.position.z);
                     //
                     DealDamageSound ();
                     yield return new WaitForSeconds (attackCD);
@@ -277,6 +287,23 @@ public class AIScript : MonoBehaviour {
             currentState = AiStates.Dead;
         } else if (isPaused) {
             currentState = AiStates.Idle;
+        }
+    }
+
+    public void AttackOn () {
+        weaponTrigger.GetComponent<Collider> ().enabled = true;
+    }
+
+    public void AttackOff () {
+        weaponTrigger.GetComponent<Collider> ().enabled = false;
+    }
+
+    public void GenerateProjectile () {
+        if (canSeePlayer) {
+            //Generate Projectile
+            GameObject _projectile = Instantiate (projectile, weaponTrigger.transform.position, Quaternion.identity, transform);
+            _projectile.transform.forward = new Vector3 (playerReference.transform.position.x, playerHeightCorrection, playerReference.transform.position.z);
+            //
         }
     }
 

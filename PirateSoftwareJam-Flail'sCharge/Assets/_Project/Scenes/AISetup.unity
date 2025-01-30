@@ -849,7 +849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedVersion: 0
-  m_AgentTypeID: 1479372276
+  m_AgentTypeID: -1923039037
   m_CollectObjects: 0
   m_Size: {x: 10, y: 10, z: 10}
   m_Center: {x: 0, y: 2, z: 0}
@@ -913,7 +913,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9219142636176871299, guid: 42c73b5b0018ad149814516d9724128b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.624
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9219142636176871299, guid: 42c73b5b0018ad149814516d9724128b, type: 3}
       propertyPath: m_LocalRotation.w

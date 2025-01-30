@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2726953697776480658}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0.55}
+  m_LocalPosition: {x: 0, y: 0.7, z: 0.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -70,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 2646859293947082187, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
       propertyPath: animator
       value: 
-      objectReference: {fileID: 2019633766313829784}
+      objectReference: {fileID: 1550711656350300848}
     - target: {fileID: 2646859293947082187, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
       propertyPath: projectile
       value: 
@@ -92,6 +92,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2726953697776480658}
     - target: {fileID: 2646859293947082187, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
+      propertyPath: visionCorrection
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646859293947082187, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
+      propertyPath: playerHeightCorrection
+      value: -0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646859293947082187, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
       propertyPath: obstructionLayerMask.m_Bits
       value: 193
       objectReference: {fileID: 0}
@@ -105,7 +113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4110187576334100189, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.624
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4110187576334100189, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
       propertyPath: m_LocalRotation.w
@@ -200,6 +208,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4257402497276743991, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
       insertIndex: -1
       addedObject: {fileID: -3550569961053237246}
+    - targetCorrespondingSourceObject: {fileID: 4257402497276743991, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1550711656350300848}
   m_SourcePrefab: {fileID: 100100000, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
 --- !u!1 &9074750709642016873 stripped
 GameObject:
@@ -321,6 +332,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1550711656350300848
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9074750709642016873}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 1e492881f3180bf43a8b9987b93a110b, type: 3}
+  m_Controller: {fileID: 9100000, guid: 81a528225712c074fac54e8b83dce53f, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &9219142636176871299 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4110187576334100189, guid: 0369407c7c4523b4fb20949ae993c607, type: 3}
@@ -386,16 +419,12 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: 1e492881f3180bf43a8b9987b93a110b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e492881f3180bf43a8b9987b93a110b, type: 3}
---- !u!95 &2019633766313829784 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 1e492881f3180bf43a8b9987b93a110b, type: 3}
-  m_PrefabInstance: {fileID: 5579321793048844297}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5397285844974895074 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1e492881f3180bf43a8b9987b93a110b, type: 3}

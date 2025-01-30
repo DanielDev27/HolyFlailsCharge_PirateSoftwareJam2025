@@ -148,7 +148,7 @@ public class PlayerController : MonoBehaviour {
 
     //Damage Function
     public void TakeHit (int damage) {
-        Debug.Log ("Hit Player");
+        //Debug.Log ("Hit Player");
         healthScript.TakeDamage (damage);
         UpdateHealth ();
         AudioManager.PlaySound ((int) SoundType.HURTPLAYER);

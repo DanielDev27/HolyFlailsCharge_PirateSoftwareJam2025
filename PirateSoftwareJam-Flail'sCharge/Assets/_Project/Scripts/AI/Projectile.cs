@@ -23,7 +23,7 @@ public class Projectile : MonoBehaviour {
         damage = damageScript.GetDamage ();
         transform.parent = null;
         transform.LookAt (target);
-        rb.linearVelocity = new Vector3 (target.position.x - transform.position.x, target.position.y, target.position.z - transform.position.z) * pSpeed;
+        rb.linearVelocity = new Vector3 (target.position.x - transform.position.x, aiScript.playerHeightCorrection, target.position.z - transform.position.z) * pSpeed;
     }
 
     void OnTriggerEnter (Collider other) {
