@@ -10,6 +10,10 @@ using Random = UnityEngine.Random;
 public class PlayerController : MonoBehaviour {
     public static PlayerController Instance;
 
+    //static readonly int IsWalking = Animator.StringToHash ("IsWalking");
+    static readonly int IsAttacking = Animator.StringToHash ("IsAttacking");
+    static readonly int IsDead = Animator.StringToHash ("IsDead");
+
     [Header ("Debug")]
     [SerializeField] bool isPaused = false;
 
@@ -104,10 +108,10 @@ public class PlayerController : MonoBehaviour {
         moveInput = _input;
         if (moveInput != Vector2.zero) {
             isMoving = true;
-            animator.SetBool ("IsWalking", isMoving);
+            //animator.SetBool (IsWalking, isMoving);
         } else {
             isMoving = false;
-            animator.SetBool ("IsWalking", isMoving);
+            //animator.SetBool (IsWalking, isMoving);
         }
     }
 
@@ -138,11 +142,11 @@ public class PlayerController : MonoBehaviour {
     IEnumerator AttackLimit () {
         weaponTrigger.GetComponent<Collider> ().enabled = true; //Turn on Weapon collider
         isAttacking = true;
-        animator.SetBool ("IsAttacking", isAttacking);
+        animator.SetBool (IsAttacking, isAttacking);
         //Debug.Log ("Player Attack");
         yield return new WaitForSeconds (attackCD);
         isAttacking = false;
-        animator.SetBool ("IsAttacking", isAttacking);
+        animator.SetBool (IsAttacking, isAttacking);
         weaponTrigger.GetComponent<Collider> ().enabled = false; ////Turn off Weapon collider
     }
 
@@ -162,8 +166,8 @@ public class PlayerController : MonoBehaviour {
 
     public IEnumerator Death () {
         isDead = true;
-        animator.SetBool ("IsDead", isDead);
-        yield return new WaitForSeconds (0.5f);
+        animator.SetTrigger (IsDead);
+        yield return new WaitForSeconds (1);
         AudioManager.PlaySound ((int) SoundType.DEFEAT);
         ScoreSystem.instance.TriggerGameEnd ();
         OnDisable ();
