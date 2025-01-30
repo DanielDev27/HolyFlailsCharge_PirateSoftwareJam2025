@@ -22,9 +22,9 @@ MonoBehaviour:
   - {fileID: 7799217889801910561, guid: f81d6ad0644f2024dbc13fe6b4ebe161, type: 3}
   - {fileID: 9074750709642016873, guid: 42c73b5b0018ad149814516d9724128b, type: 3}
   ListOfUnitsSpawnLocations:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 5909249774396111113, guid: 6bd148ac1f4865a4bb734586c88b9862, type: 3}
+  - {fileID: 6506200123763792085, guid: e8c0181968d91a740b4a6491e7775150, type: 3}
+  - {fileID: 6942303644049316645, guid: c38c26042222498459baab059a20ce52, type: 3}
+  - {fileID: 2642603769908921501, guid: d470d25b55161434dac4a9a56aebad67, type: 3}
+  - {fileID: 4080173119297784892, guid: e98c05e101ac8254bbae88fe54ddaf69, type: 3}
   maxEnemiesAlive: 6

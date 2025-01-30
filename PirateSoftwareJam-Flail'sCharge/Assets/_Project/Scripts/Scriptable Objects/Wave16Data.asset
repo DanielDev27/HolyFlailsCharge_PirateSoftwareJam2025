@@ -30,9 +30,7 @@ MonoBehaviour:
   - {fileID: 5106994246630713946, guid: 6677d0694eee433489d4d8f9c081d655, type: 3}
   - {fileID: 5909249774396111113, guid: 6bd148ac1f4865a4bb734586c88b9862, type: 3}
   - {fileID: 2642603769908921501, guid: d470d25b55161434dac4a9a56aebad67, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2519897073290703701, guid: 7ed0176ba5f8279479595fd157143118, type: 3}
+  - {fileID: 7811717693852940822, guid: de3c6769042adad4db6a8dbc66bfe4e9, type: 3}
+  - {fileID: 707185278854967625, guid: 3de8d455acae545429d3d0e9817fea1f, type: 3}
   maxEnemiesAlive: 10
