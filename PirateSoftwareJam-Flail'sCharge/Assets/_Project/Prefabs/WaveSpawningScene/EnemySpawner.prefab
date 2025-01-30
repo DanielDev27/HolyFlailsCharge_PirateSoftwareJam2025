@@ -49,15 +49,9 @@ MonoBehaviour:
   currentWaveNumber: 1
   enemiesAlive: 0
   waveInProgress: 0
-  enemyPrefabs:
-  - {fileID: 8273190334839793325, guid: 4a641da95d086784e8c1b369d7c71861, type: 3}
-  - {fileID: 2580785512730965626, guid: d46dda100bc42c24e884c88c4a385bf4, type: 3}
-  - {fileID: 7219797007166471575, guid: f9f2508793211cd4cadf243e939749ce, type: 3}
+  enemyPrefabs: []
   maxEnemiesAlive: 15
-  spawnPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  spawnPoints: []
   waveCoolDown: 3
   enemySpawnDelay: 3
   waveData:
