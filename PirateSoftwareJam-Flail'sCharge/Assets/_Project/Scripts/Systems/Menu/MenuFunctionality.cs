@@ -122,6 +122,10 @@ public class MenuFunctionality : MonoBehaviour {
         if (pauseCanvas != null) {
             isPaused = pause;
             pauseCanvas.SetActive (isPaused);
+            if (pauseCanvas != null && pauseCanvas.activeSelf) {
+                EventSystem.current.SetSelectedGameObject (pauseMenuFirst);
+            }
+
             OnPause.Invoke (isPaused);
         }
     }
