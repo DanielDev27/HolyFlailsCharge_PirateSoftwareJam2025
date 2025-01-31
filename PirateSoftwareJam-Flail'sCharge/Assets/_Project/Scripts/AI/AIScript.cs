@@ -78,7 +78,7 @@ public class AIScript : MonoBehaviour {
         isDead = false;
         health = healthScript.maxHp;
         attackCD = healthScript.damageCooldownTime;
-        isPaused = false;
+        isPaused = MenuFunctionality.instance.isPaused;
         //Scriptable Object Information Pull
         moveSpeed = enemySO.EnemyMoveSpeed;
     }
@@ -324,6 +324,9 @@ public class AIScript : MonoBehaviour {
             UpdateHealth ();
             ScoreSystem.instance?.AddScoreDamage ();
             animator.SetTrigger (TakeDamage);
+            if (!ranged) {
+                AttackOff ();
+            }
         }
     }
 

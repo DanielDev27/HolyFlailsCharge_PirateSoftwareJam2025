@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MenuFunctionality : MonoBehaviour {
+    public static MenuFunctionality instance;
+
     [Header ("Main Menu")]
     [SerializeField] Canvas menuCanvas;
 
@@ -15,7 +17,7 @@ public class MenuFunctionality : MonoBehaviour {
     [Header ("Pause Menu")]
     [SerializeField] GameObject pauseCanvas;
 
-    [SerializeField] bool isPaused = false;
+    [SerializeField] public bool isPaused = false;
 
     [Header ("Loading Screen")]
     public GameObject loadingScreen;
@@ -38,6 +40,10 @@ public class MenuFunctionality : MonoBehaviour {
     //Event
     public static UnityEvent<bool> OnPause = new UnityEvent<bool> ();
 
+    void Awake () {
+        instance = this;
+    }
+
     void OnEnable () {
         if (pauseCanvas != null) {
             pauseCanvas.SetActive (false);
@@ -56,6 +62,7 @@ public class MenuFunctionality : MonoBehaviour {
     void FixedUpdate () {
         if (gamepadEnabled != InputControlsCheck.Instance.usingGamepad) {
             gamepadEnabled = InputControlsCheck.Instance.usingGamepad;
+            InputControlsCheck.Instance.InputDeviceUIAssign ();
             if (gamepadEnabled) {
                 if (menuCanvas != null && menuCanvas.enabled) {
                     EventSystem.current.SetSelectedGameObject (mainMenuFirst);

@@ -101,6 +101,10 @@ public class PlayerController : MonoBehaviour {
         if (moveInput != Vector2.zero && !TutorialSystem.instance.isShowingTutorial) {
             OnPlayerMove (); //Get the player move input when it's not zero
         }
+
+        if (isPaused) {
+            moveInput = Vector2.zero;
+        }
     }
 
     //Move Input and Debug bools
