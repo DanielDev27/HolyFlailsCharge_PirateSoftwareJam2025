@@ -134,11 +134,12 @@ public class PlayerController : MonoBehaviour {
     void OnAttack (bool _attacking) {
         if (tutorial && TutorialSystem.instance.isShowingTutorial) {
             TutorialSystem.instance.FinishTutorial ();
-        }
-
-        if (_attacking && !isAttacking) {
-            StartCoroutine (AttackLimit ());
-            AudioManager.PlaySound ((int) SoundType.FLAIL);
+            tutorial = false;
+        } else {
+            if (_attacking && !isAttacking) {
+                StartCoroutine (AttackLimit ());
+                AudioManager.PlaySound ((int) SoundType.FLAIL);
+            }
         }
     }
 
