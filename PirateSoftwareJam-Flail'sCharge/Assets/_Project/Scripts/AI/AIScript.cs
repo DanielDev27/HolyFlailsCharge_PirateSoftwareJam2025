@@ -266,8 +266,6 @@ public class AIScript : MonoBehaviour {
             isAttacking = true;
             OnAnimatorUpdate ();
             if (!ranged) {
-                DealDamageSound ();
-
                 yield return new WaitForSeconds (attackAnimation.length - 0.2f);
                 animator.SetBool (IsAttacking, false);
                 yield return new WaitForSeconds (attackCD - attackAnimation.length);
@@ -278,7 +276,6 @@ public class AIScript : MonoBehaviour {
             if (ranged) {
                 if (canSeePlayer) {
                     //
-                    DealDamageSound ();
                     yield return new WaitForSeconds (attackAnimation.length - 0.2f);
                     animator.SetBool (IsAttacking, false);
                     yield return new WaitForSeconds (attackCD - attackAnimation.length);
@@ -301,6 +298,7 @@ public class AIScript : MonoBehaviour {
 
     public void AttackOn () {
         weaponTrigger.GetComponent<Collider> ().enabled = true;
+        DealDamageSound ();
     }
 
     public void AttackOff () {
@@ -312,6 +310,7 @@ public class AIScript : MonoBehaviour {
             //Generate Projectile
             GameObject _projectile = Instantiate (projectile, weaponTrigger.transform.position, Quaternion.identity, transform);
             _projectile.transform.forward = new Vector3 (playerReference.transform.position.x, playerHeightCorrection, playerReference.transform.position.z);
+            DealDamageSound ();
             //
         }
     }

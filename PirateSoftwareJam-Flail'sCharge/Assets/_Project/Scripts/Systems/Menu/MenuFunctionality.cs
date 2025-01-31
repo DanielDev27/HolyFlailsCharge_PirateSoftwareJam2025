@@ -135,4 +135,10 @@ public class MenuFunctionality : MonoBehaviour {
         pauseCanvas.SetActive (isPaused);
         OnPause.Invoke (isPaused);
     }
+
+    public void SetEndGame () {
+        if (endScreenFirst != null && ScoreSystem.instance.isGameOver) {
+            EventSystem.current.SetSelectedGameObject (endScreenFirst);
+        }
+    }
 }

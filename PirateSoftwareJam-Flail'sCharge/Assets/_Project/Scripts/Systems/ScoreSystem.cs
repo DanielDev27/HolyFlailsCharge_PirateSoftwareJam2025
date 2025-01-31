@@ -55,6 +55,7 @@ public class ScoreSystem : MonoBehaviour {
         gameEndCanvasGroup.blocksRaycasts = true;
         isGameOver = true;
         finalScoreText.text = "Your Score is " + score + " " + Environment.NewLine + " You survived for " + numberOfWaves + " waves.";
+        MenuFunctionality.instance.SetEndGame ();
     }
 
     public void IncreaseWaveCounter () {
