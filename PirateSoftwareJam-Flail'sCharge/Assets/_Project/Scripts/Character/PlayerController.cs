@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour {
 
     [SerializeField] Vector2 moveInput;
     [SerializeField] Vector3 moveDirection;
-    [SerializeField] bool isMoving = false;
+    [SerializeField] public bool isMoving = false;
     [SerializeField] public bool isAttacking = false;
     [SerializeField] int health;
 
